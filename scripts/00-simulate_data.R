@@ -1,20 +1,24 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
+# Purpose: Simulates homicide dataset regarding solved and unsolved cases. 
+# Author: Emily Su
+# Date: 19 November 2024
+# Contact: em.su@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
+# Pre-requisites: Have ran 00-install_packages.R beforehand to install the
+# necessary packages.
 
 
 #### Workspace setup ####
 library(tidyverse)
-set.seed(853)
+set.seed(646)
 
 
 #### Simulate data ####
+# 
+
+
+
+
 # State names
 states <- c(
   "New South Wales",
