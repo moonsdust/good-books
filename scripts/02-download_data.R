@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Downloads and saves the data from the GitHub repo owned by 
-# The Washington Post containing data of criminal homicides in 50 of the 
+# The Washington Post containing information of homicides in 50 of the 
 # largest US cities from 2010 to 2017.
 # Author: Emily Su
 # Date: 16 November 2024
