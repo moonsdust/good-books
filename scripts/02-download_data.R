@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Downloads and saves the data from the GitHub repo owned by 
 # The Washington Post containing information of homicides in 50 of the 
-# largest US cities from 2010 to 2017 as a CSV file.
+# largest US cities from 2007 to 2017 as a CSV file.
 # Author: Emily Su
 # Date: 16 November 2024
 # Contact: em.su@mail.utoronto.ca
