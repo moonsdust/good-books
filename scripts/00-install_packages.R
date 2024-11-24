@@ -11,6 +11,7 @@
 ## Installing packages (only needs to be done once per computer)
 install.packages("tidyverse") # Contains data-related packages
 install.packages("janitor") # To clean datasets
+install.packages("lubridate")
 install.packages("dplyr")
 install.packages("ggplot2") # To make graphs
 install.packages("lintr") # To check styling of code
