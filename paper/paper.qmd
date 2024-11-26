@@ -20,9 +20,12 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
+library(arrow)
+library(ggplot2)
+library(modelsummary)
+library(rstanarm)
+library(palmerpenguins) # REMOVED THIS LATER!
 ```
-
 
 # Introduction
 
@@ -111,7 +114,7 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 
 
-# Model
+# Model {#sec-model}
 
 The goal of our modelling strategy is twofold. Firstly,...
 
@@ -133,14 +136,14 @@ y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
-### Model justification
+## Model justification
 
 We expect a positive relationship between the size of the wings and time spent aloft. In particular...
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
 
 
-# Results
+# Results {#sec-results}
 
 Our results are summarized in @tbl-modelresults.
 
@@ -155,6 +158,8 @@ library(rstanarm)
 first_model <-
   readRDS(file = here::here("models/first_model.rds"))
 ```
+
+## Model Results {#sec-model-results}
 
 ```{r}
 #| echo: false
@@ -175,7 +180,7 @@ modelsummary::modelsummary(
 
 
 
-# Discussion
+# Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
 
@@ -187,7 +192,7 @@ Please don't use these as sub-heading labels - change them to be what your point
 
 ## Third discussion point
 
-## Weaknesses and next steps
+## Areas of improvement and next steps
 
 Weaknesses and next steps should also be included.
 
@@ -197,8 +202,7 @@ Weaknesses and next steps should also be included.
 
 # Appendix {-}
 
-
-# Additional data details
+# Surveys, sampling, and observational data (To be changed)
 
 # Model details {#sec-model-details}
 
