@@ -1,6 +1,6 @@
 ---
 title: "My title"
-subtitle: "My subtitle if needed"
+subtitle: "An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 50 largest cities"
 author: 
   - Emily Su
 thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."

@@ -1,4 +1,4 @@
-# Unsolved murders
+# An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 50 largest cities
 
 ## Overview
 
