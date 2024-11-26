@@ -2,13 +2,14 @@
 title: "My title"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
+  - Emily Su
+thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."
 date: today
 date-format: long
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
-format: pdf
+format:
+  pdf:
+    toc: true
 number-sections: true
 bibliography: references.bib
 ---
@@ -44,7 +45,7 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 ## Overview
 
-We use the statistical programming language R [@citeR].... Our data [@shelter].... Following @tellingstories, we consider...
+We use the statistical programming language R [@citeR].... Our data [@datahomicides].... Following @tellingstories, we consider...
 
 Overview text
 
