@@ -60,7 +60,7 @@ cleaned_data_homicides <- cleaned_data_homicides |>
   select(-c(disposition))
 
 # Update data type of column
-cleaned_data_homicides$victim_age <- as.numeric(cleaned_data_homicides$victim_age)
+cleaned_data_homicides$victim_age <- as.integer(cleaned_data_homicides$victim_age)
 
 #### Save data ####
 # Save cleaned data as a Parquet file
