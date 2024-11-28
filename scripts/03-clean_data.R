@@ -1,44 +1,65 @@
 #### Preamble ####
-# Purpose: Cleans the raw plane data recorded by two observers..... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 6 April 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Cleans the raw data about solved and unsolved homicides in 50 US
+# cities and saves it as a Parquet file.
+# Author: Emily Su
+# Date: 19 November 2024
+# Contact: em.su@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: Have ran 00-install_packages.R and 02-download_data.R 
+# to install the necessary packages and download the dataset, respectively.
+# NOTE: This script was checked through lintr for styling
 
 #### Workspace setup ####
 library(tidyverse)
+library(janitor)
+library(lubridate)
+library(arrow)
 
 #### Clean data ####
-raw_data <- read_csv("inputs/data/plane_data.csv")
+raw_data_homicides <- read_csv("data/01-raw_data/raw_data_homicides.csv",
+                               show_col_types = FALSE)
+# Clean column name
+cleaned_data_homicides <- clean_names(raw_data_homicides)
 
-cleaned_data <-
-  raw_data |>
-  janitor::clean_names() |>
-  select(wing_width_mm, wing_length_mm, flying_time_sec_first_timer) |>
-  filter(wing_width_mm != "caw") |>
-  mutate(
-    flying_time_sec_first_timer = if_else(flying_time_sec_first_timer == "1,35",
-                                   "1.35",
-                                   flying_time_sec_first_timer)
-  ) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "490",
-                                 "49",
-                                 wing_width_mm)) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "6",
-                                 "60",
-                                 wing_width_mm)) |>
-  mutate(
-    wing_width_mm = as.numeric(wing_width_mm),
-    wing_length_mm = as.numeric(wing_length_mm),
-    flying_time_sec_first_timer = as.numeric(flying_time_sec_first_timer)
-  ) |>
-  rename(flying_time = flying_time_sec_first_timer,
-         width = wing_width_mm,
-         length = wing_length_mm
-         ) |> 
-  tidyr::drop_na()
+# Remove any blank rows for predictor variables that would be used in model
+cleaned_data_homicides <- cleaned_data_homicides |> 
+  filter(!is.na(victim_race)) |>
+  filter(!is.na(victim_age)) |>
+  filter(!is.na(victim_sex))
+  
+
+# First filter out rows where one of the following columns is contains 
+# the value "Unknown": victim_race, victim_age, victim_sex
+cleaned_data_homicides <- cleaned_data_homicides |>
+  filter(victim_race != "Unknown",
+         victim_age != "Unknown",
+         victim_sex != "Unknown")
+
+# Select the following rows: reported_date, victim_race, victim_age,
+# victim_sex, city, state, lat, lon, disposition
+cleaned_data_homicides <- cleaned_data_homicides |>
+  select(reported_date, victim_race, victim_age,
+         victim_sex, city, state, lat, lon, disposition)
+
+# Split reported_date into year and month
+# Referenced https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf
+# Create column for year
+cleaned_data_homicides$year <- year(ymd(cleaned_data_homicides$reported_date))
+# Create column for month 
+cleaned_data_homicides$month <- month(ymd(cleaned_data_homicides$reported_date))
+# Now remove reported_date column 
+cleaned_data_homicides <- cleaned_data_homicides |>
+  select(-c(reported_date))
+
+# Create a new column for arrest_was_made
+# (where 1 = there was an arrest, 0 = open/no arrest/closed without arrest)
+cleaned_data_homicides <- cleaned_data_homicides |>
+  mutate(arrest_was_made = if_else(disposition == "Closed by arrest", 1, 0))
+# Now remove disposition column
+cleaned_data_homicides <- cleaned_data_homicides |>
+  select(-c(disposition))
 
 #### Save data ####
-write_csv(cleaned_data, "outputs/data/analysis_data.csv")
+# Save cleaned data as a Parquet file
+write_parquet(cleaned_data_homicides,
+              "data/02-analysis_data/cleaned_data_homicides.parquet")
