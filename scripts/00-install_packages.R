@@ -18,3 +18,5 @@ install.packages("lintr") # To check styling of code
 install.packages("styler") # To style code
 install.packages("arrow")
 install.packages("testthat") # For testing
+# Model-related packages
+install.packages("rstanarm")
