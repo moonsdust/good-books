@@ -72,6 +72,14 @@ cleaned_data_homicides$year <- as.integer(cleaned_data_homicides$year)
 cleaned_data_homicides$month <- as.integer(cleaned_data_homicides$month)
 cleaned_data_homicides$arrest_was_not_made <- 
   as.integer(cleaned_data_homicides$arrest_was_not_made)
+cleaned_data_homicides$victim_race <- 
+  as.factor(cleaned_data_homicides$victim_race)
+
+# Change baseline for victim_race to "White"
+# Reference: https://www.geeksforgeeks.org/specify-reference-factor-level-in-
+# linear-regression-in-r/
+cleaned_data_homicides$victim_race <- 
+  relevel(cleaned_data_homicides$victim_race, ref = "White")
 
 #### Save data ####
 # Save cleaned data as a Parquet file

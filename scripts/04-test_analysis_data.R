@@ -28,9 +28,6 @@ expect_equal(ncol(analysis_data_homicides), 8)
 # Test that there are no missing values in the dataset
 expect_true(all(!is.na(analysis_data_homicides)))
 
-# Test that the 'victim_race' column is character type
-expect_type(analysis_data_homicides$victim_race, "character")
-
 # Test that the 'victim_age' column is numeric type
 expect_type(analysis_data_homicides$victim_age, "integer")
 
@@ -55,6 +52,9 @@ expect_type(analysis_data_homicides$arrest_was_not_made, "integer")
 stopifnot(
   # Will return NULL if all checks inside here is True
   
+  # Test that the 'victim_race' column is factor 
+  is.factor(analysis_data_homicides$victim_race) == TRUE,
+  
   # The victim's race is "Hispanic", "White", "Other", "Black", or "Asian"   
   analysis_data_homicides$victim_race |> unique() %in% 
     c("Hispanic", "White", "Other","Black", "Asian"),
@@ -71,6 +71,7 @@ stopifnot(
   
   # Check if the state column contains less than or equal to the 50 states 
   analysis_data_homicides$state |> unique() |> as_tibble() |> count() <= 50
+  
 )
 
 # Test that 'year' contains years from 2007 to 2017

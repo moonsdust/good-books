@@ -26,6 +26,14 @@ analysis_data_homicides <-
 ### Model data ####
 # Logistic regression model for unsolved homicide victims with 
 # victim_race, victim_age, and victim_sex as fixed effects
+
+# Update the baseline for victim race to White
+# Referenced: 
+# https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/relevel
+
+analysis_data_homicides$victim_race <- 
+  relevel(analysis_data_homicides$victim_race, ref = "White")
+
 unsolved_homicide_victim_model <-
   stan_glm(
     formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex,
