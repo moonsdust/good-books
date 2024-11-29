@@ -39,7 +39,7 @@ cleaned_data_homicides <- cleaned_data_homicides |>
 # victim_sex, city, state, lat, lon, disposition
 cleaned_data_homicides <- cleaned_data_homicides |>
   select(reported_date, victim_race, victim_age,
-         victim_sex, city, state, lat, lon, disposition)
+         victim_sex, city, state, disposition)
 
 # Split reported_date into year and month
 # Referenced https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf
@@ -61,6 +61,9 @@ cleaned_data_homicides <- cleaned_data_homicides |>
 
 # Update data type of column
 cleaned_data_homicides$victim_age <- as.integer(cleaned_data_homicides$victim_age)
+cleaned_data_homicides$year <- as.integer(cleaned_data_homicides$year)
+cleaned_data_homicides$month <- as.integer(cleaned_data_homicides$month)
+cleaned_data_homicides$arrest_was_made <- as.integer(cleaned_data_homicides$arrest_was_made)
 
 #### Save data ####
 # Save cleaned data as a Parquet file

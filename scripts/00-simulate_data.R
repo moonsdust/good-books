@@ -6,6 +6,7 @@
 # License: MIT
 # Pre-requisites: Have ran 00-install_packages.R beforehand to install the
 # necessary packages.
+# NOTE: This script was checked through lintr for styling
 
 
 #### Workspace setup ####
@@ -14,7 +15,7 @@ set.seed(646)
 
 
 #### Simulate data ####
-# 
+# Expected Columns: 
 
 
 
