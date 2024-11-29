@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Tests the analysis data on solved and unsolved homicides in the US'
-# 4 largest cities.
+# 2 largest cities.
 # Author: Emily Su
 # Date: 28 November 2024 
 # Contact: em.su@mail.utoronto.ca
@@ -66,8 +66,12 @@ stopifnot(
   # (This is based on the unique values under this column)
   analysis_data_homicides$victim_sex |> unique() %in% c("Female", "Male"),
   
-  # Check if there are 4 cities in the city column
-  analysis_data_homicides$city |> unique() |> as_tibble() |> count() == 4,
+  # Check if there are 2 cities in the city column
+  analysis_data_homicides$city |> unique() |> as_tibble() |> count() == 2,
+  
+  # Check if the 2 cities in the city column are either New York or 
+  # Los Angeles 
+  analysis_data_homicides$city |> unique() %in% c("New York", "Los Angeles"),
   
   # Check if the disposition column contains 3 types of values: 
   # Closed by arrest, Closed without arrest, and Open/No arrest

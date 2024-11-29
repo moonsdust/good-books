@@ -41,12 +41,11 @@ cleaned_data_homicides <- cleaned_data_homicides |>
   select(reported_date, victim_race, victim_age,
          victim_sex, city, disposition)
 
-# Select the following cities, which are the 4 largest cities as of July 1,
+# Select the following cities, which are the 2 largest cities as of July 1,
 # 2017 according to 
 # https://www.census.gov/newsroom/press-releases/2018/estimates-cities.html
 cleaned_data_homicides <- cleaned_data_homicides |>
-  filter(cleaned_data_homicides$city %in% c("New York", "Los Angeles",
-                                            "Chicago", "Houston"))
+  filter(cleaned_data_homicides$city %in% c("New York", "Los Angeles"))
 
 # Split reported_date into year and month
 # Referenced https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf
