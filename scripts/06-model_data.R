@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Models characteristics of victims of unsolved homicides 
+# Purpose: Models factors leading to unsolved homicides 
 # in the 4 largest US cities from 2007 to 2017. 
 # Author: Emily Su
 # Date: 28 November 2024
@@ -24,19 +24,11 @@ analysis_data_homicides <-
   read_parquet("data/02-analysis_data/cleaned_data_homicides.parquet")
 
 ### Model data ####
-# Logistic regression model for unsolved homicide victims with 
-# victim_race, victim_age, and victim_sex as fixed effects
-
-# Update the baseline for victim race to White
-# Referenced: 
-# https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/relevel
-
-analysis_data_homicides$victim_race <- 
-  relevel(analysis_data_homicides$victim_race, ref = "White")
-
-unsolved_homicide_victim_model <-
+# Logistic regression model for unsolved homicides 
+unsolved_homicide_model <-
   stan_glm(
-    formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex,
+    formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex + 
+      city + month + year,
     data = analysis_data_homicides,
     family = binomial(link = "logit"),
     prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
@@ -45,5 +37,5 @@ unsolved_homicide_victim_model <-
   )
 
 #### Save model ####
-saveRDS(unsolved_homicide_victim_model,
-        file = "models/unsolved_homicide_victim_model.rds")
+saveRDS(unsolved_homicide_model,
+        file = "models/unsolved_homicide_model.rds")
