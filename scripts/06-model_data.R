@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Models factors leading to unsolved homicides 
-# in the 4 largest US cities from 2007 to 2017. 
+# in the 2 largest US cities from 2007 to 2017. 
 # Author: Emily Su
 # Date: 28 November 2024
 # Contact: em.su@mail.utoronto.ca
@@ -28,7 +28,7 @@ analysis_data_homicides <-
 unsolved_homicide_model <-
   stan_glm(
     formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex + 
-      city + month + year,
+      city + year,
     data = analysis_data_homicides,
     family = binomial(link = "logit"),
     prior = normal(location = 0, scale = 2.5, autoscale = TRUE),

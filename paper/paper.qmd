@@ -1,6 +1,6 @@
 ---
 title: "My title"
-subtitle: "An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 47 largest cities"
+subtitle: "An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 2 largest cities"
 author: 
   - Emily Su
 thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."
@@ -24,6 +24,12 @@ library(arrow)
 library(ggplot2)
 library(modelsummary)
 library(rstanarm)
+
+# Read in analysis data
+analysis_data_homicides <- 
+  read_parquet("../data/02-analysis_data/cleaned_data_homicides.parquet")
+# Read in model data
+unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 ```
 
 # Introduction
@@ -118,7 +124,31 @@ Our results are summarized in @tbl-modelresults.
 
 
 ## Model Results {#sec-model-results}
+```{r}
+#| label: tbl-model-result
+#| tbl-cap: Relationship between a homicide being unsolved from 2007 to 2017 with the city and date (month, year) a victim is found in/on and the race, age, and sex of a victim with their mean absolute deviation (MAD) values in parenthesis    
+#| echo: false
+#| warning: false
+#| message: false
 
+modelsummary(
+  # List out unsolved_model_results information
+  list("Unsolved homicides (2007 to 2017)" = unsolved_model_results),
+  # Specify MAD as the statistic
+  statistic = "mad"
+)
+```
+
+```{r}
+#| label: fig-model-result-ci
+#| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictors of homicides that go unsolved from 2007 to 2017
+#| echo: false
+#| warning: false
+#| message: false
+# Specify credible interval to be 90% and present model results
+modelplot(unsolved_model_results, conf_level = 0.9) +
+  labs(x = "90 per cent credible interval")
+```
 
 
 # Discussion {#sec-discussion}
@@ -153,6 +183,28 @@ In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. 
 
 In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
 
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ppcheckandposteriorvsprior
+#| layout-ncol: 2
+#| fig-cap: "Examining how the model fits, and is affected by, the data"
+#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
+
+pp_check(unsolved_model_results) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+
+posterior_vs_prior(unsolved_model_results) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom") +
+  coord_flip()
+```
+
+
 ## Diagnostics
 
 @fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
@@ -160,6 +212,20 @@ In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. Th
 @fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
 
 
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-stanareyouokay
+#| fig-cap: "Checking the convergence of the MCMC algorithm"
+#| fig-subcap: ["Trace plot", "Rhat plot"]
+#| layout-ncol: 2
+
+plot(unsolved_model_results, "trace")
+
+plot(unsolved_model_results, "rhat")
+```
 
 
 \newpage
