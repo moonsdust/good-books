@@ -51,10 +51,10 @@ cleaned_data_homicides$month <- month(ymd(cleaned_data_homicides$reported_date))
 cleaned_data_homicides <- cleaned_data_homicides |>
   select(-c(reported_date))
 
-# Create a new column for arrest_was_made
-# (where 1 = there was an arrest, 0 = open/no arrest/closed without arrest)
+# Create a new column for arrest_was_not_made
+# (where 1 = open/no arrest/closed without arrest, 0 = there was an arrest)
 cleaned_data_homicides <- cleaned_data_homicides |>
-  mutate(arrest_was_made = if_else(disposition == "Closed by arrest", 1, 0))
+  mutate(arrest_was_not_made = if_else(disposition != "Closed by arrest", 1, 0))
 # Now remove disposition column
 cleaned_data_homicides <- cleaned_data_homicides |>
   select(-c(disposition))
@@ -63,7 +63,8 @@ cleaned_data_homicides <- cleaned_data_homicides |>
 cleaned_data_homicides$victim_age <- as.integer(cleaned_data_homicides$victim_age)
 cleaned_data_homicides$year <- as.integer(cleaned_data_homicides$year)
 cleaned_data_homicides$month <- as.integer(cleaned_data_homicides$month)
-cleaned_data_homicides$arrest_was_made <- as.integer(cleaned_data_homicides$arrest_was_made)
+cleaned_data_homicides$arrest_was_not_made <- 
+  as.integer(cleaned_data_homicides$arrest_was_not_made)
 
 #### Save data ####
 # Save cleaned data as a Parquet file

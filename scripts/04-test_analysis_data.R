@@ -48,8 +48,8 @@ expect_type(analysis_data_homicides$year, "integer")
 # Test that the 'month' column is integer type
 expect_type(analysis_data_homicides$month, "integer")
 
-# Test that the 'arrest_was_made' column is integer type
-expect_type(analysis_data_homicides$arrest_was_made, "integer")
+# Test that the 'arrest_was_not_made' column is integer type
+expect_type(analysis_data_homicides$arrest_was_not_made, "integer")
 
 stopifnot(
   # Will return NULL if all checks inside here is True
@@ -66,10 +66,10 @@ stopifnot(
   analysis_data_homicides$victim_sex |> unique() %in% c("Female", "Male"),
   
   # Check if there are less than or equal to 50 cities 
-  analysis_data_homicides$city |> unique() |> as.tibble() |> count() <= 50,
+  analysis_data_homicides$city |> unique() |> as_tibble() |> count() <= 50,
   
   # Check if the state column contains less than or equal to the 50 states 
-  analysis_data_homicides$state |> unique() |> as.tibble() |> count() <= 50
+  analysis_data_homicides$state |> unique() |> as_tibble() |> count() <= 50
 )
 
 # Test that 'year' contains years from 2007 to 2017
@@ -78,8 +78,8 @@ expect_true(all(analysis_data_homicides$year %in% c(2007:2017)))
 # Test that 'month' contains only numbers from 1 to 12 
 expect_true(all(analysis_data_homicides$month %in% c(1:12)))
 
-# Test that 'arrest_was_made' is either 0 or 1 
-expect_true(all(analysis_data_homicides$arrest_was_made %in% c(0, 1)))
+# Test that 'arrest_was_not_made' is either 0 or 1 
+expect_true(all(analysis_data_homicides$arrest_was_not_made %in% c(0, 1)))
 
 # Test that there are no empty strings in 'victim_race', 'victim_sex', 
 # 'city', and 'state' columns
