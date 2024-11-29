@@ -1,37 +1,40 @@
 #### Preamble ####
-# Purpose: Models... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Models characteristics of victims of unsolved homicides 
+# in the 47 largest US cities from 2007 to 2017. 
+# Author: Emily Su
+# Date: 28 November 2024
+# Contact: em.su@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: Have ran 00-install_packages.R, 02-download_data.R,
+# 03-clean_data.R, and 04-test_analysis_data.R prior to install required
+# packages, download our required dataset, clean the dataset, and test the
+# dataset.
+# NOTE: This script was checked through lintr for styling
 
 
 #### Workspace setup ####
 library(tidyverse)
 library(rstanarm)
+library(arrow)
+
+set.seed(646)
 
 #### Read data ####
-analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
+analysis_data_homicides <- 
+  read_parquet("data/02-analysis_data/cleaned_data_homicides.parquet")
 
 ### Model data ####
-first_model <-
+# Logistic regression model for unsolved homicide victims 
+unsolved_homicide_victim_model <-
   stan_glm(
-    formula = flying_time ~ length + width,
-    data = analysis_data,
-    family = gaussian(),
+    formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex,
+    data = analysis_data_homicides,
+    family = binomial(link = "logit"),
     prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
     prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
-    prior_aux = exponential(rate = 1, autoscale = TRUE),
-    seed = 853
+    seed = 646
   )
 
-
 #### Save model ####
-saveRDS(
-  first_model,
-  file = "models/first_model.rds"
-)
-
-
+saveRDS(unsolved_homicide_victim_model,
+        file = "models/unsolved_homicide_victim_model.rds")
