@@ -20,3 +20,4 @@ install.packages("arrow")
 install.packages("testthat") # For testing
 # Model-related packages
 install.packages("rstanarm")
+install.packages("modelsummary")
