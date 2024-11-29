@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Tests the analysis data
+# Purpose: Tests the analysis data on solved and unsolved homicides in the US.
 # Author: Emily Su
 # Date: 28 November 2024 
 # Contact: em.su@mail.utoronto.ca
@@ -63,7 +63,10 @@ stopifnot(
   
   # The victim's sex is "Female" or "Male" 
   # (This is based on the unique values under this column)
-  analysis_data_homicides$victim_sex |> unique() %in% c("Female", "Male"), 
+  analysis_data_homicides$victim_sex |> unique() %in% c("Female", "Male"),
+  
+  # Check if there are less than or equal to 50 cities 
+  analysis_data_homicides$city |> unique() |> as.tibble() |> count() <= 50,
   
   # Check if the state column contains less than or equal to the 50 states 
   analysis_data_homicides$state |> unique() |> as.tibble() |> count() <= 50

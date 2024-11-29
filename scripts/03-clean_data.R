@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Cleans the raw data about solved and unsolved homicides in 50 US
+# Purpose: Cleans the raw data about solved and unsolved homicides in large US
 # cities and saves it as a Parquet file.
 # Author: Emily Su
 # Date: 19 November 2024
