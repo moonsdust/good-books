@@ -1,5 +1,6 @@
 #### Preamble ####
-# Purpose: Tests the analysis data on solved and unsolved homicides in the US.
+# Purpose: Tests the analysis data on solved and unsolved homicides in the US'
+# 4 largest cities.
 # Author: Emily Su
 # Date: 28 November 2024 
 # Contact: em.su@mail.utoronto.ca
@@ -65,8 +66,8 @@ stopifnot(
   # (This is based on the unique values under this column)
   analysis_data_homicides$victim_sex |> unique() %in% c("Female", "Male"),
   
-  # Check if there are less than or equal to 50 cities 
-  analysis_data_homicides$city |> unique() |> as_tibble() |> count() <= 50,
+  # Check if there are 4 cities in the city column
+  analysis_data_homicides$city |> unique() |> as_tibble() |> count() == 4,
   
   # Check if the state column contains less than or equal to the 50 states 
   analysis_data_homicides$state |> unique() |> as_tibble() |> count() <= 50

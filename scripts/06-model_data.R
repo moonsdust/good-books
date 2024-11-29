@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Models characteristics of victims of unsolved homicides 
-# in the 47 largest US cities from 2007 to 2017. 
+# in the 4 largest US cities from 2007 to 2017. 
 # Author: Emily Su
 # Date: 28 November 2024
 # Contact: em.su@mail.utoronto.ca
@@ -24,7 +24,8 @@ analysis_data_homicides <-
   read_parquet("data/02-analysis_data/cleaned_data_homicides.parquet")
 
 ### Model data ####
-# Logistic regression model for unsolved homicide victims 
+# Logistic regression model for unsolved homicide victims with 
+# victim_race, victim_age, and victim_sex as fixed effects
 unsolved_homicide_victim_model <-
   stan_glm(
     formula = arrest_was_not_made ~ victim_race + victim_age + victim_sex,
