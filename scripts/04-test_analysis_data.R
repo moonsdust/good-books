@@ -37,8 +37,8 @@ expect_type(analysis_data_homicides$victim_sex, "character")
 # Test that the 'city' column is character type
 expect_type(analysis_data_homicides$city, "character")
 
-# Test that the 'state' column is character type
-expect_type(analysis_data_homicides$state, "character")
+# Test that the 'disposition' column is character type
+expect_type(analysis_data_homicides$disposition, "character")
 
 # Test that the 'year' column is integer type
 expect_type(analysis_data_homicides$year, "integer")
@@ -69,8 +69,11 @@ stopifnot(
   # Check if there are 4 cities in the city column
   analysis_data_homicides$city |> unique() |> as_tibble() |> count() == 4,
   
-  # Check if the state column contains less than or equal to the 50 states 
-  analysis_data_homicides$state |> unique() |> as_tibble() |> count() <= 50
+  # Check if the disposition column contains 3 types of values: 
+  # Closed by arrest, Closed without arrest, and Open/No arrest
+  analysis_data_homicides$disposition |> unique() %in% c("Closed by arrest",
+                                                         "Closed without arrest",
+                                                         "Open/No arrest")
   
 )
 
@@ -84,8 +87,8 @@ expect_true(all(analysis_data_homicides$month %in% c(1:12)))
 expect_true(all(analysis_data_homicides$arrest_was_not_made %in% c(0, 1)))
 
 # Test that there are no empty strings in 'victim_race', 'victim_sex', 
-# 'city', and 'state' columns
+# 'city', and 'disposition' columns
 expect_false(any(analysis_data_homicides$victim_race == "" | 
                    analysis_data_homicides$victim_sex == "" | 
                    analysis_data_homicides$city == "" |
-                   analysis_data_homicides$state == ""))
+                   analysis_data_homicides$disposition == ""))

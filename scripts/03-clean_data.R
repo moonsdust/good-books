@@ -36,10 +36,10 @@ cleaned_data_homicides <- cleaned_data_homicides |>
          victim_sex != "Unknown")
 
 # Select the following rows: reported_date, victim_race, victim_age,
-# victim_sex, city, state, lat, lon, disposition
+# victim_sex, city, disposition
 cleaned_data_homicides <- cleaned_data_homicides |>
   select(reported_date, victim_race, victim_age,
-         victim_sex, city, state, disposition)
+         victim_sex, city, disposition)
 
 # Select the following cities, which are the 4 largest cities as of July 1,
 # 2017 according to 
@@ -62,9 +62,6 @@ cleaned_data_homicides <- cleaned_data_homicides |>
 # (where 1 = open/no arrest/closed without arrest, 0 = there was an arrest)
 cleaned_data_homicides <- cleaned_data_homicides |>
   mutate(arrest_was_not_made = if_else(disposition != "Closed by arrest", 1, 0))
-# Now remove disposition column
-cleaned_data_homicides <- cleaned_data_homicides |>
-  select(-c(disposition))
 
 # Update data type of column
 cleaned_data_homicides$victim_age <- as.integer(cleaned_data_homicides$victim_age)
