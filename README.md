@@ -1,4 +1,4 @@
-# An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 2 largest cities
+# An analysis of solved and unsolved homicides from 2010 to 2017 in the United States's 2 largest cities, New York and Los Angeles
 
 ## Overview
 

@@ -81,8 +81,8 @@ stopifnot(
   
 )
 
-# Test that 'year' contains years from 2007 to 2017
-expect_true(all(analysis_data_homicides$year %in% c(2007:2017)))
+# Test that 'year' contains years from 2010 to 2017
+expect_true(all(analysis_data_homicides$year %in% c(2010:2017)))
 
 # Test that 'month' contains only numbers from 1 to 12 
 expect_true(all(analysis_data_homicides$month %in% c(1:12)))

@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Models factors leading to unsolved homicides 
-# in the 2 largest US cities from 2007 to 2017. 
+# in the 2 largest US cities from 2010 to 2017. 
 # Author: Emily Su
 # Date: 28 November 2024
 # Contact: em.su@mail.utoronto.ca
