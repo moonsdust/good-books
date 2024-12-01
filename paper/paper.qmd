@@ -26,6 +26,7 @@ library(modelsummary)
 library(rstanarm)
 library(dplyr)
 library(knitr)
+library(car)
 library(DiagrammeR)
 library(rsvg)
 library(DiagrammeRsvg)
@@ -103,27 +104,33 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 # Model {#sec-model}
 
-Based on the analysis conducted in the paper, we found that there was 
+TO BE REMOVED:
+- Variables should be well-defined and correspond with those in the data section. 
+- Explain how modeling decisions reflect aspects discussed in the data section, including why specific features are included (e.g., using age rather than age groups, treating province effects as levels, categorizing gender). If applicable, define and justify sensible priors for Bayesian models. 
+- Clearly discuss underlying assumptions, potential limitations, and situations where the model may not be appropriate. 
+- Mention the software used to implement the model, and provide evidence of model validation and checking—such as out-of-sample testing, RMSE calculations, test/training splits, or sensitivity analyses—addressing model convergence and diagnostics (although much of the detail make be in the appendix). 
+= Include any alternative models or variants considered, their strengths and weaknesses, and the rationale for the final model choice.
 
-The goal of our modelling strategy is twofold. Firstly,...
 
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+The model we implemented was a Bayesian logistic regression model. This model was constructed after we saw patterns between homicide case information and a homicide case going unsolved in our analysis. We are interested in seeing if certain characteristics of a homicide case such as the victim's perceived characteristics (sex, gender, age) and the year and city the victim is found impacts the likelihood of their case going unsolved. 
 
 ## Model set-up
+With our model, we will make the assumption that there is a relationship between homicide case information like the victim's race, victim's age, victim's sex, the city, and the year with a homicide case being unsolved. We also assume that the predictor variables are independent from one another, which we check in [Appendix -@sec-model-details] using variance inflation factor (VIF) and it indicates the predictors are not highly correlated with each other. We define our model as follows:
 
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
+\begin{align*} 
+y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \\
+\mbox{logit}(\pi_i) &= \beta_0 + \beta_1 \times \mbox{victim_race}_i + \beta_2 \times \mbox{victim_age}_i + \beta_3 \times \mbox{victim_sex}_i + \beta_4 \times \mbox{city}_i + \beta_5 \times \mbox{year}_i\\
+\beta_0 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_1 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_2 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_3 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_4 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_5 &\sim \mbox{Normal}(0, 2.5) \\
+\end{align*}
 
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
+We define $y_i$ to be the status of the homicide case where 1 means the homicide is unsolved (case is still open / been closed without arrest) and 0 means the homicide is solved (case has been closed with arrest). $\pi_i$ represents the probability of the homicide being solved. $\mbox{logit}(\pi_i)$ indicates the log-odds of the homicide being unsolved. Now looking at the coefficients $b_i$ and predictor variables, $\beta_0$ is the intercept of our model and is the log-odds when all predictor variables are equal to 0. $\mbox{victim_race}_i$ signifies the race of the victim, which could be either "Asian", "Black", "Hispanic", "White", and "Other". In our model, we use "White" as the baseline for $\mbox{victim_race}_i$ to see if being part of a minority impacts if the case goes unsolved or not. $beta_1$ is the coefficient that represents the log-odds when $\mbox{victim_race}_i$ changes. $\mbox{victim_age}_i$ is the victim's age, which is a whole number. $beta_2$ is the log-odds when $\mbox{victim_age}_i$ increases by 1 year. $\mbox{victim_sex}_i$ represents the sex of the victim, where in the dataset it is either "female" or "male" and $\beta_3$ is the log-odds when $\mbox{victim_sex}_i$ changes. $\mbox{city}_i$ is the city the victim was reported to be killed in, which from our dataset could be either "New York" or "Los Angeles". $beta_4$ is the coefficient that stands for the log-odds when $\mbox{city}_i$ changes. We define $\mbox{year}_i$ to be the year the homicide was reported to have occured from 2010 to 2017. $\beta_5$ indicates the log-odds when $\mbox{year}_i$ increases by 1 year. 
 
-We run the model in R [@citeR] using the `rstanarm` package of @citerstanarm. We use the default priors from `rstanarm`.
-
+Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our model's priors, we use the default priors provided by rstanarm [@citerstanarm]. Diagnostics for the model such as in posterior predictive check, posterior versus prior comparison, trace and Rhat plots can be found in [Appendix -@sec-model-details].
 
 ## Model justification
 
@@ -172,7 +179,7 @@ rasterImage(the_image, 0,0,1.05,1)
 ```
 RSME calculation 
 
-
+## Model limitations 
 
 
 \newpage
@@ -720,6 +727,13 @@ number_of_cases_year |>
 \newpage
 
 ## Model details {#sec-model-details}
+
+### Variance Inflation Factor
+
+```{r}
+
+```
+
 
 ### Posterior predictive check
 
