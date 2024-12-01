@@ -57,7 +57,7 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 ## Overview
 
-We use the statistical programming language R [@citeR].... Our data [@datahomicides].... Following @tellingstories, we consider...
+We use the statistical programming language R [@citeR].... Our data [@datahomicides].... Following @citetellingstories, we consider...
 
 Overview text
 
@@ -188,23 +188,38 @@ number_of_cases_month |>
 ```
 
 ```{r}
-#| label: tbl-month-table
-#| tbl-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| label: fig-year-bar
+#| fig-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
 #| echo: false
 #| warning: false
 #| message: false
 
-# Create table for the number of cases per month
-number_of_cases_month |>
+number_of_cases_year <- 
+  analysis_data_homicides |>
+  # Group by solved and unsolved homicides 
+  group_by(arrest_was_not_made) |>
+  # Count number of solved and unsolved homicides for each year
+  count(year)|>
+  # Rename count column
   rename(
-    "Month" = month,
-    "Status of the homicide case" = arrest_was_not_made,
-    "Number of cases in the month" = num_of_cases_month
+    "num_of_cases_year" = n
   ) |>
-  kable()
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  )
+
+number_of_cases_year |>
+  ggplot(mapping = aes(x = as.character(year), y = num_of_cases_year)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  geom_bar(stat = "identity", fill = "#936639") +
+  theme_minimal() +
+  labs(x = "Year", y = "Number of homicide cases") +
+  theme(legend.position = "bottom")
 ```
-
-
 
 ```{r}
 #| label: fig-year-bar
@@ -240,22 +255,6 @@ number_of_cases_year |>
   theme(legend.position = "bottom")
 ```
 
-```{r}
-#| label: tbl-year-table
-#| tbl-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
-#| echo: false
-#| warning: false
-#| message: false
-
-# Create table for dataframe pertaining to the number of cases per year
-number_of_cases_year |>
-  rename(
-    "Year" = year,
-    "Status of the homicide case" = arrest_was_not_made,
-    "Number of cases in the year" = num_of_cases_year
-  ) |>
-  kable()
-```
 
 ### City 
 
@@ -489,6 +488,7 @@ number_of_cases_victim_race |>
   labs(x = "Victim's Race", y = "Number of cases") +
   theme(legend.position = "bottom")
 ```
+
 ```{r}
 #| label: tbl-victim-race-table
 #| tbl-cap: "Number of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
@@ -556,7 +556,96 @@ Weaknesses and next steps should also be included.
 
 # Appendix {#sec-appendix}
 
-## Surveys, sampling, and observational data (To be changed)
+## Note on Reproducing
+
+In order to reproduce the results in the paper, first run the 00-install_packages.R in the scripts folder located in this paper’s GitHub repository. Then run the other scripts based on the number at the beginning of the script name.
+
+## Acknowledgments
+
+We would like to thank @citetellingstories for providing assistance with the R code used to produce the tables and graphs in this paper.
+
+## Code styling
+
+Code written in the scripts was checked and styled with lintr [@citelintr] and styler [@citestyler].
+
+## Additional Tables
+
+```{r}
+#| label: tbl-month-table
+#| tbl-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for the number of cases per month
+number_of_cases_month |>
+  rename(
+    "Month" = month,
+    "Status of the homicide case" = arrest_was_not_made,
+    "Number of cases in the month" = num_of_cases_month
+  ) |>
+  kable()
+```
+
+
+```{r}
+#| label: tbl-year-table
+#| tbl-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for dataframe pertaining to the number of cases per year
+number_of_cases_year |>
+  rename(
+    "Year" = year,
+    "Status of the homicide case" = arrest_was_not_made,
+    "Number of cases in the year" = num_of_cases_year
+  ) |>
+  kable()
+```
+
+\newpage
+## Idealized Survey and Methodology {#subsec-ideal-survey}
+- Link to literature
+
+### Idealized Survey Objectives
+
+### Sampling Approach
+
+### Respondent Recruitment
+
+### Data Validation
+
+### Idealized Survey Design
+
+### Link to Idealized Survey
+- Using Google Forms
+
+### Limitations
+
+### Idealized Survey Questions
+- Should have an introductory section and include details of a contact person
+- Question type should be varied and appropriate.
+- Have a final section that thank the respondents
+
+
+\newpage 
+## Overview and Evaluation of The Washington Post’s Dataset
+- TODO: Make sure to link evaluation to literature
+
+### Overview 
+
+### Sampling Approach
+- what is the population, frame, and sample;
+- how is the sample recruited;
+- what sampling approach is taken, and what are some of the trade-offs of this; 
+- how is non-response handled;
+
+### Strengths and limitations
+- what is good and bad about the sampling.
+
+\newpage
 
 ## Model details {#sec-model-details}
 
