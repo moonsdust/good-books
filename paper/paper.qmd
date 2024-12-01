@@ -222,21 +222,37 @@ number_of_cases_year |>
 ```
 
 ```{r}
-#| label: fig-year-bar
-#| fig-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| label: fig-year-month-heatmap
+#| fig-cap: "Number of solved and unsolved homicides from January to December from 2010 to 2017 in Los Angeles and New York"
 #| echo: false
 #| warning: false
 #| message: false
 
-number_of_cases_year <- 
+number_of_cases_year_month <- 
   analysis_data_homicides |>
-  # Group by solved and unsolved homicides 
-  group_by(arrest_was_not_made) |>
-  # Count number of solved and unsolved homicides for each year
-  count(year)|>
+  # Group by solved and unsolved homicides and year
+  group_by(arrest_was_not_made, year) |>
+  # Count number of solved and unsolved homicides for each month per year 
+  count(month)|>
   # Rename count column
   rename(
-    "num_of_cases_year" = n
+    "num_of_cases_month_year" = n
+  ) |>
+  mutate(
+    month = case_when(
+      (month == 1) ~ "Jan",
+      (month == 2) ~ "Feb",
+      (month == 3) ~ "Mar",
+      (month == 4) ~ "Apr",
+      (month == 5) ~ "May",
+      (month == 6) ~ "Jun",
+      (month == 7) ~ "Jul",
+      (month == 8) ~ "Aug",
+      (month == 9) ~ "Sep",
+      (month == 10) ~ "Oct",
+      (month == 11) ~ "Nov",
+      (month == 12) ~ "Dec",
+      TRUE ~ "None")
   ) |>
   mutate(
     arrest_was_not_made = case_when(
@@ -245,14 +261,20 @@ number_of_cases_year <-
       TRUE ~ "None")
   )
 
-number_of_cases_year |>
-  ggplot(mapping = aes(x = as.character(year), y = num_of_cases_year)) +
+# To sort month in certain order 
+# Referenced: https://www.geeksforgeeks.org/how-to-put-x-axis-in-order-month-in-r/ for code
+number_of_cases_year_month$month <- factor(number_of_cases_year_month$month, levels = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+# Referenced: https://stackoverflow.com/questions/12998372/heatmap-like-plot-but-for-categorical-variables to help create heatmap
+number_of_cases_year_month |>
+  ggplot(mapping = aes(x = month, y = year)) +
+  geom_tile(aes(fill = num_of_cases_month_year)) + 
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
-  geom_bar(stat = "identity", fill = "#936639") +
+  scale_fill_gradient(low = "#c2c5aa", high = "#7f4f24", name = "Number of homicides") +
   theme_minimal() +
-  labs(x = "Year", y = "Number of homicide cases") +
-  theme(legend.position = "bottom")
+  labs(x = "Month", y = "Year") 
+  # theme(legend.position = "bottom")
 ```
 
 
@@ -294,6 +316,7 @@ number_of_cases_city |>
   labs(x = "Status of the homicide case", y = "Proportion of cases") +
   theme(legend.position = "bottom")
 ```
+
 ```{r}
 #| label: tbl-city-table
 #| tbl-cap: "Proportion and number of solved and unsolved homicides in Los Angeles and New York (2010 to 2017)"
@@ -429,7 +452,7 @@ number_of_cases_victim_sex <-
 number_of_cases_victim_sex |>
   ggplot(mapping = aes(x = victim_sex, y = proportion_of_cases)) +
   # Creates two graphs based on the status of the case
-  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  facet_wrap(facets = vars(arrest_was_not_made)) +
   geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Victim's Sex", y = "Proportion of cases") +
@@ -482,7 +505,7 @@ number_of_cases_victim_race <-
 number_of_cases_victim_race |>
   ggplot(mapping = aes(x = victim_race, y = num_of_cases_victim_race)) +
   # Creates two graphs based on the status of the case
-  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  facet_wrap(facets = vars(arrest_was_not_made)) +
   geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Victim's Race", y = "Number of cases") +
