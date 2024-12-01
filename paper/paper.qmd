@@ -1,6 +1,6 @@
 ---
 title: "My title"
-subtitle: "An analysis of solved and unsolved homicides from 2007 to 2017 in the United States's 2 largest cities"
+subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in the United States's 2 largest cities, New York and Los Angeles"
 author: 
   - Emily Su
 thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."
@@ -24,6 +24,8 @@ library(arrow)
 library(ggplot2)
 library(modelsummary)
 library(rstanarm)
+library(dplyr)
+library(knitr)
 
 # Read in analysis data
 analysis_data_homicides <- 
@@ -35,6 +37,8 @@ unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 # Introduction
 
 Overview paragraph
+
+This led to us investigate the following question in our paper: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in 2 of the largest cities in the United States, New York and Los Angeles, from 2010 to 2017?
 
 Estimand paragraph
 
@@ -60,6 +64,11 @@ Overview text
 ## Measurement
 	
 Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+
+
+Limitation of dataset. 
+- There’s only data available from 2010 onwards for both New York and Los Angeles 
+- Not all victims were able to be identified and they were removed from the dataset during data cleaning
 
 ## Outcome variables
 
@@ -87,7 +96,7 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 
 
-
+\newpage
 
 # Model {#sec-model}
 
@@ -117,23 +126,397 @@ We expect a positive relationship between the size of the wings and time spent a
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
 
+\newpage
 
 # Results {#sec-results}
 
-Our results are summarized in @tbl-modelresults.
+## Differences in Homicide Case Information Between Solved and Unsolved Cases in New York and Los Angeles (2010 to 2017)
+
+### Date (Month and Year)
+```{r}
+#| label: fig-month-bar
+#| fig-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_month <- 
+  analysis_data_homicides |>
+  # Group by solved and unsolved homicides 
+  group_by(arrest_was_not_made) |>
+  # Count number of solved and unsolved homicides for each month
+  count(month)|>
+  # Rename count column
+  rename(
+    "num_of_cases_month" = n
+  ) |>
+  mutate(
+    month = case_when(
+      (month == 1) ~ "Jan",
+      (month == 2) ~ "Feb",
+      (month == 3) ~ "Mar",
+      (month == 4) ~ "Apr",
+      (month == 5) ~ "May",
+      (month == 6) ~ "Jun",
+      (month == 7) ~ "Jul",
+      (month == 8) ~ "Aug",
+      (month == 9) ~ "Sep",
+      (month == 10) ~ "Oct",
+      (month == 11) ~ "Nov",
+      (month == 12) ~ "Dec",
+      TRUE ~ "None")
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  )
+
+# To sort month in certain order 
+# Referenced: https://www.geeksforgeeks.org/how-to-put-x-axis-in-order-month-in-r/ for code
+number_of_cases_month$month <- factor(number_of_cases_month$month, levels = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+number_of_cases_month |>
+  ggplot(mapping = aes(x = month, y = num_of_cases_month)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  geom_bar(stat = "identity", fill = "#936639") +
+  theme_minimal() +
+  labs(x = "Month of the year", y = "Number of homicide cases") +
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| label: tbl-month-table
+#| tbl-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for the number of cases per month
+number_of_cases_month |>
+  rename(
+    "Month" = month,
+    "Status of the homicide case" = arrest_was_not_made,
+    "Number of cases in the month" = num_of_cases_month
+  ) |>
+  kable()
+```
 
 
+
+```{r}
+#| label: fig-year-bar
+#| fig-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_year <- 
+  analysis_data_homicides |>
+  # Group by solved and unsolved homicides 
+  group_by(arrest_was_not_made) |>
+  # Count number of solved and unsolved homicides for each year
+  count(year)|>
+  # Rename count column
+  rename(
+    "num_of_cases_year" = n
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  )
+
+number_of_cases_year |>
+  ggplot(mapping = aes(x = as.character(year), y = num_of_cases_year)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  geom_bar(stat = "identity", fill = "#936639") +
+  theme_minimal() +
+  labs(x = "Year", y = "Number of homicide cases") +
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| label: tbl-year-table
+#| tbl-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for dataframe pertaining to the number of cases per year
+number_of_cases_year |>
+  rename(
+    "Year" = year,
+    "Status of the homicide case" = arrest_was_not_made,
+    "Number of cases in the year" = num_of_cases_year
+  ) |>
+  kable()
+```
+
+### City 
+
+```{r}
+#| label: fig-city-bar
+#| fig-cap: "Proportion of solved and unsolved homicides in Los Angeles and New York (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_city <- 
+  analysis_data_homicides |>
+  # Group by city 
+  group_by(city) |>
+  # Count number of solved and unsolved homicides for each city
+  count(arrest_was_not_made)|>
+  # Rename count column
+  rename(
+    "num_of_cases_city" = n
+  ) |>
+  mutate(
+    "proportion_of_cases" = round(num_of_cases_city/sum(num_of_cases_city), 2)
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  ) 
+
+number_of_cases_city |>
+  ggplot(mapping = aes(x = arrest_was_not_made, y = proportion_of_cases)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(city), dir = "v") +
+  geom_bar(stat = "identity", fill = "#936639") +
+  theme_minimal() +
+  labs(x = "Status of the homicide case", y = "Proportion of cases") +
+  theme(legend.position = "bottom")
+```
+```{r}
+#| label: tbl-city-table
+#| tbl-cap: "Proportion and number of solved and unsolved homicides in Los Angeles and New York (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_city |>
+  rename(
+    "City" = city, 
+    "Status of the homicide case" = arrest_was_not_made,
+    "Proportion of cases" = proportion_of_cases,
+    "Number of cases" = num_of_cases_city
+  ) |>
+  kable()
+```
+
+### Disposition
+```{r}
+#| label: fig-disposition-bar
+#| fig-cap: "Disposition of homicide cases in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_dispositions_city <- 
+  analysis_data_homicides |>
+  # Group by city 
+  group_by(city) |>
+  # Count number of dispositions for each city
+  count(disposition)|>
+  # Rename count column
+  rename(
+    "num_of_disposition_city" = n
+  )
+
+number_of_dispositions_city |>
+  ggplot(mapping = aes(x = disposition, y = num_of_disposition_city)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(city), dir = "v") +
+  geom_bar(stat = "identity", fill = "#936639") +
+  theme_minimal() +
+  labs(x = "Disposition of homicide", y = "Number of cases") +
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| label: tbl-disposition-table
+#| tbl-cap: "Disposition of homicide cases in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for dataframe pertaining to the number of cases per year
+number_of_dispositions_city |>
+  rename(
+    "City" = city,
+    "Disposition of the homicide case" = disposition,
+    "Number of cases" = num_of_disposition_city
+  ) |>
+  kable()
+```
+
+\newpage
+
+### Victim's Age 
+```{r}
+#| label: fig-victim-age-histogram
+#| fig-cap: "Distribution of victim's age in solved and unsolved homicides in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+victim_age_dataframe <- 
+  analysis_data_homicides |>
+  # Group by age 
+  group_by(victim_age) |>
+  # Count number of solved and unsolved homicides by age
+  count(arrest_was_not_made)|>
+  # Rename count column
+  rename(
+    "num_of_cases" = n
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  ) 
+
+# Referenced Telling Stories with Data by Rohan Alexander for histogram code: https://tellingstorieswithdata.com/05-graphs_tables_maps.html#histograms
+victim_age_dataframe |>
+  ggplot(aes(x = victim_age, fill = arrest_was_not_made)) +
+  geom_histogram(position = "dodge") +
+  theme_minimal() +
+  scale_fill_manual(values=c("#936639", "#c2c5aa")) +
+  labs(
+    x = "Age of victim",
+    y = "Number of cases",
+    fill = "Status of homicide"
+  ) +
+  theme(legend.position = "bottom")
+```
+
+### Victim's Sex
+```{r}
+#| label: fig-victim-sex-bar
+#| fig-cap: "Proportion of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_victim_sex <- 
+  analysis_data_homicides |>
+  # Group by victim's sex 
+  group_by(victim_sex) |>
+  # Count number of solved and unsolved homicides for each sex
+  count(arrest_was_not_made)|>
+  # Rename count column
+  rename(
+    "num_of_cases_victim_sex" = n
+  ) |>
+  mutate(
+    "proportion_of_cases" = round(num_of_cases_victim_sex/sum(num_of_cases_victim_sex), 2)
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  ) 
+
+number_of_cases_victim_sex |>
+  ggplot(mapping = aes(x = victim_sex, y = proportion_of_cases)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
+  theme_minimal() +
+  labs(x = "Victim's Sex", y = "Proportion of cases") +
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| label: tbl-victim-sex-table
+#| tbl-cap: "Proportion and number of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_victim_sex |>
+  rename(
+    "Victim's sex" = victim_sex, 
+    "Status of the homicide case" = arrest_was_not_made,
+    "Proportion of cases" = proportion_of_cases,
+    "Number of cases" = num_of_cases_victim_sex
+  ) |>
+  kable()
+```
+
+
+### Victim's Race 
+```{r}
+#| label: fig-victim-race-bar
+#| fig-cap: "Number of homicide cases per race in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_victim_race <- 
+  analysis_data_homicides |>
+  # Group by victim's race 
+  group_by(victim_race) |>
+  # Count number of solved and unsolved homicides for each race
+  count(arrest_was_not_made)|>
+  # Rename count column
+  rename(
+    "num_of_cases_victim_race" = n
+  ) |>
+  mutate(
+    arrest_was_not_made = case_when(
+      (arrest_was_not_made == 1) ~ "Arrest was not made",
+      (arrest_was_not_made == 0) ~ "Arrest was made",
+      TRUE ~ "None")
+  ) 
+
+number_of_cases_victim_race |>
+  ggplot(mapping = aes(x = victim_race, y = num_of_cases_victim_race)) +
+  # Creates two graphs based on the status of the case
+  facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
+  theme_minimal() +
+  labs(x = "Victim's Race", y = "Number of cases") +
+  theme(legend.position = "bottom")
+```
+```{r}
+#| label: tbl-victim-race-table
+#| tbl-cap: "Number of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| echo: false
+#| warning: false
+#| message: false
+
+number_of_cases_victim_race |>
+  rename(
+    "Victim's race" = victim_race, 
+    "Status of the homicide case" = arrest_was_not_made,
+    "Number of cases" = num_of_cases_victim_race
+  ) |>
+  kable()
+```
+
+\newpage
 ## Model Results {#sec-model-results}
 ```{r}
 #| label: tbl-model-result
-#| tbl-cap: Relationship between a homicide being unsolved from 2007 to 2017 with the city and date (month, year) a victim is found in/on and the race, age, and sex of a victim with their mean absolute deviation (MAD) values in parenthesis    
+#| tbl-cap: Relationship between a homicide being unsolved from 2010 to 2017 with the city and year a victim is found in/on and the race, age, and sex of a victim. Mean absolute deviation (MAD) values are in parenthesis.
 #| echo: false
 #| warning: false
 #| message: false
 
 modelsummary(
   # List out unsolved_model_results information
-  list("Unsolved homicides (2007 to 2017)" = unsolved_model_results),
+  list("Unsolved homicides (2010 to 2017)" = unsolved_model_results),
   # Specify MAD as the statistic
   statistic = "mad"
 )
@@ -141,7 +524,7 @@ modelsummary(
 
 ```{r}
 #| label: fig-model-result-ci
-#| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictors of homicides that go unsolved from 2007 to 2017
+#| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictor variables for homicides that go unsolved from 2010 to 2017.
 #| echo: false
 #| warning: false
 #| message: false
@@ -150,7 +533,7 @@ modelplot(unsolved_model_results, conf_level = 0.9) +
   labs(x = "90 per cent credible interval")
 ```
 
-
+\newpage
 # Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
@@ -171,13 +554,13 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
+# Appendix {#sec-appendix}
 
-# Surveys, sampling, and observational data (To be changed)
+## Surveys, sampling, and observational data (To be changed)
 
-# Model details {#sec-model-details}
+## Model details {#sec-model-details}
 
-## Posterior predictive check
+### Posterior predictive check
 
 In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
 
@@ -205,7 +588,7 @@ posterior_vs_prior(unsolved_model_results) +
 ```
 
 
-## Diagnostics
+### Diagnostics
 
 @fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
 
