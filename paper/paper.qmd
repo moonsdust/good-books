@@ -59,9 +59,19 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 # Data {#sec-data}
 
+- TODO: A sense of the dataset should be communicated to the reader. 
+- The broader context of the dataset should be discussed. 
+- All variables should be thoroughly examined and explained. 
+- Explain if there were similar datasets that could have been used and why they were not. 
+- If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey.
+- It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. 
+- Summary statistics should also be included, and well as any relationships between the variables. 
+- You are not doing EDA in this section--you are talking the reader through the variables that are of interest. If this becomes too detailed, then appendices could be used. Basically, for every variable in your dataset that is of interest to your paper there needs to be graphs and explanation and maybe tables.
+
+
 ## Overview
 
-The data we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders" also known as the "Unsolved Homicide Database" [@datahomicides]. For the entirety of the paper, we used the statistical programming language R [@citeR]. We also used 
+The data we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. For the entirety of the paper, we used the statistical programming language R [@citeR]. We used tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to download, clean, test, and analyze our data. For our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. To create the causal model diagram, we used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
 
 Overview text
 
@@ -179,6 +189,8 @@ However, our model has limitations and there are situations where this model wou
 
 # Results {#sec-results}
 
+- TODO: Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars. Use modelsummary to include a table and graph of the estimates.
+
 ## Differences in Homicide Case Information Between Solved and Unsolved Cases in New York and Los Angeles (2010 to 2017)
 
 ### Date (Month and Year)
@@ -230,7 +242,7 @@ number_of_cases_month |>
   ggplot(mapping = aes(x = month, y = num_of_cases_month)) +
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
-  geom_bar(stat = "identity", fill = "#936639") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Month of the year", y = "Number of homicide cases") +
   theme(legend.position = "bottom")
@@ -264,7 +276,7 @@ number_of_cases_year |>
   ggplot(mapping = aes(x = as.character(year), y = num_of_cases_year)) +
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
-  geom_bar(stat = "identity", fill = "#936639") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Year", y = "Number of homicide cases") +
   theme(legend.position = "bottom")
@@ -320,7 +332,7 @@ number_of_cases_year_month |>
   geom_tile(aes(fill = num_of_cases_month_year)) + 
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(arrest_was_not_made), dir = "v") +
-  scale_fill_gradient(low = "#c2c5aa", high = "#7f4f24", name = "Number of homicides") +
+  scale_fill_gradient(low = "#d8dac8", high = "#7f4f24", name = "Number of homicides") +
   theme_minimal() +
   labs(x = "Month", y = "Year") 
   # theme(legend.position = "bottom")
@@ -361,7 +373,7 @@ number_of_cases_city |>
   ggplot(mapping = aes(x = arrest_was_not_made, y = proportion_of_cases)) +
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(city)) +
-  geom_bar(stat = "identity", fill = "#936639") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Status of the homicide case", y = "Proportion of cases") +
   theme(legend.position = "bottom")
@@ -407,7 +419,7 @@ number_of_dispositions_city |>
   ggplot(mapping = aes(x = disposition, y = num_of_disposition_city)) +
   # Creates two graphs based on the status of the case
   facet_wrap(facets = vars(city), dir = "v") +
-  geom_bar(stat = "identity", fill = "#936639") +
+  geom_bar(stat = "identity", fill = "#a4ac86") +
   theme_minimal() +
   labs(x = "Disposition of homicide", y = "Number of cases") +
   theme(legend.position = "bottom")
