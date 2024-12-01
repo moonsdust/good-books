@@ -103,15 +103,6 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 \newpage
 
 # Model {#sec-model}
-
-TO BE REMOVED:
-- Variables should be well-defined and correspond with those in the data section. 
-- Explain how modeling decisions reflect aspects discussed in the data section, including why specific features are included (e.g., using age rather than age groups, treating province effects as levels, categorizing gender). If applicable, define and justify sensible priors for Bayesian models. 
-- Clearly discuss underlying assumptions, potential limitations, and situations where the model may not be appropriate. 
-- Mention the software used to implement the model, and provide evidence of model validation and checking—such as out-of-sample testing, RMSE calculations, test/training splits, or sensitivity analyses—addressing model convergence and diagnostics (although much of the detail make be in the appendix). 
-= Include any alternative models or variants considered, their strengths and weaknesses, and the rationale for the final model choice.
-
-
 The model we implemented was a Bayesian logistic regression model. This model was constructed after we saw patterns between homicide case information and a homicide case going unsolved in our analysis. We are interested in seeing if certain characteristics of a homicide case such as the victim's perceived characteristics (sex, gender, age) and the year and city the victim is found impacts the likelihood of their case going unsolved. 
 
 ## Model set-up
@@ -133,6 +124,10 @@ We define $y_i$ to be the status of the homicide case where 1 means the homicide
 Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our model's priors, we use the default priors provided by rstanarm [@citerstanarm]. Diagnostics for the model such as in posterior predictive check, posterior versus prior comparison, trace and Rhat plots can be found in [Appendix -@sec-model-details].
 
 ## Model justification
+
+We used a logistic regression model in a Bayesian framework due to the fact that our outcome is binary and predicts if a homicide is unsolved or not. Another model we considered is a logistic regression model with an instrumental variable. Introducing a instrumental variable into our model could have potentially provided a more accurate model and given us more consistent coefficient estimates as noted by @citeucdavis. However with the available information we had about each case, there was no candidate instrumental variable that impacted at least one variable in our data and not influence the outcome of the case being solved or unsolved. Thus, the model would fail the "Exclusion Restriction" assumption mentioned by @citetellingstories. We also went through different pairs and groupings of variables and how there was not a strong relationship between variables that is relevant and consequently fail @citetellingstories's "Relevance" assumption. We also have known treatment variable/predictor variables that can be used to measure the outcome variable and therefore, the instrumental variable is less likely to be necessary [@citetellingstories].
+
+In our model, we assumed there is a relationship between the outcome variable, homicide is unsolved, with homicide case information like demographic (sex, race, and age of victim), geographic (city), and temporal (year) information, which are the predictor variables. For the demographic data, we decided to keep the grouping provided by The Washington Post such as for sex it was "female" and "male" and race it was "White", "Black", "Hispanic", "Asian", and "Other. However, we did remove victims who has any demographic information that falls under the "Unknown" grouping from our dataset and did not run our regression model on these observations. The reason for this is due to factors such as the data type of the predictor and keeping consistency across all observation and removing any unknown values. For example, our predictor variable, victim's age is a integer data type but it contained the string "Unknown" in the raw dataset. So the values "Unknown" is removed in our final dataset and not used to train our model. 
 
 ```{r}
 #| label: fig-causal-model
@@ -177,10 +172,7 @@ the_image <- readPNG("../other/sketches/casual_model.png")
 plot.new()
 rasterImage(the_image, 0,0,1.05,1)
 ```
-RSME calculation 
-
-## Model limitations 
-
+However, our model has limitations and there are situations where this model would not work. In @fig-causal-model, it shows that there is a confounder, "resources of investigating team" between the predictor variables, city and year and the outcome variable, case being unsolved. We define "resources of the investigating team" to include any of the following: the amount of people on the team investigating the case, time available allotted to investigate the case, amount of open cases for the team, cost, skill and education levels of members, etc. We currently do not have any information available about the resources of the investigating team for the case and further investigation is needed. We proposed an idealized survey we would conduct to collect the necessary data to further understand the relationship between homicide case characteristics and unsolved homicides in @subsec-ideal-survey. If we have information available about the resources of the investigating team for the case, the current model would not work and would need to be revised. This is due to the interaction between the city, year, and outcome variables with the confounder.  
 
 \newpage
 
@@ -333,6 +325,7 @@ number_of_cases_year_month |>
   # theme(legend.position = "bottom")
 ```
 
+- TODO: Add in summary statistics table
 
 ### City 
 
@@ -612,6 +605,10 @@ modelplot(unsolved_model_results, conf_level = 0.9) +
   labs(x = "90 per cent credible interval")
 ```
 
+TODO: 
+- Mention the software used to implement the model, and provide evidence of model validation and checking—such as out-of-sample testing, RMSE calculations, test/training splits, or sensitivity analyses—addressing model convergence and diagnostics (although much of the detail make be in the appendix). 
+RSME calculation 
+
 \newpage
 # Discussion {#sec-discussion}
 
@@ -710,7 +707,7 @@ number_of_cases_year |>
 
 
 \newpage 
-## Overview and Evaluation of The Washington Post’s Dataset
+## Overview and Evaluation of The Washington Post’s Dataset {@subsec-data-evalulation}
 - TODO: Make sure to link evaluation to literature
 
 ### Overview 
@@ -731,7 +728,16 @@ number_of_cases_year |>
 ### Variance Inflation Factor
 
 ```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: tbl-vif
+#| tbl-cap: "Valence inflation factor (VIF) of each predictor for unsolved homicide model from 2010 to 2017"
 
+# Referenced: https://www.bookdown.org/rwnahhas/RMPH/mlr-collinearity.html
+vif(unsolved_model_results) |>
+  kable()
 ```
 
 
