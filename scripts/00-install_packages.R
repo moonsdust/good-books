@@ -22,3 +22,8 @@ install.packages("knitr") # To create tables
 # Model-related packages
 install.packages("rstanarm")
 install.packages("modelsummary")
+# Packages related to creating causal model
+install.packages("DiagrammeR")
+install.packages("rsvg")
+install.packages("DiagrammeRsvg")
+install.packages("png")

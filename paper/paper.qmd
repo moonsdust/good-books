@@ -26,6 +26,10 @@ library(modelsummary)
 library(rstanarm)
 library(dplyr)
 library(knitr)
+library(DiagrammeR)
+library(rsvg)
+library(DiagrammeRsvg)
+library(png)
 
 # Read in analysis data
 analysis_data_homicides <- 
@@ -100,6 +104,8 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 # Model {#sec-model}
 
+Based on 
+
 The goal of our modelling strategy is twofold. Firstly,...
 
 Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
@@ -122,9 +128,53 @@ We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use
 
 ## Model justification
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+```{r}
+#| label: fig-causal-model
+#| fig-cap: Causal relationship between homicide case information and homicide case being unsolved 
+#| echo: false
+#| warning: false
+#| message: false
 
-We can use maths by including latex between dollar signs, for instance $\theta$.
+# Referenced code from: https://stackoverflow.com/questions/42737645/how-to-export-images-of-diagrammer-in-r and https://www.erikigelstrom.com/articles/causal-graphs-in-r-with-diagrammer/
+causal_model <- "digraph { graph []
+  # Nodes
+  node [shape = plaintext]
+    A [label = 'Case being unsolved']
+    B [label = 'Race of victim']
+    C [label = 'Age of victim']
+    D [label = 'Sex of victim']
+    E [label = 'City']
+    F [label = 'Date (Year)']
+    G [label = 'Resources of investigating team (Confounder)']
+  edge []
+    B->A
+    C->A
+    D->A
+    E->A
+    F->A
+{ rank = same; }
+  # Confounding variables's edges 
+  edge [style = dashed]
+    G -> A
+    G -> E
+    G -> F
+}"
+# Export diagram as a png
+exporting_image <- grViz(causal_model) |>
+  export_svg() |>
+  charToRaw() |>
+  rsvg_png("../other/sketches/casual_model.png", width = 1000)
+
+# NOTE: Needed to save diagram and read it in as an image since grViz doesn't render in PDFs
+# Referenced https://stackoverflow.com/questions/23861000/displaying-images-in-r-in-version-3-1-0
+the_image <- readPNG("../other/sketches/casual_model.png")
+plot.new()
+rasterImage(the_image, 0,0,1.05,1)
+```
+RSME calculation 
+
+
+
 
 \newpage
 
@@ -310,7 +360,7 @@ number_of_cases_city <-
 number_of_cases_city |>
   ggplot(mapping = aes(x = arrest_was_not_made, y = proportion_of_cases)) +
   # Creates two graphs based on the status of the case
-  facet_wrap(facets = vars(city), dir = "v") +
+  facet_wrap(facets = vars(city)) +
   geom_bar(stat = "identity", fill = "#936639") +
   theme_minimal() +
   labs(x = "Status of the homicide case", y = "Proportion of cases") +
