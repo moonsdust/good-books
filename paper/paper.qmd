@@ -32,8 +32,7 @@ library(DiagrammeRsvg)
 library(png)
 
 # Read in analysis data
-analysis_data_homicides <- 
-  read_parquet("../data/02-analysis_data/cleaned_data_homicides.parquet")
+analysis_data_homicides <- read_parquet("../data/02-analysis_data/cleaned_data_homicides.parquet")
 # Read in model data
 unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 ```
@@ -104,7 +103,7 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 # Model {#sec-model}
 
-Based on 
+Based on the analysis conducted in the paper, we found that there was 
 
 The goal of our modelling strategy is twofold. Firstly,...
 
@@ -123,7 +122,7 @@ y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
 \sigma &\sim \mbox{Exponential}(1)
 \end{align}
 
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
+We run the model in R [@citeR] using the `rstanarm` package of @citerstanarm. We use the default priors from `rstanarm`.
 
 
 ## Model justification
