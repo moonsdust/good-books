@@ -60,14 +60,14 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 # Data {#sec-data}
 
 - TODO: 
-- A sense of the dataset should be communicated to the reader. 
-- The broader context of the dataset should be discussed. 
-- Explain if there were similar datasets that could have been used and why they were not. 
+- A sense of the dataset should be communicated to the reader. [Done]
+- The broader context of the dataset should be discussed. [Done]
+- Explain if there were similar datasets that could have been used and why they were not. [Done] 
 
 - All variables should be thoroughly examined and explained. 
 - If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey.
 - It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. 
-- Summary statistics should also be included, and well as any relationships between the variables. 
+- Summary statistics should also be included, and well as any relationships between the variables. [Done]
 
 - You are not doing EDA in this section--you are talking the reader through the variables that are of interest. If this becomes too detailed, then appendices could be used. Basically, for every variable in your dataset that is of interest to your paper there needs to be graphs and explanation and maybe tables.
 
@@ -76,14 +76,44 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 The dataset we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. We used the statistical programming language R [@citeR], tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to retrieve, clean, test, and analyze the dataset. To construct, test, and analyze our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. The causal model diagram created to understand the relationship between predictor variables, the outcome variable, and a confounder used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
 
-The Washington's Post's Unsolved Homicide Database 
+The Washington Post's Unsolved Homicide Database is a dataset compiled by Washington Post reporters that contains over 52000 homicides in the United States (US) from 50 of the largest US cities from 2007 to 2017 [@datahomicides]. This dataset includes information about the victim such as their name, sex, race, and age as well as geographic and temporal information of the homicide. The Washington Post was interested in using the information compiled to map unsolved homicides across the United States in major cities from 2007 to 2017 [@citewashingtonpostmap]. Another dataset we had considered using was another one compiled by The Washington Post on school shootings across the US and approaching our problem with a different perspective on the characteristics of the perpetrator. However, due to there only being 416 observations and numerous observations missing information, we forgo using the dataset. 
+
+The raw dataset we retrieved from The Washington Post using a script that downloads the CSV file from their GitHub repository contains 52179 observations with one observation being a homicide case. However, since we narrowed our scope to focus on the two of the most populated US cities, Los Angeles and New York, the number of observations in our cleaned dataset ended up being 2820. Our data look as follows: 
+
+```{r}
+#| label: tbl-dataset-preview
+#| tbl-cap: Preview of dataset on solved and unsolved homicides (2010 to 2017) with the original dataset compiled by The Washington Post 
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table to display dataset
+analysis_data_homicides |>
+  head() |>
+  kable()
+```
+
+```{r}
+#| label: tbl-dataset-statistics
+#| tbl-cap: Data type, number of observations, minimum, maximum, median, mean, 1st and 3rd quartile of variables in dataset on solved and unsolved homicides 
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table to display summary statistics
+analysis_data_homicides |>
+  summary() |>
+  kable()
+```
 
 
 
-Limitation of dataset. 
-- There’s only data available from 2010 onwards for both New York and Los Angeles 
-- Not all victims were able to be identified and they were removed from the dataset during data cleaning
 
+
+
+
+
+However, our dataset has limitations. There was only data available from 2010 onwards for both New York and Los Angeles provided by The Washington Post and so that limited the number of homicides we could look at. Also, not all victims were able to be identified in some homicide cases and unknown attributes of the victim such as their age, sex, and gender were indicated with the text "Unknown" in the dataset. However, this causes issues with data type compatibility such as the value "Unknown" being a character type being under the victim_age column, which has a data type of integer. This would lead to issues with our model providing accurate estimates. We decided to remove cases where victim's demographic information is missing at least one of the three columns, victim_age, victim_sex, victim_race. 
 
 ## Measurement
 
@@ -91,7 +121,7 @@ Limitation of dataset.
 
 Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
 
-- How homicide cases are recorded 
+- How homicide cases are recorded by the New York Police and Los Angeles Police 
 - How The Washington Post obtain the data and what did they do
 
 
