@@ -59,33 +59,44 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 # Data {#sec-data}
 
-- TODO: A sense of the dataset should be communicated to the reader. 
+- TODO: 
+- A sense of the dataset should be communicated to the reader. 
 - The broader context of the dataset should be discussed. 
-- All variables should be thoroughly examined and explained. 
 - Explain if there were similar datasets that could have been used and why they were not. 
+
+- All variables should be thoroughly examined and explained. 
 - If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey.
 - It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. 
 - Summary statistics should also be included, and well as any relationships between the variables. 
+
 - You are not doing EDA in this section--you are talking the reader through the variables that are of interest. If this becomes too detailed, then appendices could be used. Basically, for every variable in your dataset that is of interest to your paper there needs to be graphs and explanation and maybe tables.
 
 
 ## Overview
 
-The data we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. For the entirety of the paper, we used the statistical programming language R [@citeR]. We used tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to download, clean, test, and analyze our data. For our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. To create the causal model diagram, we used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
+The dataset we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. We used the statistical programming language R [@citeR], tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to retrieve, clean, test, and analyze the dataset. To construct, test, and analyze our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. The causal model diagram created to understand the relationship between predictor variables, the outcome variable, and a confounder used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
 
-Overview text
+The Washington's Post's Unsolved Homicide Database 
 
-## Measurement
-	
-Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
 
 
 Limitation of dataset. 
 - There’s only data available from 2010 onwards for both New York and Los Angeles 
 - Not all victims were able to be identified and they were removed from the dataset during data cleaning
 
-## Outcome variables
 
+## Measurement
+
+- TODO: A thorough discussion of measurement, relating to the dataset, is provided in the data section. Please ensure that you explain how we went from some phenomena in the world that happened to an entry in the dataset that you are interested in.
+
+Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+
+- How homicide cases are recorded 
+- How The Washington Post obtain the data and what did they do
+
+
+
+## Outcome variable
 Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
 
 
@@ -100,7 +111,6 @@ And also planes (@fig-planes). (You can change the height and width, but don't w
 Talk way more about it. 
 
 ## Predictor variables
-
 Add graphs, tables and text.
 
 Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
@@ -137,7 +147,9 @@ Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our
 
 We used a logistic regression model in a Bayesian framework due to the fact that our outcome is binary and predicts if a homicide is unsolved or not. Another model we considered is a logistic regression model with an instrumental variable. Introducing a instrumental variable into our model could have potentially provided a more accurate model and given us more consistent coefficient estimates as noted by @citeucdavis. However with the available information we had about each case, there was no candidate instrumental variable that impacted at least one variable in our data and not influence the outcome of the case being solved or unsolved. Thus, the model would fail the "Exclusion Restriction" assumption mentioned by @citetellingstories. We also went through different pairs and groupings of variables and how there was not a strong relationship between variables that is relevant and consequently fail @citetellingstories's "Relevance" assumption. We also have known treatment variable/predictor variables that can be used to measure the outcome variable and therefore, the instrumental variable is less likely to be necessary [@citetellingstories].
 
-In our model, we assumed there is a relationship between the outcome variable, homicide is unsolved, with homicide case information like demographic (sex, race, and age of victim), geographic (city), and temporal (year) information, which are the predictor variables. For the demographic data, we decided to keep the grouping provided by The Washington Post such as for sex it was "female" and "male" and race it was "White", "Black", "Hispanic", "Asian", and "Other. However, we did remove victims who has any demographic information that falls under the "Unknown" grouping from our dataset and did not run our regression model on these observations. The reason for this is due to factors such as the data type of the predictor and keeping consistency across all observation and removing any unknown values. For example, our predictor variable, victim's age is a integer data type but it contained the string "Unknown" in the raw dataset. So the values "Unknown" is removed in our final dataset and not used to train our model. 
+In our model, we assumed there is a relationship between the outcome variable, homicide is unsolved, with homicide case information like demographic (sex, race, and age of victim), geographic (city), and temporal (year) information, which are the predictor variables. For the demographic data, we decided to keep the grouping provided by The Washington Post such as for sex it was "female" and "male" and race it was "White", "Black", "Hispanic", "Asian", and "Other. However, we did remove victims who has any demographic information that falls under the "Unknown" grouping from our dataset and did not run our regression model on these observations. The reason for this is due to factors such as the data type of the predictor and keeping consistency across all observation and removing any unknown values. For example, our predictor variable, victim's age is a integer data type but it contained the string "Unknown" in the raw dataset. So the values "Unknown" is removed in our final dataset and not used to train our model. Since our outcome variable is binary for our model, we constructed the arrest_was_not_made column for it based on the disposition variable to reflect it and considered dispositions with values like "Open/No arrest" and "Closed without arrest" to be 1 and "Closed by arrest" to be 0.   
+
+Performing root mean square deviation (RSME) calculations on our model in @tbl-model-result yields a RSME value of about 0.49. RSME represents the difference between the model's predicted values and observed values with 0 meaning that the predicted and observed values are the same [@citejim]. Since the model's RSME value is close to 0, we can say our model is able to predict values with less error compared to other models that have a higher RSME value. 
 
 ```{r}
 #| label: fig-causal-model
@@ -607,6 +619,8 @@ modelsummary(
 )
 ```
 
+
+
 ```{r}
 #| label: fig-model-result-ci
 #| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictor variables for homicides that go unsolved from 2010 to 2017.
@@ -618,9 +632,6 @@ modelplot(unsolved_model_results, conf_level = 0.9) +
   labs(x = "90 per cent credible interval")
 ```
 
-TODO: 
-- Mention the software used to implement the model, and provide evidence of model validation and checking—such as out-of-sample testing, RMSE calculations, test/training splits, or sensitivity analyses—addressing model convergence and diagnostics (although much of the detail make be in the appendix). 
-RSME calculation 
 
 \newpage
 # Discussion {#sec-discussion}
