@@ -41,11 +41,11 @@ cleaned_data_homicides <- cleaned_data_homicides |>
   select(reported_date, victim_race, victim_age,
          victim_sex, city, disposition)
 
-# Select the following cities, which are the 2 largest cities as of July 1,
+# Select the following cities, which are one of the 2 largest cities as of July 1,
 # 2017 according to 
 # https://www.census.gov/newsroom/press-releases/2018/estimates-cities.html
 cleaned_data_homicides <- cleaned_data_homicides |>
-  filter(cleaned_data_homicides$city %in% c("New York", "Los Angeles"))
+  filter(cleaned_data_homicides$city %in% c("Chicago", "Los Angeles"))
 
 # Split reported_date into year and month
 # Referenced https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf
@@ -70,6 +70,10 @@ cleaned_data_homicides$arrest_was_not_made <-
   as.integer(cleaned_data_homicides$arrest_was_not_made)
 cleaned_data_homicides$victim_race <- 
   as.factor(cleaned_data_homicides$victim_race)
+
+cleaned_data_homicides <- 
+  cleaned_data_homicides |>
+  filter(cleaned_data_homicides$year %in% c(2010:2017))
 
 # Change baseline for victim_race to "White"
 # Reference: https://www.geeksforgeeks.org/specify-reference-factor-level-in-

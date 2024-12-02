@@ -1,6 +1,6 @@
 #### Preamble ####
-# Purpose: Tests the analysis data on solved and unsolved homicides in the US'
-# 2 largest cities.
+# Purpose: Tests the analysis data on solved and unsolved homicides in 
+# 2 of the largest cities.
 # Author: Emily Su
 # Date: 28 November 2024 
 # Contact: em.su@mail.utoronto.ca
@@ -71,7 +71,7 @@ stopifnot(
   
   # Check if the 2 cities in the city column are either New York or 
   # Los Angeles 
-  analysis_data_homicides$city |> unique() %in% c("New York", "Los Angeles"),
+  analysis_data_homicides$city |> unique() %in% c("Chicago", "Los Angeles"),
   
   # Check if the disposition column contains 3 types of values: 
   # Closed by arrest, Closed without arrest, and Open/No arrest

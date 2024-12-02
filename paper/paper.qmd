@@ -1,6 +1,6 @@
 ---
 title: "Differences in Homicide Case Characteristics Indicates Why Justice is Not Served"
-subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in the United States's 2 largest cities, New York and Los Angeles"
+subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in one of the United States's 2 largest cities, Chicago and Los Angeles"
 author: 
   - Emily Su
 thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."
@@ -42,7 +42,7 @@ unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 
 Overview paragraph
 
-This led to us investigate the following question in our paper: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in 2 of the largest cities in the United States, New York and Los Angeles, from 2010 to 2017?
+This led to us investigate the following question in our paper: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in one of the 2 of the largest cities in the United States, Chicago and Los Angeles, from 2010 to 2017?
 
 Estimand paragraph
 
@@ -65,7 +65,7 @@ The dataset we used for this paper comes from The Washington's Post's GitHub rep
 
 The Washington Post's Unsolved Homicide Database is a dataset compiled by Washington Post reporters that contains over 52000 homicides in the United States (US) from 50 of the largest US cities from 2007 to 2017 [@datahomicides]. This dataset includes information about the victim such as their name, sex, race, and age as well as geographic and temporal information of the homicide. The Washington Post was interested in using the information compiled to map unsolved homicides across the United States in major cities from 2007 to 2017 [@citewashingtonpostmap]. Another dataset we had considered using was another one compiled by The Washington Post on school shootings across the US and approaching our problem with a different perspective on the characteristics of the perpetrator. However, due to there only being 416 observations and numerous observations missing information, we forgo using the dataset. 
 
-The raw dataset we retrieved from The Washington Post using a script that downloads the CSV file from their GitHub repository contains 52179 observations with one observation being a homicide case. However, since we narrowed our scope to focus on the two of the most populated US cities, Los Angeles and New York, the number of observations in our cleaned dataset ended up being 2820. Our data look as follows: 
+The raw dataset we retrieved from The Washington Post using a script that downloads the CSV file from their GitHub repository contains 52179 observations with one observation being a homicide case. However, since we narrowed our scope to focus on the two of the most populated US cities, Los Angeles and Chicago, the number of observations in our cleaned dataset ended up being 2820. Our data look as follows: 
 
 ```{r}
 #| label: tbl-dataset-preview
@@ -96,7 +96,7 @@ analysis_data_homicides |>
 
 @tbl-dataset-preview and @tbl-dataset-statistics indicates our variables of interest, which are the following: victim_race, victim_age, victim_sex, city, disposition, year, month, and arrest_was_not_made. victim_race represents the race of the homicide victim, which can be "White" (248 observations), "Hispanic" (1242 observations), "Black" (1216 observations), "Asian" (58 observations), and "Other" (56 observations). victim_age signifies the age of the homicide victim at the time of their death and is defined as a whole number. @tbl-dataset-statistics reveals that the mean victim_sex is the sex of the homicide victim where they are either identified as a "female" or "male". The city variable defines the city the victim is reported to have been found in. The disposition variable is the specific status of a homicide case where a case can fall in either of the following three status: "Closed by arrest", "Open/No arrest", and "Closed without arrest". The year variable represents a year from 2010 to 2017 that indicates the year the homicide took place. Following this, the month variable represents the month a homicide took place. arrest_was_not_made is a variable that was constructed based on the disposition variable with "Closed by arrest" being converted to a 0 and "Open/No arrest" and "Closed without arrest" being converted to a 1. arrest_was_not_made indicates the status of a homicide case as either being unsolved, which is denoted by a 1, and solved, which is denoted by a 0. 
 
-However, our dataset has limitations. There was only data available from 2010 onwards for both New York and Los Angeles provided by The Washington Post and so that limited the number of homicides we could look at. Also, not all victims were able to be identified in some homicide cases and unknown attributes of the victim such as their age, sex, and gender were indicated with the text "Unknown" in the dataset. However, this causes issues with data type compatibility such as the value "Unknown" being a character type being under the victim_age column, which has a data type of integer. This would lead to issues with our model providing accurate estimates. We decided to remove cases during our data cleaning where victim's demographic information is missing at least one of the three columns, victim_age, victim_sex, victim_race. 
+However, our dataset has limitations. There was only data available from 2010 onwards for Los Angeles provided by The Washington Post and so that limited the number of homicides we could look at for both Chicago and Los Angeles. Also, not all victims were able to be identified in some homicide cases and unknown attributes of the victim such as their age, sex, and gender were indicated with the text "Unknown" in the dataset. However, this causes issues with data type compatibility such as the value "Unknown" being a character type being under the victim_age column, which has a data type of integer. This would lead to issues with our model providing accurate estimates. We decided to remove cases during our data cleaning where victim's demographic information is missing at least one of the three columns, victim_age, victim_sex, victim_race. 
 
 ## Measurement
 
@@ -104,8 +104,11 @@ However, our dataset has limitations. There was only data available from 2010 on
 
 Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
 
-- How homicide cases are recorded by the New York Police and Los Angeles Police 
+- How homicide cases are recorded by the Chicago Police and Los Angeles Police 
 - How The Washington Post obtain the data and what did they do
+
+
+The Federal Bureau of Investigation (FBI) has a program called the Uniform Crime Reporting (UCR) Program to generate statistics for the public [@citeFBIinfo]. The FBI originally had a system under the UCR called Summary Reporting System (SRS), which obtained details about different crimes taking place from law enforcement agencies nationwide such as victim information [@citeFBIinfo]. However, the SRS was replaced with a new system called the National Incident-Based Reporting System (NIBR) in 2021 that obtained more details about various crimes [@citeFBIinfo]. For The Los Angeles Police Department, after a homicide case occurs, the investigating team handwrites information into physical crime reports with details like the type of crime, the premise the crime occured at, and the age and ethnicity of the victim [@citeLApolice]. The crime reports are then transcribed into a digital format and then sent to the SRS monthly [@citeLApolice].
 
 
 
@@ -136,7 +139,7 @@ y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \\
 \beta_5 &\sim \mbox{Normal}(0, 2.5)
 \end{align*}
 
-We define $y_i$ to be the status of the homicide case where 1 means the homicide is unsolved (case is still open / been closed without arrest) and 0 means the homicide is solved (case has been closed with arrest). $\pi_i$ represents the probability of the homicide being solved. $\mbox{logit}(\pi_i)$ indicates the log-odds of the homicide being unsolved. Now looking at the coefficients $b_i$ and predictor variables, $\beta_0$ is the intercept of our model and is the log-odds when all predictor variables are equal to 0. $\mbox{victim\_race}_i$ signifies the race of the victim, which could be either "Asian", "Black", "Hispanic", "White", and "Other". In our model, we use "White" as the baseline for $\mbox{victim\_race}_i$ to see if being part of a minority impacts if the case goes unsolved or not. $\beta_1$ is the coefficient that represents the log-odds when $\mbox{victim\_race}_i$ changes. $\mbox{victim\_age}_i$ is the victim's age, which is a whole number. $\beta_2$ is the log-odds when $\mbox{victim\_age}_i$ increases by 1 year. $\mbox{victim\_sex}_i$ represents the sex of the victim, where in the dataset it is either "female" or "male" and $\beta_3$ is the log-odds when $\mbox{victim\_sex}_i$ changes. $\mbox{city}_i$ is the city the victim was reported to be killed in, which from our dataset could be either "New York" or "Los Angeles". $\beta_4$ is the coefficient that stands for the log-odds when $\mbox{city}_i$ changes. We define $\mbox{year}_i$ to be the year the homicide was reported to have occured from 2010 to 2017. $\beta_5$ indicates the log-odds when $\mbox{year}_i$ increases by 1 year.
+We define $y_i$ to be the status of the homicide case where 1 means the homicide is unsolved (case is still open / been closed without arrest) and 0 means the homicide is solved (case has been closed with arrest). $\pi_i$ represents the probability of the homicide being solved. $\mbox{logit}(\pi_i)$ indicates the log-odds of the homicide being unsolved. Now looking at the coefficients $b_i$ and predictor variables, $\beta_0$ is the intercept of our model and is the log-odds when all predictor variables are equal to 0. $\mbox{victim\_race}_i$ signifies the race of the victim, which could be either "Asian", "Black", "Hispanic", "White", and "Other". In our model, we use "White" as the baseline for $\mbox{victim\_race}_i$ to see if being part of a minority impacts if the case goes unsolved or not. $\beta_1$ is the coefficient that represents the log-odds when $\mbox{victim\_race}_i$ changes. $\mbox{victim\_age}_i$ is the victim's age, which is a whole number. $\beta_2$ is the log-odds when $\mbox{victim\_age}_i$ increases by 1 year. $\mbox{victim\_sex}_i$ represents the sex of the victim, where in the dataset it is either "female" or "male" and $\beta_3$ is the log-odds when $\mbox{victim\_sex}_i$ changes. $\mbox{city}_i$ is the city the victim was reported to be killed in, which from our dataset could be either "Chicago" or "Los Angeles". $\beta_4$ is the coefficient that stands for the log-odds when $\mbox{city}_i$ changes. We define $\mbox{year}_i$ to be the year the homicide was reported to have occured from 2010 to 2017. $\beta_5$ indicates the log-odds when $\mbox{year}_i$ increases by 1 year.
 
 Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our model's priors, we use the default priors provided by rstanarm [@citerstanarm]. Diagnostics for the model such as in posterior predictive check, posterior versus prior comparison, trace and Rhat plots can be found in @sec-model-details.
 
@@ -146,7 +149,7 @@ We used a logistic regression model in a Bayesian framework due to the fact that
 
 In our model, we assumed there is a relationship between the outcome variable, homicide is unsolved, with homicide case information like demographic (sex, race, and age of victim), geographic (city), and temporal (year) information, which are the predictor variables. For the demographic data, we decided to keep the grouping provided by The Washington Post such as for sex it was "female" and "male" and race it was "White", "Black", "Hispanic", "Asian", and "Other. However, we did remove victims who has any demographic information that falls under the "Unknown" grouping from our dataset and did not run our regression model on these observations. The reason for this is due to factors such as the data type of the predictor and keeping consistency across all observation and removing any unknown values. For example, our predictor variable, victim's age is a integer data type but it contained the string "Unknown" in the raw dataset. So the values "Unknown" is removed in our final dataset and not used to train our model. Since our outcome variable is binary for our model, we constructed the arrest_was_not_made column for it based on the disposition variable to reflect it and considered dispositions with values like "Open/No arrest" and "Closed without arrest" to be 1 and "Closed by arrest" to be 0.   
 
-Performing root mean square deviation (RSME) calculations on our model in @tbl-model-result yields a RSME value of about 0.49. RSME represents the difference between the model's predicted values and observed values with 0 meaning that the predicted and observed values are the same [@citejim]. Since the model's RSME value is close to 0, we can say our model is able to predict values with less error compared to other models that have a higher RSME value. 
+Performing root mean square deviation (RSME) calculations on our model in @tbl-model-result yields a RSME value of about 0.45. RSME represents the difference between the model's predicted values and observed values with 0 meaning that the predicted and observed values are the same [@citejim]. Since the model's RSME value is close to 0, we can say our model is able to predict values with less error compared to other models that have a higher RSME value. 
 
 ```{r}
 #| label: fig-causal-model
@@ -198,12 +201,12 @@ However, our model has limitations and there are situations where this model wou
 
 # Results {#sec-results}
 
-## Differences in Homicide Case Information Between Solved and Unsolved Cases in New York and Los Angeles (2010 to 2017)
+## Differences in Homicide Case Information Between Solved and Unsolved Cases in Chicago and Los Angeles (2010 to 2017)
 
 ### Date (Month and Year)
 ```{r}
 #| label: fig-month-bar
-#| fig-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| fig-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and Chicago (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -257,7 +260,7 @@ number_of_cases_month |>
 
 ```{r}
 #| label: fig-year-bar
-#| fig-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| fig-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and Chicago"
 #| echo: false
 #| warning: false
 #| message: false
@@ -291,7 +294,7 @@ number_of_cases_year |>
 
 ```{r}
 #| label: fig-year-month-heatmap
-#| fig-cap: "Number of solved and unsolved homicides from January to December from 2010 to 2017 in Los Angeles and New York"
+#| fig-cap: "Number of solved and unsolved homicides from January to December from 2010 to 2017 in Los Angeles and Chicago"
 #| echo: false
 #| warning: false
 #| message: false
@@ -351,7 +354,7 @@ number_of_cases_year_month |>
 
 ```{r}
 #| label: fig-city-bar
-#| fig-cap: "Proportion of solved and unsolved homicides in Los Angeles and New York (2010 to 2017)"
+#| fig-cap: "Proportion of solved and unsolved homicides in Los Angeles and Chicago (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -388,7 +391,7 @@ number_of_cases_city |>
 
 ```{r}
 #| label: tbl-city-table
-#| tbl-cap: "Proportion and number of solved and unsolved homicides in Los Angeles and New York (2010 to 2017)"
+#| tbl-cap: "Proportion and number of solved and unsolved homicides in Los Angeles and Chicago (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -406,7 +409,7 @@ number_of_cases_city |>
 ### Disposition
 ```{r}
 #| label: fig-disposition-bar
-#| fig-cap: "Disposition of homicide cases in New York and Los Angeles (2010 to 2017)"
+#| fig-cap: "Disposition of homicide cases in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -434,7 +437,7 @@ number_of_dispositions_city |>
 
 ```{r}
 #| label: tbl-disposition-table
-#| tbl-cap: "Disposition of homicide cases in New York and Los Angeles (2010 to 2017)"
+#| tbl-cap: "Disposition of homicide cases in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -454,7 +457,7 @@ number_of_dispositions_city |>
 ### Victim's Age 
 ```{r}
 #| label: fig-victim-age-histogram
-#| fig-cap: "Distribution of victim's age in solved and unsolved homicides in New York and Los Angeles (2010 to 2017)"
+#| fig-cap: "Distribution of victim's age in solved and unsolved homicides in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -493,7 +496,7 @@ victim_age_dataframe |>
 ### Victim's Sex
 ```{r}
 #| label: fig-victim-sex-bar
-#| fig-cap: "Proportion of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| fig-cap: "Proportion of homicide cases per sex in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -530,7 +533,7 @@ number_of_cases_victim_sex |>
 
 ```{r}
 #| label: tbl-victim-sex-table
-#| tbl-cap: "Proportion and number of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| tbl-cap: "Proportion and number of homicide cases per sex in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -549,7 +552,7 @@ number_of_cases_victim_sex |>
 ### Victim's Race 
 ```{r}
 #| label: fig-victim-race-bar
-#| fig-cap: "Number of homicide cases per race in New York and Los Angeles (2010 to 2017)"
+#| fig-cap: "Number of homicide cases per race in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -583,7 +586,7 @@ number_of_cases_victim_race |>
 
 ```{r}
 #| label: tbl-victim-race-table
-#| tbl-cap: "Number of homicide cases per sex in New York and Los Angeles (2010 to 2017)"
+#| tbl-cap: "Number of homicide cases per sex in Chicago and Los Angeles (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -667,7 +670,7 @@ Code written in the scripts was checked and styled with lintr [@citelintr] and s
 
 ```{r}
 #| label: tbl-month-table
-#| tbl-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and New York (2010 to 2017)"
+#| tbl-cap: "Number of solved and unsolved homicides across the 12 months of a year in Los Angeles and Chicago (2010 to 2017)"
 #| echo: false
 #| warning: false
 #| message: false
@@ -685,7 +688,7 @@ number_of_cases_month |>
 
 ```{r}
 #| label: tbl-year-table
-#| tbl-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and New York"
+#| tbl-cap: "Number of solved and unsolved homicides from 2010 to 2017 in Los Angeles and Chicago"
 #| echo: false
 #| warning: false
 #| message: false
@@ -702,9 +705,14 @@ number_of_cases_year |>
 
 \newpage
 ## Idealized Survey and Methodology {#sec-ideal-survey}
-- Link to literature
 
 ### Idealized Survey Objectives
+The objective of our survey is to collect information from Chicago Police Department and Los Angeles Police Department about their education background, reason for closing a homicide case without arrest, difficult homicide case they have done, how many cases they have to cover at a time, etc. 
+
+
+regarding resources available
+
+
 
 ### Sampling Approach
 - what is the population, frame, and sample;
@@ -713,11 +721,15 @@ number_of_cases_year |>
 - how is non-response handled;
 
 
+The sampling approach we plan to take is stratified sampling, which is a type of probabilistic sampling [@citetellingstories]
+
+
 ### Respondent Recruitment
 
 ### Data Validation
 
 ### Idealized Survey Design
+- Using an online survey in cases.  
 
 ### Link to Idealized Survey
 - Using Google Forms
