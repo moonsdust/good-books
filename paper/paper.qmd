@@ -707,6 +707,11 @@ number_of_cases_year |>
 ### Idealized Survey Objectives
 
 ### Sampling Approach
+- what is the population, frame, and sample;
+- how is the sample recruited;
+- what sampling approach is taken, and what are some of the trade-offs of this; 
+- how is non-response handled;
+
 
 ### Respondent Recruitment
 
@@ -718,6 +723,7 @@ number_of_cases_year |>
 - Using Google Forms
 
 ### Limitations
+- what is good and bad about the sampling.
 
 ### Idealized Survey Questions
 - Should have an introductory section and include details of a contact person
@@ -726,21 +732,6 @@ number_of_cases_year |>
 
 
 \newpage 
-## Overview and Evaluation of The Washington Post’s Dataset {#sec-data-evalulation}
-- TODO: Make sure to link evaluation to literature
-
-### Overview 
-
-### Sampling Approach
-- what is the population, frame, and sample;
-- how is the sample recruited;
-- what sampling approach is taken, and what are some of the trade-offs of this; 
-- how is non-response handled;
-
-### Strengths and limitations
-- what is good and bad about the sampling.
-
-\newpage
 
 ## Model details {#sec-model-details}
 
