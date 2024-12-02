@@ -1,4 +1,4 @@
-# Differences in Homicide Case Characteristics Indicates Why Justice is Not Served: An analysis of solved and unsolved homicides from 2010 to 2017 in one of the United States's 2 largest cities, Chicago and Los Angeles
+# Differences in Homicide Case Information Indicates Why Justice is Not Served: An analysis of solved and unsolved homicides from 2010 to 2017 in one of the United States's 2 largest cities, Chicago and Los Angeles
 
 ## Overview
 

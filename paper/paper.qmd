@@ -1,5 +1,5 @@
 ---
-title: "Differences in Homicide Case Characteristics Indicates Why Justice is Not Served"
+title: "Differences in Homicide Case Information Indicates Why Justice is Not Served"
 subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in one of the United States's 2 largest cities, Chicago and Los Angeles"
 author: 
   - Emily Su
@@ -639,8 +639,6 @@ modelsummary(
 )
 ```
 
-
-
 ```{r}
 #| label: fig-model-result-ci
 #| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictor variables for homicides that go unsolved from 2010 to 2017.
@@ -651,7 +649,7 @@ modelsummary(
 modelplot(unsolved_model_results, conf_level = 0.9) +
   labs(x = "90 per cent credible interval")
 ```
-
+@tbl-model-result and @fig-model-result-ci
 
 \newpage
 # Discussion {#sec-discussion}
