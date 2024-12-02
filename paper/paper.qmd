@@ -246,6 +246,7 @@ number_of_cases_month |>
   labs(x = "Month of the year", y = "Number of homicide cases") +
   theme(legend.position = "bottom")
 ```
+@fig-month-bar and @tbl-month-table indicates that most of the unsolved homicide cases in Los Angeles and Chicago from 2010 to 2017 were reported in the summer months with there being 436 unsolved cases in July and 440 for August. @fig-month-bar shows that most unsolved homicide cases occur during the middle and later half of the year. On the other hand,  @tbl-month-table and @fig-month-bar shows that the number of cases that were reported with arrest also happen during August with 203 cases and June with 201 cases. However, there also are fewer arrest made compared to the number of cases where an arrest was not made.
 
 ```{r}
 #| label: fig-year-bar
@@ -280,6 +281,7 @@ number_of_cases_year |>
   labs(x = "Year", y = "Number of homicide cases") +
   theme(legend.position = "bottom")
 ```
+@fig-year-bar and @tbl-year-table shows that there was sudden increase in the number of unsolved homicides reported in 2016 and 2017 compared to previous years with 775 cases for 2016 and 746 cases for 2017. However, for the cases with an arrest made, most of the cases were reported back in 2012 with 290 cases and 2016 and 279 cases.
 
 ```{r}
 #| label: fig-year-month-heatmap
@@ -336,9 +338,10 @@ number_of_cases_year_month |>
   labs(x = "Month", y = "Year") 
   # theme(legend.position = "bottom")
 ```
+Based on where the dark brown colour appears in @fig-year-month-heatmap, majority of homicides that go unsolved occur in the middle and later half of 2016 while for 2017 most of them happen middle of 2017. For the homicides that go solved, the lightness appears to be uniform across with the more dark parts in the middle of @fig-year-month-heatmap. 
 
-- TODO: Add in summary statistics table
 
+\newpage
 ### City 
 
 ```{r}
@@ -395,6 +398,11 @@ number_of_cases_city |>
   kable()
 ```
 
+@fig-city-bar and @tbl-city-table shows that 77% of Chicago's homicide cases are unsolved (with 3164 cases) while for Los Angeles, 49% (1087 cases) of their homicide cases are unsolved from 2010 to 2017. Only 23% (947 cases) of homicide cases are solved with an arrest made for Chicago while for Los Angeles, 51% (1109 cases) of homicides are solved with an arrest made. Chicago has a higher percentage and higher number of unsolved homicide cases compared to Los Angeles. 
+
+
+\newpage
+
 ### Disposition
 ```{r}
 #| label: fig-disposition-bar
@@ -441,6 +449,8 @@ number_of_dispositions_city |>
   kable()
 ```
 
+@fig-disposition-bar and @tbl-disposition-table shows that the number of homicide cases that are closed by arrest at 1109 cases is close to the number of homicide cases that are open at 1087 cases from 2010 to 2017. On the hand, there is a larger gap for Chicago between the number of homicides that are closed by arrest at 947 cases with the ones that are closed without arrest and open/no arrest at 216 and 2948 cases, respectively. 
+
 \newpage
 
 ### Victim's Age 
@@ -481,6 +491,25 @@ victim_age_dataframe |>
   ) +
   theme(legend.position = "bottom")
 ```
+
+```{r}
+#| label: tbl-victim-age-statistics
+#| tbl-cap: Minimum, maximum, median, mean, 1st and 3rd quartile of variables in dataset on solved and unsolved homicides (2010 to 2017) excluding victim_sex, city, and disposition
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table to display summary statistics
+victim_age_dataframe |>
+  select(-c(arrest_was_not_made, num_of_cases)) |>
+  rename(
+    "Victim's Age" = victim_age
+  ) |>
+  summary() |>
+  kable()
+```
+
+@fig-victim-age-histogram shows that the distribution of age of homicide victims is relatively uniform. It appears that the victims of unsolved and solved homicides are about the same age if one were not to consider ages above 75. However, if we were to consider age 75 onwards, it appears that the distribution is a bit right-skewed. We can see that from @tbl-victim-age-statistics, the youngest homicide victim is 1 years old and the oldest is 94 years old. The median age of homicide victims is 44 years old with the mean age being 45 years old. 
 
 ### Victim's Sex
 ```{r}
@@ -537,7 +566,9 @@ number_of_cases_victim_sex |>
   kable()
 ```
 
+@fig-victim-sex-bar and @tbl-victim-sex-table shows that most victims of homicide are male with 1721 solved cases and 3903 unsolved cases in comparsion to female victims with 335 solved cases and 348 unsolved cases. The proportion of cases with arrest and not is almost equal for homicides with female victims at 49% and 51%, respectively. On the other hand, the proportion of cases with arrest (31%) and not (69%) has a 38% difference for homicides with female victims. 
 
+\newpage
 ### Victim's Race 
 ```{r}
 #| label: fig-victim-race-bar
@@ -589,6 +620,8 @@ number_of_cases_victim_race |>
   kable()
 ```
 
+From @fig-victim-race-bar and @tbl-victim-race-table, they show that there were more homicide case solved when the victims identified as "White" (191 cases), "Asian" (22 cases), and "Other" (41 cases). However, a disproportionate number of homicide cases have victims who are Black or Hispanic. For both Black and Hispanic victims, they have more homicide cases that go unsolved with 2960 and 1064 cases compared to homicide cases that are solved with 1103 and 699 cases, respectively.
+
 \newpage
 ## Model Results {#sec-model-results}
 ```{r}
@@ -636,6 +669,8 @@ Please don't use these as sub-heading labels - change them to be what your point
 ## Areas of improvement and next steps
 
 Weaknesses and next steps should also be included.
+
+- Since the dataset was compiled in 2018, we currently do not know if any of the homicide cases have been solved as of 2024 and how many. 
 
 \newpage
 
