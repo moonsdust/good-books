@@ -1,5 +1,5 @@
 ---
-title: "My title"
+title: "Differences in Homicide Case Characteristics Indicates Why Justice is Not Served"
 subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in the United States's 2 largest cities, New York and Los Angeles"
 author: 
   - Emily Su
@@ -59,19 +59,6 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 # Data {#sec-data}
 
-- TODO: 
-- A sense of the dataset should be communicated to the reader. [Done]
-- The broader context of the dataset should be discussed. [Done]
-- Explain if there were similar datasets that could have been used and why they were not. [Done] 
-
-- All variables should be thoroughly examined and explained. 
-- If variables were constructed then this should be mentioned, and high-level cleaning aspects of note should be mentioned, but this section should focus on the destination, not the journey.
-- It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. 
-- Summary statistics should also be included, and well as any relationships between the variables. [Done]
-
-- You are not doing EDA in this section--you are talking the reader through the variables that are of interest. If this becomes too detailed, then appendices could be used. Basically, for every variable in your dataset that is of interest to your paper there needs to be graphs and explanation and maybe tables.
-
-
 ## Overview
 
 The dataset we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. We used the statistical programming language R [@citeR], tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to retrieve, clean, test, and analyze the dataset. To construct, test, and analyze our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. The causal model diagram created to understand the relationship between predictor variables, the outcome variable, and a confounder used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
@@ -95,25 +82,21 @@ analysis_data_homicides |>
 
 ```{r}
 #| label: tbl-dataset-statistics
-#| tbl-cap: Data type, number of observations, minimum, maximum, median, mean, 1st and 3rd quartile of variables in dataset on solved and unsolved homicides 
+#| tbl-cap: Number of observations, minimum, maximum, median, mean, 1st and 3rd quartile of variables in dataset on solved and unsolved homicides (2010 to 2017) excluding victim_sex, city, and disposition
 #| echo: false
 #| warning: false
 #| message: false
 
 # Create table to display summary statistics
 analysis_data_homicides |>
+  select(-c(city, victim_sex, disposition)) |>
   summary() |>
   kable()
 ```
 
+@tbl-dataset-preview and @tbl-dataset-statistics indicates our variables of interest, which are the following: victim_race, victim_age, victim_sex, city, disposition, year, month, and arrest_was_not_made. victim_race represents the race of the homicide victim, which can be "White" (248 observations), "Hispanic" (1242 observations), "Black" (1216 observations), "Asian" (58 observations), and "Other" (56 observations). victim_age signifies the age of the homicide victim at the time of their death and is defined as a whole number. @tbl-dataset-statistics reveals that the mean victim_sex is the sex of the homicide victim where they are either identified as a "female" or "male". The city variable defines the city the victim is reported to have been found in. The disposition variable is the specific status of a homicide case where a case can fall in either of the following three status: "Closed by arrest", "Open/No arrest", and "Closed without arrest". The year variable represents a year from 2010 to 2017 that indicates the year the homicide took place. Following this, the month variable represents the month a homicide took place. arrest_was_not_made is a variable that was constructed based on the disposition variable with "Closed by arrest" being converted to a 0 and "Open/No arrest" and "Closed without arrest" being converted to a 1. arrest_was_not_made indicates the status of a homicide case as either being unsolved, which is denoted by a 1, and solved, which is denoted by a 0. 
 
-
-
-
-
-
-
-However, our dataset has limitations. There was only data available from 2010 onwards for both New York and Los Angeles provided by The Washington Post and so that limited the number of homicides we could look at. Also, not all victims were able to be identified in some homicide cases and unknown attributes of the victim such as their age, sex, and gender were indicated with the text "Unknown" in the dataset. However, this causes issues with data type compatibility such as the value "Unknown" being a character type being under the victim_age column, which has a data type of integer. This would lead to issues with our model providing accurate estimates. We decided to remove cases where victim's demographic information is missing at least one of the three columns, victim_age, victim_sex, victim_race. 
+However, our dataset has limitations. There was only data available from 2010 onwards for both New York and Los Angeles provided by The Washington Post and so that limited the number of homicides we could look at. Also, not all victims were able to be identified in some homicide cases and unknown attributes of the victim such as their age, sex, and gender were indicated with the text "Unknown" in the dataset. However, this causes issues with data type compatibility such as the value "Unknown" being a character type being under the victim_age column, which has a data type of integer. This would lead to issues with our model providing accurate estimates. We decided to remove cases during our data cleaning where victim's demographic information is missing at least one of the three columns, victim_age, victim_sex, victim_race. 
 
 ## Measurement
 
@@ -127,25 +110,9 @@ Some paragraphs about how we go from a phenomena in the world to an entry in the
 
 
 ## Outcome variable
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
-
-
-
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-
-Talk way more about it. 
 
 ## Predictor variables
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
-
-
+The variables, disposition and month are not predictor variables in our model but they are used to investigate trends between homicide case information and the status of the homicide being solved or unsolved. 
 
 
 
@@ -230,8 +197,6 @@ However, our model has limitations and there are situations where this model wou
 \newpage
 
 # Results {#sec-results}
-
-- TODO: Results will likely require summary statistics, tables, graphs, images, and possibly statistical analysis or maps. There should also be text associated with all these aspects. Show the reader the results by plotting them where possible. Talk about them. Explain them. That said, this section should strictly relay results. Regression tables must not contain stars. Use modelsummary to include a table and graph of the estimates.
 
 ## Differences in Homicide Case Information Between Solved and Unsolved Cases in New York and Los Angeles (2010 to 2017)
 
