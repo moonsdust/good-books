@@ -10,10 +10,10 @@ A dashboard containing interactive versions of the graphs found in this paper wa
 ## File Structure
 
 The repo is structured as:
--   `data/00-simulated_data` contains data obtained from simulation of ideal dataset.
+-   `data/00-simulated_data` contains data obtained from simulation of ideal dataset for our analysis.
 -   `data/01-raw_data` contains the raw data as obtained from The Washington Post.
--   `data/02-analysis_data` contains the cleaned dataset that was constructed.
--   `models` contains fitted models. 
+-   `data/02-analysis_data` contains the cleaned dataset in parquet form and CSV form that was constructed and used in our analysis. Note that the CSV file in this folder is used for the dashboard only. 
+-   `models` contains the fitted model. 
 -   `other` contains sketches.
 -   `paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
 -   `scripts` contains the R scripts used to install, simulate, download, clean, explore, and test data.
