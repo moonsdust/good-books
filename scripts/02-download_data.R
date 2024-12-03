@@ -21,7 +21,8 @@ library(tidyverse)
 
 # 1. Obtain The Washington Posts's Unsolved Homicide Dataset from GitHub
 data_homicides_dataset <- 
-  read_csv("https://raw.githubusercontent.com/washingtonpost/data-homicides/refs/heads/master/homicide-data.csv", show_col_types = FALSE)
+  read_csv("https://raw.githubusercontent.com/washingtonpost/data-homicides/refs/heads/master/homicide-data.csv",
+           show_col_types = FALSE)
 # NOTE: If the name of the file changes or you are unable to read in the
 # CSV file, please head to https://github.com/washingtonpost/data-homicides
 # for the new name of the CSV file and/or manually download the CSV file.
