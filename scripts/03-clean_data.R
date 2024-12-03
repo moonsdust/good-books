@@ -85,3 +85,7 @@ cleaned_data_homicides$victim_race <-
 # Save cleaned data as a Parquet file
 write_parquet(cleaned_data_homicides,
               "data/02-analysis_data/cleaned_data_homicides.parquet")
+
+# Save cleaned data as a CSV file for Shiny app
+write_csv(cleaned_data_homicides,
+          "data/02-analysis_data/cleaned_data_homicides.csv")
