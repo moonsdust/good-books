@@ -3,6 +3,10 @@
 ## Overview
 
 
+## Dashboard for Interactive Visualizations 
+
+A dashboard containing interactive versions of the graphs found in this paper was developed using shiny [@citeshiny], shinydashboard [@citeshinydashboard], and plotly [@citeplotly]. The link to the Shiny app can be found here: https://49z7k8-emily-su.shinyapps.io/unsolved-homicides-app/
+
 ## File Structure
 
 The repo is structured as:

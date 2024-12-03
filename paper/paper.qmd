@@ -61,7 +61,7 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 ## Overview
 
-The dataset we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. We used the statistical programming language R [@citeR], tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to retrieve, clean, test, and analyze the dataset. To construct, test, and analyze our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. The causal model diagram created to understand the relationship between predictor variables, the outcome variable, and a confounder used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng]. To style our scripts, we used lintr [@citelintr] and styler [@citestyler]. 
+The dataset we used for this paper comes from The Washington's Post's GitHub repository, "How The Post mapped unsolved murders", which is also known as the "Unsolved Homicide Database" [@datahomicides]. We used the statistical programming language R [@citeR], tidyverse [@citetidyverse], janitor [@citejanitor], lubridate [@citelubridate], dplyr [@citedplyr], ggplot2 [@citeggplot2], arrow [@citearrow], testthat [@citetestthat], and knitr [@citeknitr] to retrieve, clean, test, and analyze the dataset. To construct, test, and analyze our model, we used the following packages: rstanarm [@citerstanarm], modelsummary [@citemodelsummary], and car [@citecar]. The causal model diagram created to understand the relationship between predictor variables, the outcome variable, and a confounder used DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], DiagrammeRsvg [@citeDiagrammeRsvg] and png [@citepng].
 
 The Washington Post's Unsolved Homicide Database is a dataset compiled by Washington Post reporters that contains over 52000 homicides in the United States (US) from 50 of the largest US cities from 2007 to 2017 [@datahomicides]. This dataset includes information about the victim such as their name, sex, race, and age as well as geographic and temporal information of the homicide. The Washington Post was interested in using the information compiled to map unsolved homicides across the United States in major cities from 2007 to 2017 [@citewashingtonpostmap]. Another dataset we had considered using was another one compiled by The Washington Post on school shootings across the US and approaching our problem with a different perspective on the characteristics of the perpetrator. However, due to there only being 416 observations and numerous observations missing information, we forgo using the dataset. 
 
@@ -679,6 +679,10 @@ Weaknesses and next steps should also be included.
 
 # Appendix {#sec-appendix}
 
+## Dashboard for Interactive Visualizations
+
+A dashboard containing interactive versions of the graphs found in this paper was developed using shiny [@citeshiny], shinydashboard [@citeshinydashboard], and plotly [@citeplotly]. The link to the Shiny app can be found here: https://49z7k8-emily-su.shinyapps.io/unsolved-homicides-app/
+
 ## Note on Reproducing
 
 In order to reproduce the results in the paper, first run the 00-install_packages.R in the scripts folder located in this paper’s GitHub repository. Then run the other scripts based on the number at the beginning of the script name.
@@ -687,7 +691,7 @@ In order to reproduce the results in the paper, first run the 00-install_package
 
 We would like to thank @citetellingstories for providing assistance with the R code used to produce the tables and graphs in this paper.
 
-## Code styling
+## Note on Code styling
 
 Code written in the scripts was checked and styled with lintr [@citelintr] and styler [@citestyler].
 
