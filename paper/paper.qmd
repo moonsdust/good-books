@@ -736,31 +736,30 @@ number_of_cases_year |>
 ## Idealized Survey and Methodology {#sec-ideal-survey}
 
 ### Idealized Survey Objectives
-The objective of our survey is to gain insight about the investigators from US police departments and their experience with dealing with homicide cases to take into account into any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. In the following idealized methodology, we will cover our sampling approach, respondent recruitment, data validation, the design of our survey, limitations of our survey, and the survey questions themselves. 
+The objective of our survey is to gain insight about the investigators from US police departments and their experience with dealing with homicide cases to take into account into any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. Currently, we only have state collected homicide data that is collected by the FBI with basic demographic, temporal, and geographic information. @citeJohnson looked at prison data and noted that the standards in place with state collected data do not fully help us understand the cause and impact of the US prison system. This can also be applied with looking at homicide data where we can not say we fully understand the cause of homicide cases going unsolved. Thus, this led us to conducting this survey in hopes to understand crime case system better and what interventions may be needed, which is also noted by @citeJohnson when collecting community sourced prison data. In the following idealized methodology, we will cover our sampling approach and respondent recruitment, data validation, the design of our survey, limitations of our survey, and the survey questions themselves. 
 
-### Sampling Approach
-- what is the population, frame, and sample;
-- what sampling approach is taken, and what are some of the trade-offs of this; 
-- how is non-response handled;
+### Sampling Approach and Respondent Recruitment
 
+Our target population are all investigators from US police departments as defined by [@citetellingstories]. However, since we can not survey every investigator in the US, we will narrow down our group to be investigators from 5 US police department across the United States like the Chicago Police department who are responsible for homicide cases and located in large cities, which is our sampling frame. More specifically, our sample will be all the investigators from 5 US police department in large cities such as the Chicago Police Department who are responsible for homicide cases and who we can gather data on [@citetellingstories]. 
 
+The sampling approach we plan to take is a mix of non-probabilistic and probabilistic sampling. Conducting non-probabilistic sampling would ensure that we are obtaining the necessary information from police departments in more populated cities [@citetellingstories]. However some limitations with non-probabilistic sampling is that our findings from the survey might not be generalized to other police departments nationwide [@citetellingstories]. We also plan to conduct probabilistic sampling within the non-probabilistic sample we have so that any person in our sampling frame has a chance of being picked for to complete our survey [@citetellingstories]. We will first select the 5 police departments based on which city they are in and in particular, we are interested in departments in more populated cities. To obtain information about the most populated cities in 2023, we will use the United States Census Bureau's website to research the 5 most populated city in 2023 or the most recent data they have published [@citeUSCensusRecent]. Then before proceeding to contact members of the under the detective bureau, we will reach out to public affairs office of each department and prepare the necessary documents and proposal about our study. If no approval is received, we will reach out to another police department based on the population of the city they are in. 
 
-
-
-Our target population are all investigators from US police departments [@citetellingstories]. 
-
-
-Chicago and Los Angeles Police Departments 
-The sampling approach we plan to take is stratified sampling, which is a type of probabilistic sampling [@citetellingstories]
-
-
-### Respondent Recruitment
-- how is the sample recruited;
+One we receive approval from the office, we will manually go through each of the department's website or reach out to the public affaris office for information and collect the emails, ranking, and names of investigators on the homicide case team. After information about each investigator has been collected from the 5 departments, we will perform stratified sampling. Stratified sampling is a type of probabilistic sampling where we will divide our sample into a strata based on their ranking and eventually we will have one stratum [@citetellingstories]. We will then take a random sample from each strata and contact the individuals that were sampled. We aim to have at least 5 respondents from each strata complete our survey. We chose stratified sampling since it allows us that every ranking in a police department working on homicide cases is represented [@citeNeyman]. However, a drawback of this sampling is that we may receive a non-response from individuals we sampled [@citetellingstories]. As defined by @citetellingstories, non-response is a measurement error that happens when one refuses to respond to a survey or leaves a question missing. To address non-response bias, respondents will receive monetary compensation for completing the survey to the end and we will also implement respondent-driven sampling by optionally having the respondent recruit one person from the same rank as them to take the survey for monetary compensation [@citetellingstories]. 
 
 ### Data Validation
 
+In order to ensure we are obtaining complete responses filled out by real humans, we will for example include phrases like "write about the colour blue if you are not a human" in the middle or end of some questions to ensure that the responses written by a person. In order to ensure that the respondent is paying attention to the questions being asked, we will have a question that would ask them to select a certain option. Another measure we will take is only allowing 1 response from 1 email and have respondents put down their work email and name that we will can later cross-validate to ensure there is no duplicate responses from the same person. 
+
 ### Idealized Survey Design
-- Using an online survey in cases.  
+We will be sending each investigator a link to an online survey 
+
+**Demographic Information**
+These questions would ask respondents their age, gender, 
+
+**Health-related Information**
+
+
+**Job-related Questions**
 
 
 
@@ -769,12 +768,15 @@ about their education background, reason for closing a homicide case without arr
 
 regarding resources available
 
+### Limitations of Survey
+- what is good and bad about the sampling.
+
+Some limitations with using a survey is that 
+
 
 ### Link to Idealized Survey
 - Using Google Forms
 
-### Limitations
-- what is good and bad about the sampling.
 
 ### Idealized Survey Questions
 - Should have an introductory section and include details of a contact person
@@ -782,7 +784,7 @@ regarding resources available
 - Have a final section that thank the respondents
 
 
-\newpage 
+\newpage
 
 ## Model details {#sec-model-details}
 
