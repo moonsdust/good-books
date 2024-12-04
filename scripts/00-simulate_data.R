@@ -49,7 +49,6 @@ month <- c(1:12)
 # arrest_was_not_made
 arrest_was_not_made <- c(0:1)
 
-
 # Create a dataset by randomly assigning the variables defined above 
 simulated_data <- tibble(
   victim_race = sample(
@@ -93,7 +92,6 @@ simulated_data <- tibble(
     replace = TRUE
   )
 )
-
 
 #### Save data ####
 write_csv(simulated_data, "data/00-simulated_data/simulated_data.csv")
