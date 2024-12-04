@@ -1,152 +1,1001 @@
-division,state,party
-Division 1,Victoria,Liberal
-Division 2,New South Wales,Liberal
-Division 3,Tasmania,Liberal
-Division 4,New South Wales,Liberal
-Division 5,Queensland,Liberal
-Division 6,New South Wales,Labor
-Division 7,Victoria,Liberal
-Division 8,Western Australia,Labor
-Division 9,Western Australia,Greens
-Division 10,Queensland,Labor
-Division 11,Queensland,Labor
-Division 12,Northern Territory,Liberal
-Division 13,New South Wales,Labor
-Division 14,Western Australia,Labor
-Division 15,Western Australia,National
-Division 16,Victoria,Liberal
-Division 17,South Australia,Liberal
-Division 18,Victoria,Liberal
-Division 19,Western Australia,Labor
-Division 20,South Australia,Labor
-Division 21,New South Wales,Liberal
-Division 22,Queensland,Greens
-Division 23,New South Wales,Liberal
-Division 24,New South Wales,Liberal
-Division 25,Queensland,Labor
-Division 26,Victoria,National
-Division 27,New South Wales,Liberal
-Division 28,Queensland,Liberal
-Division 29,Tasmania,Liberal
-Division 30,South Australia,Liberal
-Division 31,New South Wales,Liberal
-Division 32,Victoria,Labor
-Division 33,Tasmania,Liberal
-Division 34,New South Wales,Liberal
-Division 35,Western Australia,Labor
-Division 36,New South Wales,Liberal
-Division 37,Tasmania,Greens
-Division 38,Tasmania,Labor
-Division 39,Victoria,Greens
-Division 40,South Australia,Labor
-Division 41,New South Wales,Other
-Division 42,New South Wales,Other
-Division 43,Tasmania,Labor
-Division 44,Tasmania,National
-Division 45,Queensland,Liberal
-Division 46,Australian Capital Territory,Other
-Division 47,Queensland,Labor
-Division 48,Queensland,Other
-Division 49,South Australia,Liberal
-Division 50,Victoria,National
-Division 51,South Australia,Liberal
-Division 52,Victoria,Labor
-Division 53,South Australia,National
-Division 54,Queensland,Liberal
-Division 55,Queensland,Labor
-Division 56,South Australia,Liberal
-Division 57,New South Wales,Other
-Division 58,Northern Territory,Liberal
-Division 59,New South Wales,Labor
-Division 60,Western Australia,Labor
-Division 61,New South Wales,Liberal
-Division 62,South Australia,Liberal
-Division 63,Queensland,Labor
-Division 64,Tasmania,Labor
-Division 65,South Australia,Labor
-Division 66,Victoria,Labor
-Division 67,Queensland,Liberal
-Division 68,Queensland,Liberal
-Division 69,Tasmania,Labor
-Division 70,South Australia,National
-Division 71,Australian Capital Territory,Labor
-Division 72,Western Australia,Labor
-Division 73,Queensland,National
-Division 74,Victoria,Labor
-Division 75,Western Australia,Labor
-Division 76,Tasmania,Labor
-Division 77,Queensland,Liberal
-Division 78,Western Australia,Liberal
-Division 79,Queensland,Labor
-Division 80,Queensland,Liberal
-Division 81,Victoria,Labor
-Division 82,New South Wales,Liberal
-Division 83,Victoria,Liberal
-Division 84,Queensland,National
-Division 85,Western Australia,Liberal
-Division 86,New South Wales,Labor
-Division 87,Queensland,Liberal
-Division 88,New South Wales,Liberal
-Division 89,Tasmania,Liberal
-Division 90,South Australia,Labor
-Division 91,Victoria,Liberal
-Division 92,New South Wales,Labor
-Division 93,Tasmania,Labor
-Division 94,South Australia,Labor
-Division 95,Victoria,Liberal
-Division 96,Victoria,Labor
-Division 97,Western Australia,Liberal
-Division 98,Queensland,Liberal
-Division 99,South Australia,Liberal
-Division 100,New South Wales,Labor
-Division 101,South Australia,Labor
-Division 102,New South Wales,Labor
-Division 103,Victoria,Labor
-Division 104,Victoria,Labor
-Division 105,South Australia,Other
-Division 106,Western Australia,Labor
-Division 107,Tasmania,Liberal
-Division 108,Victoria,Labor
-Division 109,Queensland,Liberal
-Division 110,Victoria,Labor
-Division 111,Australian Capital Territory,Labor
-Division 112,Victoria,Liberal
-Division 113,Victoria,Liberal
-Division 114,Victoria,Liberal
-Division 115,Tasmania,Labor
-Division 116,Victoria,Labor
-Division 117,New South Wales,Labor
-Division 118,Victoria,Labor
-Division 119,Victoria,Greens
-Division 120,Northern Territory,Labor
-Division 121,South Australia,Liberal
-Division 122,New South Wales,Liberal
-Division 123,New South Wales,Labor
-Division 124,New South Wales,Liberal
-Division 125,New South Wales,National
-Division 126,New South Wales,Labor
-Division 127,Queensland,Labor
-Division 128,New South Wales,Other
-Division 129,Queensland,Labor
-Division 130,Australian Capital Territory,Liberal
-Division 131,Tasmania,Greens
-Division 132,New South Wales,National
-Division 133,New South Wales,Labor
-Division 134,Northern Territory,Labor
-Division 135,South Australia,National
-Division 136,Victoria,Labor
-Division 137,Tasmania,National
-Division 138,South Australia,Liberal
-Division 139,New South Wales,Labor
-Division 140,Victoria,Other
-Division 141,Queensland,Greens
-Division 142,Victoria,National
-Division 143,Western Australia,Labor
-Division 144,Victoria,Labor
-Division 145,Queensland,Liberal
-Division 146,Tasmania,Liberal
-Division 147,South Australia,Liberal
-Division 148,Victoria,Labor
-Division 149,New South Wales,National
-Division 150,New South Wales,Labor
-Division 151,Victoria,Liberal
+victim_race,victim_age,victim_sex,city,disposition,year,month,arrest_was_not_made
+White,45,Female,Los Angeles,Closed without arrest,2012,12,1
+Hispanic,0,Male,Los Angeles,Closed by arrest,2017,10,0
+Hispanic,7,Male,Chicago,Closed by arrest,2011,7,1
+Other,49,Male,Los Angeles,Closed without arrest,2016,4,0
+White,83,Female,Chicago,Open/No arrest,2015,3,0
+White,34,Female,Chicago,Closed by arrest,2012,7,1
+White,5,Male,Chicago,Closed without arrest,2016,1,0
+Hispanic,52,Female,Chicago,Closed without arrest,2016,2,1
+Asian,33,Female,Chicago,Closed by arrest,2017,3,0
+White,59,Female,Chicago,Closed without arrest,2011,1,1
+White,14,Male,Los Angeles,Closed by arrest,2012,7,0
+Other,15,Female,Chicago,Open/No arrest,2014,9,1
+Hispanic,45,Female,Chicago,Open/No arrest,2016,8,0
+Asian,17,Female,Chicago,Open/No arrest,2013,3,0
+Hispanic,38,Female,Chicago,Closed without arrest,2014,6,0
+Asian,59,Male,Chicago,Closed without arrest,2016,6,1
+Hispanic,68,Female,Chicago,Closed without arrest,2017,10,0
+Hispanic,42,Male,Los Angeles,Closed by arrest,2010,10,1
+White,77,Female,Los Angeles,Closed by arrest,2015,7,0
+Hispanic,100,Male,Los Angeles,Open/No arrest,2017,1,0
+White,47,Male,Los Angeles,Closed without arrest,2012,9,1
+White,3,Male,Chicago,Closed by arrest,2017,10,1
+Hispanic,16,Female,Chicago,Open/No arrest,2016,8,0
+Asian,72,Male,Los Angeles,Closed by arrest,2015,8,1
+White,62,Male,Chicago,Closed by arrest,2017,4,1
+Other,38,Female,Chicago,Closed by arrest,2017,5,0
+Asian,46,Male,Los Angeles,Closed without arrest,2014,6,1
+White,19,Female,Los Angeles,Open/No arrest,2012,3,0
+White,3,Female,Los Angeles,Closed by arrest,2016,5,1
+Asian,27,Male,Chicago,Open/No arrest,2013,10,1
+Hispanic,41,Female,Chicago,Closed without arrest,2012,1,1
+Black,77,Female,Chicago,Closed by arrest,2011,7,1
+Asian,50,Male,Chicago,Open/No arrest,2013,7,1
+White,25,Female,Chicago,Open/No arrest,2017,5,0
+White,17,Male,Los Angeles,Closed without arrest,2017,12,1
+Hispanic,25,Male,Los Angeles,Closed by arrest,2013,10,0
+Other,33,Male,Chicago,Open/No arrest,2015,12,0
+Black,81,Female,Chicago,Open/No arrest,2015,10,0
+White,43,Male,Chicago,Closed by arrest,2015,3,1
+Black,4,Male,Los Angeles,Open/No arrest,2015,6,1
+Black,36,Male,Los Angeles,Open/No arrest,2012,5,1
+Other,57,Male,Los Angeles,Open/No arrest,2013,11,1
+Black,47,Male,Chicago,Closed without arrest,2011,5,1
+White,67,Male,Los Angeles,Closed without arrest,2014,1,0
+White,82,Male,Chicago,Closed by arrest,2010,1,0
+Other,42,Female,Chicago,Closed without arrest,2014,2,0
+Other,82,Female,Los Angeles,Closed by arrest,2016,1,1
+Hispanic,75,Male,Los Angeles,Closed without arrest,2015,8,1
+Hispanic,74,Male,Chicago,Open/No arrest,2010,11,1
+Hispanic,12,Female,Los Angeles,Closed by arrest,2010,2,1
+Hispanic,6,Male,Chicago,Open/No arrest,2014,1,1
+Asian,43,Female,Chicago,Closed by arrest,2014,2,0
+White,66,Male,Los Angeles,Open/No arrest,2015,4,1
+White,57,Female,Chicago,Closed by arrest,2012,7,0
+Black,98,Male,Los Angeles,Open/No arrest,2011,1,0
+Black,6,Female,Los Angeles,Open/No arrest,2015,12,1
+Asian,46,Female,Chicago,Closed without arrest,2016,1,1
+Hispanic,77,Female,Chicago,Closed without arrest,2017,5,0
+Black,38,Male,Chicago,Open/No arrest,2011,8,1
+White,19,Female,Los Angeles,Open/No arrest,2010,1,0
+Other,34,Female,Los Angeles,Open/No arrest,2012,10,1
+Other,0,Male,Chicago,Closed without arrest,2011,10,0
+Other,72,Male,Los Angeles,Open/No arrest,2011,2,1
+White,29,Female,Los Angeles,Closed without arrest,2015,11,0
+Black,27,Male,Chicago,Open/No arrest,2017,5,0
+Other,44,Female,Chicago,Closed without arrest,2016,4,1
+Asian,4,Female,Los Angeles,Open/No arrest,2011,7,0
+Asian,19,Male,Los Angeles,Open/No arrest,2013,5,1
+Black,44,Female,Los Angeles,Closed by arrest,2017,11,0
+Other,2,Female,Chicago,Closed by arrest,2012,3,0
+Asian,46,Female,Chicago,Closed without arrest,2012,9,0
+Hispanic,41,Female,Los Angeles,Closed without arrest,2012,8,1
+Black,14,Female,Chicago,Open/No arrest,2012,11,0
+Asian,2,Male,Los Angeles,Closed by arrest,2015,12,0
+Asian,37,Male,Chicago,Closed without arrest,2010,11,0
+Asian,35,Female,Los Angeles,Closed by arrest,2010,4,0
+White,88,Male,Chicago,Closed by arrest,2017,5,1
+White,16,Female,Chicago,Closed without arrest,2015,4,0
+Black,12,Male,Los Angeles,Closed without arrest,2016,8,1
+White,63,Male,Los Angeles,Closed without arrest,2015,12,1
+Black,6,Male,Los Angeles,Open/No arrest,2011,3,1
+Black,28,Male,Los Angeles,Closed by arrest,2012,3,0
+Other,9,Male,Chicago,Closed without arrest,2015,3,1
+White,65,Female,Chicago,Open/No arrest,2016,7,0
+White,50,Female,Los Angeles,Open/No arrest,2015,7,1
+Other,82,Female,Chicago,Open/No arrest,2013,4,0
+Black,22,Male,Chicago,Open/No arrest,2011,4,0
+White,79,Male,Chicago,Open/No arrest,2011,12,1
+Hispanic,33,Male,Chicago,Closed without arrest,2016,5,0
+Black,17,Female,Chicago,Closed by arrest,2016,9,1
+Other,69,Male,Chicago,Closed by arrest,2017,3,1
+Other,13,Female,Chicago,Closed without arrest,2011,7,0
+Other,37,Male,Chicago,Open/No arrest,2010,12,1
+Asian,90,Male,Chicago,Open/No arrest,2015,2,0
+Other,35,Male,Chicago,Closed by arrest,2017,11,0
+Asian,88,Male,Chicago,Closed by arrest,2010,6,1
+White,8,Female,Chicago,Closed without arrest,2014,10,0
+Other,90,Female,Los Angeles,Closed without arrest,2016,11,1
+Hispanic,14,Male,Chicago,Closed without arrest,2012,2,1
+Asian,19,Female,Chicago,Closed without arrest,2011,5,1
+White,19,Male,Los Angeles,Closed by arrest,2014,7,0
+Other,67,Female,Los Angeles,Open/No arrest,2010,10,0
+Hispanic,46,Male,Chicago,Open/No arrest,2017,8,0
+Other,41,Female,Chicago,Open/No arrest,2011,5,1
+White,88,Female,Chicago,Closed without arrest,2015,9,0
+Asian,54,Female,Los Angeles,Open/No arrest,2010,4,0
+Hispanic,19,Female,Chicago,Open/No arrest,2011,4,0
+Asian,16,Male,Los Angeles,Closed without arrest,2013,4,1
+White,67,Female,Los Angeles,Open/No arrest,2013,9,0
+Black,65,Male,Chicago,Closed without arrest,2010,11,0
+Other,47,Male,Los Angeles,Open/No arrest,2010,9,1
+Other,0,Female,Los Angeles,Closed by arrest,2012,8,1
+Black,42,Female,Chicago,Open/No arrest,2014,4,1
+Other,12,Female,Chicago,Closed by arrest,2011,12,0
+White,47,Female,Chicago,Closed without arrest,2010,3,0
+Black,16,Female,Los Angeles,Closed without arrest,2014,4,0
+Hispanic,78,Male,Los Angeles,Closed by arrest,2015,5,1
+Asian,29,Male,Los Angeles,Closed by arrest,2013,9,0
+Hispanic,49,Male,Chicago,Open/No arrest,2010,4,1
+Black,84,Female,Los Angeles,Closed by arrest,2011,9,0
+Hispanic,42,Female,Los Angeles,Open/No arrest,2016,4,1
+White,25,Female,Chicago,Closed without arrest,2011,7,0
+White,78,Male,Chicago,Closed by arrest,2011,7,1
+White,97,Female,Los Angeles,Closed without arrest,2012,10,1
+White,26,Male,Chicago,Open/No arrest,2015,3,1
+Asian,96,Female,Los Angeles,Closed by arrest,2010,3,1
+Black,33,Male,Chicago,Closed without arrest,2017,6,1
+White,51,Male,Chicago,Closed without arrest,2017,7,0
+Hispanic,62,Female,Chicago,Closed by arrest,2017,2,1
+White,30,Female,Chicago,Open/No arrest,2011,4,0
+Black,37,Male,Chicago,Open/No arrest,2016,6,1
+White,90,Female,Los Angeles,Closed without arrest,2017,5,1
+White,70,Female,Chicago,Closed by arrest,2017,7,0
+Asian,12,Female,Chicago,Open/No arrest,2016,8,1
+Hispanic,85,Female,Chicago,Closed without arrest,2017,9,0
+Asian,21,Female,Chicago,Closed by arrest,2012,11,0
+Black,88,Male,Los Angeles,Closed by arrest,2010,1,0
+Other,40,Male,Chicago,Open/No arrest,2015,10,1
+Black,48,Male,Los Angeles,Open/No arrest,2014,4,1
+Hispanic,91,Female,Chicago,Open/No arrest,2013,3,1
+Hispanic,26,Female,Los Angeles,Closed without arrest,2013,9,0
+Hispanic,31,Female,Chicago,Closed by arrest,2013,3,0
+Asian,83,Male,Chicago,Open/No arrest,2010,6,0
+Asian,14,Male,Chicago,Closed without arrest,2017,10,1
+Other,79,Male,Chicago,Closed without arrest,2016,12,0
+Hispanic,70,Male,Chicago,Open/No arrest,2013,12,0
+Other,9,Female,Los Angeles,Closed without arrest,2016,7,0
+White,61,Male,Los Angeles,Open/No arrest,2011,2,0
+Asian,62,Female,Los Angeles,Open/No arrest,2015,2,1
+White,34,Female,Los Angeles,Closed without arrest,2013,6,1
+Black,71,Male,Los Angeles,Closed without arrest,2014,11,0
+Other,38,Male,Chicago,Open/No arrest,2016,1,1
+Hispanic,44,Male,Los Angeles,Open/No arrest,2010,1,0
+Hispanic,23,Male,Los Angeles,Closed without arrest,2016,11,0
+Asian,30,Male,Chicago,Open/No arrest,2017,3,1
+Hispanic,16,Male,Los Angeles,Closed without arrest,2012,3,1
+Hispanic,22,Female,Chicago,Open/No arrest,2010,11,1
+Asian,79,Female,Chicago,Closed by arrest,2014,8,1
+Hispanic,47,Male,Chicago,Closed by arrest,2012,2,0
+Other,57,Male,Chicago,Closed by arrest,2011,5,0
+Hispanic,67,Female,Chicago,Closed without arrest,2010,12,0
+White,30,Male,Los Angeles,Closed without arrest,2015,1,1
+White,95,Female,Los Angeles,Closed without arrest,2014,10,0
+Other,30,Female,Chicago,Closed by arrest,2014,5,1
+Black,94,Female,Los Angeles,Closed without arrest,2010,3,1
+Other,2,Female,Chicago,Closed by arrest,2010,12,1
+Black,21,Male,Chicago,Closed without arrest,2012,1,1
+Black,3,Male,Chicago,Closed without arrest,2011,12,1
+Other,32,Male,Los Angeles,Open/No arrest,2017,8,0
+Other,99,Female,Chicago,Closed without arrest,2011,1,1
+Other,60,Male,Los Angeles,Closed by arrest,2016,4,0
+Asian,95,Male,Chicago,Open/No arrest,2016,1,0
+Asian,21,Female,Chicago,Open/No arrest,2014,6,0
+Other,49,Female,Chicago,Open/No arrest,2012,2,1
+White,45,Male,Los Angeles,Closed without arrest,2011,3,1
+Asian,4,Female,Chicago,Closed by arrest,2017,9,0
+Asian,57,Male,Los Angeles,Closed by arrest,2010,11,1
+Asian,57,Female,Los Angeles,Closed without arrest,2017,3,0
+Black,80,Female,Los Angeles,Closed without arrest,2014,12,0
+Asian,92,Male,Los Angeles,Closed by arrest,2013,12,0
+Hispanic,78,Female,Los Angeles,Open/No arrest,2014,10,0
+Hispanic,62,Female,Los Angeles,Closed without arrest,2010,6,1
+White,44,Female,Chicago,Open/No arrest,2012,12,1
+White,79,Female,Los Angeles,Closed by arrest,2015,12,0
+Black,46,Female,Los Angeles,Open/No arrest,2016,5,0
+Hispanic,65,Female,Los Angeles,Closed by arrest,2016,5,0
+Black,99,Female,Chicago,Closed without arrest,2015,1,1
+White,77,Male,Chicago,Open/No arrest,2012,6,1
+Other,80,Male,Los Angeles,Closed without arrest,2012,1,0
+Other,3,Male,Los Angeles,Open/No arrest,2017,6,1
+Asian,72,Male,Chicago,Closed by arrest,2013,8,0
+White,53,Male,Los Angeles,Closed by arrest,2014,11,1
+White,59,Female,Chicago,Open/No arrest,2013,11,1
+Black,18,Female,Chicago,Closed by arrest,2017,12,1
+Hispanic,51,Female,Chicago,Open/No arrest,2011,2,0
+Black,35,Male,Los Angeles,Closed without arrest,2011,12,0
+Hispanic,64,Male,Chicago,Closed without arrest,2011,9,0
+Asian,17,Female,Chicago,Closed without arrest,2015,10,0
+Asian,56,Female,Los Angeles,Open/No arrest,2015,12,0
+Black,13,Male,Los Angeles,Closed without arrest,2011,10,1
+Other,38,Male,Los Angeles,Open/No arrest,2012,12,1
+Hispanic,34,Male,Los Angeles,Closed by arrest,2015,8,0
+Hispanic,57,Female,Los Angeles,Closed by arrest,2011,8,0
+White,28,Male,Chicago,Closed without arrest,2016,4,0
+Hispanic,3,Male,Los Angeles,Closed without arrest,2014,9,1
+Asian,41,Female,Chicago,Closed by arrest,2017,5,1
+Black,63,Male,Chicago,Open/No arrest,2013,9,1
+Black,58,Female,Chicago,Open/No arrest,2014,6,1
+Asian,99,Male,Chicago,Open/No arrest,2010,4,0
+Other,12,Female,Los Angeles,Closed without arrest,2012,11,0
+Hispanic,49,Male,Los Angeles,Closed without arrest,2017,8,1
+Other,31,Male,Los Angeles,Closed by arrest,2013,7,1
+Black,58,Female,Chicago,Open/No arrest,2012,3,0
+Other,75,Female,Los Angeles,Open/No arrest,2012,4,0
+Asian,71,Female,Chicago,Open/No arrest,2010,10,1
+Asian,68,Female,Chicago,Closed without arrest,2013,3,0
+Other,1,Male,Chicago,Closed without arrest,2012,3,0
+Hispanic,77,Female,Chicago,Closed without arrest,2010,11,0
+Hispanic,72,Female,Chicago,Closed without arrest,2015,5,1
+Hispanic,97,Male,Chicago,Open/No arrest,2015,9,1
+Asian,34,Male,Chicago,Closed without arrest,2010,12,0
+Hispanic,55,Female,Chicago,Closed by arrest,2013,9,0
+White,53,Female,Los Angeles,Closed without arrest,2011,4,0
+Black,51,Female,Chicago,Closed without arrest,2014,11,0
+White,51,Male,Los Angeles,Open/No arrest,2012,7,0
+Black,31,Female,Chicago,Closed by arrest,2012,12,0
+Asian,63,Male,Chicago,Closed by arrest,2011,5,0
+White,34,Male,Chicago,Closed without arrest,2012,7,1
+Black,82,Female,Los Angeles,Closed by arrest,2014,5,1
+Black,43,Female,Chicago,Open/No arrest,2017,8,0
+Hispanic,55,Male,Chicago,Closed without arrest,2015,9,1
+White,49,Female,Chicago,Closed without arrest,2016,9,1
+White,100,Female,Los Angeles,Closed by arrest,2012,9,1
+Hispanic,82,Female,Los Angeles,Closed by arrest,2017,12,0
+Black,12,Male,Los Angeles,Closed without arrest,2015,10,1
+Hispanic,73,Female,Los Angeles,Closed without arrest,2015,10,0
+Asian,48,Male,Chicago,Closed without arrest,2011,7,1
+Black,82,Female,Los Angeles,Closed by arrest,2014,8,0
+White,38,Female,Chicago,Closed without arrest,2011,4,0
+Asian,7,Male,Chicago,Open/No arrest,2014,6,0
+White,82,Female,Chicago,Closed by arrest,2014,2,0
+Black,78,Female,Chicago,Open/No arrest,2014,8,1
+Asian,68,Female,Los Angeles,Closed without arrest,2016,5,0
+Hispanic,92,Female,Los Angeles,Closed without arrest,2016,4,0
+Asian,43,Male,Los Angeles,Closed by arrest,2013,10,0
+Black,23,Male,Chicago,Open/No arrest,2014,4,1
+White,51,Male,Los Angeles,Closed without arrest,2016,2,1
+Other,83,Female,Chicago,Open/No arrest,2010,8,1
+Hispanic,64,Female,Los Angeles,Open/No arrest,2010,12,1
+Black,28,Male,Chicago,Closed by arrest,2010,2,0
+Hispanic,68,Female,Los Angeles,Open/No arrest,2014,5,0
+White,16,Male,Chicago,Open/No arrest,2013,3,1
+White,32,Female,Los Angeles,Open/No arrest,2013,3,1
+Black,36,Female,Los Angeles,Open/No arrest,2017,12,0
+Asian,93,Female,Los Angeles,Closed by arrest,2015,12,1
+Asian,8,Male,Chicago,Closed by arrest,2017,4,1
+Black,95,Male,Chicago,Closed without arrest,2011,11,0
+Black,49,Female,Chicago,Closed without arrest,2016,3,0
+White,68,Male,Los Angeles,Open/No arrest,2014,7,1
+Black,65,Female,Chicago,Closed without arrest,2012,3,0
+Other,58,Male,Los Angeles,Closed without arrest,2012,5,1
+Hispanic,19,Female,Los Angeles,Closed without arrest,2011,7,1
+Black,78,Male,Chicago,Open/No arrest,2016,11,1
+Other,10,Male,Chicago,Closed by arrest,2013,8,0
+Hispanic,49,Male,Los Angeles,Closed by arrest,2015,2,0
+White,61,Male,Los Angeles,Open/No arrest,2013,8,1
+Hispanic,56,Female,Chicago,Closed by arrest,2013,5,0
+White,49,Female,Los Angeles,Open/No arrest,2014,6,1
+Asian,89,Male,Los Angeles,Closed by arrest,2013,6,1
+Other,83,Male,Los Angeles,Closed without arrest,2011,7,1
+Asian,50,Female,Chicago,Closed without arrest,2017,9,1
+White,81,Male,Chicago,Closed by arrest,2010,7,0
+Hispanic,91,Female,Chicago,Closed by arrest,2014,2,0
+White,5,Male,Los Angeles,Closed by arrest,2012,1,1
+Black,45,Female,Chicago,Open/No arrest,2010,5,1
+Hispanic,4,Male,Chicago,Open/No arrest,2012,5,0
+Hispanic,25,Male,Chicago,Closed by arrest,2010,7,0
+White,20,Male,Los Angeles,Closed by arrest,2017,12,0
+Other,37,Male,Los Angeles,Closed without arrest,2016,1,0
+Other,95,Male,Los Angeles,Closed by arrest,2011,5,1
+Black,49,Male,Chicago,Open/No arrest,2016,5,0
+Black,3,Male,Los Angeles,Closed by arrest,2010,8,0
+Hispanic,45,Female,Chicago,Closed without arrest,2013,5,0
+White,2,Female,Chicago,Closed by arrest,2013,1,0
+Hispanic,39,Male,Los Angeles,Closed without arrest,2015,7,0
+White,55,Male,Chicago,Open/No arrest,2014,5,1
+Asian,64,Male,Chicago,Closed by arrest,2015,5,1
+White,77,Female,Chicago,Closed without arrest,2010,5,0
+Hispanic,56,Female,Los Angeles,Closed without arrest,2017,12,1
+Other,82,Male,Los Angeles,Open/No arrest,2017,5,0
+Hispanic,47,Female,Los Angeles,Closed without arrest,2011,10,1
+Asian,14,Female,Los Angeles,Closed without arrest,2013,10,0
+Other,94,Female,Los Angeles,Closed without arrest,2013,11,1
+White,29,Male,Chicago,Open/No arrest,2016,3,1
+Asian,23,Male,Chicago,Closed without arrest,2017,5,0
+Other,73,Female,Los Angeles,Closed without arrest,2017,10,1
+Asian,23,Male,Chicago,Closed by arrest,2012,8,1
+Asian,35,Male,Los Angeles,Open/No arrest,2014,3,1
+Hispanic,31,Female,Los Angeles,Closed by arrest,2016,9,1
+White,58,Female,Chicago,Closed by arrest,2012,4,0
+White,8,Male,Los Angeles,Closed by arrest,2014,2,1
+White,37,Female,Los Angeles,Closed by arrest,2015,11,0
+Black,68,Male,Los Angeles,Closed without arrest,2015,7,1
+Hispanic,69,Male,Chicago,Closed by arrest,2016,3,0
+Black,88,Male,Chicago,Closed by arrest,2013,5,0
+White,80,Female,Chicago,Closed by arrest,2016,10,1
+Asian,17,Male,Chicago,Closed without arrest,2014,1,0
+White,11,Male,Los Angeles,Closed without arrest,2015,7,1
+Black,85,Male,Los Angeles,Closed without arrest,2016,2,1
+White,16,Male,Los Angeles,Closed by arrest,2010,5,0
+Black,5,Male,Chicago,Open/No arrest,2014,3,1
+Other,71,Male,Chicago,Open/No arrest,2017,9,0
+Other,78,Male,Los Angeles,Open/No arrest,2012,5,1
+Asian,24,Female,Chicago,Open/No arrest,2012,9,0
+Hispanic,31,Male,Los Angeles,Closed without arrest,2012,9,1
+White,74,Male,Los Angeles,Closed by arrest,2017,7,1
+Hispanic,86,Male,Chicago,Open/No arrest,2016,3,0
+Hispanic,61,Female,Chicago,Open/No arrest,2012,11,0
+Black,42,Female,Chicago,Closed by arrest,2011,9,1
+Asian,26,Female,Chicago,Closed without arrest,2010,7,0
+Black,15,Male,Los Angeles,Closed without arrest,2016,12,1
+White,32,Male,Chicago,Open/No arrest,2012,10,0
+White,20,Female,Chicago,Closed by arrest,2014,5,1
+Black,89,Female,Chicago,Closed by arrest,2010,7,0
+White,32,Male,Chicago,Closed without arrest,2015,1,1
+Asian,24,Male,Los Angeles,Open/No arrest,2017,3,0
+Other,52,Female,Los Angeles,Open/No arrest,2014,1,1
+White,97,Male,Los Angeles,Closed by arrest,2010,9,1
+White,74,Male,Chicago,Closed without arrest,2012,12,1
+Other,8,Male,Los Angeles,Closed without arrest,2011,3,0
+Other,96,Female,Los Angeles,Open/No arrest,2016,8,1
+Other,17,Female,Chicago,Closed by arrest,2013,9,1
+Black,17,Male,Los Angeles,Closed without arrest,2015,2,0
+White,17,Female,Los Angeles,Closed without arrest,2011,12,1
+Other,30,Female,Chicago,Closed by arrest,2011,12,1
+White,33,Male,Chicago,Open/No arrest,2013,3,1
+Black,97,Male,Los Angeles,Open/No arrest,2013,6,1
+White,98,Male,Chicago,Open/No arrest,2016,1,0
+Hispanic,41,Female,Los Angeles,Open/No arrest,2015,3,0
+Black,22,Female,Chicago,Closed without arrest,2016,9,0
+Black,14,Female,Chicago,Open/No arrest,2011,3,1
+Hispanic,44,Female,Chicago,Open/No arrest,2013,4,0
+Black,25,Female,Los Angeles,Open/No arrest,2016,11,1
+White,42,Female,Los Angeles,Closed by arrest,2012,4,0
+Hispanic,4,Male,Chicago,Closed without arrest,2014,11,0
+White,6,Male,Los Angeles,Open/No arrest,2015,12,1
+Hispanic,47,Female,Los Angeles,Closed without arrest,2012,1,1
+Hispanic,8,Female,Chicago,Closed without arrest,2015,12,1
+Other,77,Female,Chicago,Closed without arrest,2013,3,0
+Hispanic,95,Male,Los Angeles,Closed without arrest,2015,11,0
+Black,42,Female,Chicago,Closed without arrest,2016,12,1
+Black,97,Male,Chicago,Closed without arrest,2016,1,0
+Asian,12,Female,Chicago,Closed by arrest,2011,11,0
+Hispanic,92,Male,Los Angeles,Closed by arrest,2010,11,0
+White,90,Female,Los Angeles,Closed by arrest,2016,12,0
+Other,24,Male,Los Angeles,Open/No arrest,2013,10,1
+Hispanic,43,Female,Chicago,Open/No arrest,2012,10,1
+Other,17,Male,Los Angeles,Open/No arrest,2015,4,1
+Other,74,Female,Los Angeles,Open/No arrest,2011,5,0
+Asian,87,Female,Chicago,Open/No arrest,2010,3,1
+Black,48,Male,Chicago,Closed by arrest,2014,9,0
+Asian,35,Female,Los Angeles,Open/No arrest,2013,12,1
+Asian,60,Male,Los Angeles,Closed without arrest,2013,10,0
+Black,50,Female,Los Angeles,Closed without arrest,2014,10,0
+Hispanic,45,Female,Los Angeles,Closed without arrest,2015,10,0
+Black,78,Female,Los Angeles,Closed by arrest,2012,5,0
+White,50,Female,Los Angeles,Closed without arrest,2012,6,1
+Asian,44,Female,Chicago,Closed without arrest,2015,5,0
+Black,92,Female,Los Angeles,Closed without arrest,2010,9,0
+Other,43,Male,Chicago,Closed without arrest,2017,1,1
+White,91,Female,Chicago,Closed by arrest,2013,1,1
+Hispanic,3,Male,Los Angeles,Open/No arrest,2013,10,1
+Black,27,Female,Los Angeles,Closed by arrest,2012,10,0
+Black,80,Male,Los Angeles,Closed by arrest,2015,1,1
+Black,28,Female,Los Angeles,Closed by arrest,2017,4,0
+Black,14,Male,Los Angeles,Closed by arrest,2016,9,0
+Hispanic,98,Female,Los Angeles,Closed without arrest,2011,4,0
+White,24,Male,Los Angeles,Closed without arrest,2012,4,1
+Black,40,Male,Los Angeles,Closed without arrest,2010,11,0
+Hispanic,34,Male,Los Angeles,Closed without arrest,2015,4,1
+Other,49,Male,Chicago,Open/No arrest,2013,10,1
+Asian,88,Male,Chicago,Closed by arrest,2013,2,0
+Other,62,Female,Chicago,Closed without arrest,2016,1,0
+Other,29,Male,Los Angeles,Open/No arrest,2012,10,1
+Hispanic,37,Female,Chicago,Closed by arrest,2014,3,0
+Black,75,Female,Chicago,Closed without arrest,2015,9,0
+Other,57,Male,Los Angeles,Closed without arrest,2016,11,1
+Hispanic,34,Female,Chicago,Closed without arrest,2012,11,1
+Other,83,Female,Los Angeles,Closed without arrest,2012,4,0
+Other,84,Male,Los Angeles,Closed by arrest,2012,7,1
+Hispanic,26,Female,Chicago,Closed without arrest,2015,8,0
+Hispanic,87,Female,Los Angeles,Closed without arrest,2016,9,1
+Black,64,Male,Los Angeles,Closed by arrest,2012,10,1
+Black,50,Male,Los Angeles,Open/No arrest,2015,10,0
+White,40,Female,Los Angeles,Open/No arrest,2011,6,1
+Other,89,Male,Los Angeles,Closed without arrest,2016,11,0
+White,19,Female,Chicago,Open/No arrest,2014,11,0
+Asian,23,Male,Los Angeles,Open/No arrest,2017,11,1
+Asian,65,Female,Chicago,Closed without arrest,2017,1,1
+White,53,Female,Los Angeles,Closed by arrest,2017,6,0
+Asian,83,Female,Chicago,Open/No arrest,2010,11,0
+White,73,Male,Los Angeles,Closed by arrest,2013,3,1
+Other,13,Female,Los Angeles,Closed by arrest,2013,7,1
+Black,18,Female,Chicago,Open/No arrest,2010,10,0
+White,81,Male,Chicago,Open/No arrest,2016,9,1
+White,59,Female,Chicago,Open/No arrest,2017,8,1
+Asian,8,Male,Los Angeles,Closed without arrest,2015,9,0
+Asian,59,Female,Chicago,Closed by arrest,2015,6,0
+Asian,71,Female,Los Angeles,Closed without arrest,2010,10,1
+Other,74,Female,Los Angeles,Open/No arrest,2012,8,0
+Black,32,Female,Los Angeles,Open/No arrest,2014,3,1
+White,38,Male,Chicago,Open/No arrest,2012,6,0
+Black,64,Female,Chicago,Open/No arrest,2016,6,1
+Asian,58,Female,Los Angeles,Closed without arrest,2014,3,1
+Other,47,Male,Chicago,Open/No arrest,2016,5,0
+Hispanic,72,Female,Los Angeles,Open/No arrest,2017,1,0
+Hispanic,21,Female,Chicago,Closed without arrest,2014,7,0
+Hispanic,68,Male,Chicago,Closed without arrest,2011,3,1
+Asian,27,Female,Los Angeles,Open/No arrest,2011,5,1
+Black,73,Female,Los Angeles,Closed without arrest,2016,3,1
+Hispanic,69,Male,Los Angeles,Closed without arrest,2016,3,1
+White,96,Male,Los Angeles,Closed without arrest,2010,11,1
+Other,31,Female,Los Angeles,Closed by arrest,2017,5,1
+Other,9,Female,Los Angeles,Open/No arrest,2010,12,1
+White,39,Male,Chicago,Closed by arrest,2010,11,0
+Asian,97,Male,Chicago,Open/No arrest,2011,5,1
+Other,40,Male,Chicago,Open/No arrest,2016,2,1
+Asian,11,Female,Los Angeles,Open/No arrest,2014,9,0
+Black,21,Female,Chicago,Closed by arrest,2010,3,0
+Other,92,Male,Los Angeles,Closed without arrest,2016,10,0
+Black,96,Female,Los Angeles,Open/No arrest,2017,1,0
+White,85,Male,Chicago,Open/No arrest,2012,9,0
+Other,49,Male,Chicago,Open/No arrest,2010,4,0
+Asian,31,Female,Los Angeles,Closed without arrest,2014,9,1
+Other,87,Male,Chicago,Closed without arrest,2016,1,1
+Other,39,Male,Los Angeles,Open/No arrest,2011,3,0
+Asian,32,Male,Los Angeles,Open/No arrest,2014,4,0
+White,27,Female,Los Angeles,Open/No arrest,2014,3,0
+Black,59,Male,Chicago,Closed without arrest,2015,5,1
+Asian,31,Male,Chicago,Open/No arrest,2015,3,0
+Asian,0,Female,Los Angeles,Closed by arrest,2016,6,1
+Hispanic,61,Male,Chicago,Closed without arrest,2013,4,0
+Hispanic,43,Female,Los Angeles,Closed by arrest,2012,5,0
+Black,61,Male,Los Angeles,Closed by arrest,2016,12,0
+Asian,81,Female,Chicago,Closed by arrest,2010,4,1
+Other,65,Male,Los Angeles,Closed by arrest,2011,7,0
+Black,7,Female,Chicago,Closed without arrest,2013,10,1
+Asian,64,Female,Chicago,Closed by arrest,2015,4,0
+White,100,Male,Chicago,Closed by arrest,2012,6,0
+Hispanic,70,Male,Chicago,Closed without arrest,2014,10,0
+Asian,0,Male,Los Angeles,Closed by arrest,2011,7,0
+Other,10,Female,Chicago,Closed without arrest,2013,4,1
+Other,43,Male,Los Angeles,Open/No arrest,2011,9,0
+Asian,23,Female,Chicago,Closed by arrest,2011,1,1
+Other,18,Male,Los Angeles,Open/No arrest,2011,1,0
+Hispanic,48,Male,Los Angeles,Closed without arrest,2010,4,0
+White,97,Male,Los Angeles,Closed without arrest,2012,4,0
+White,63,Male,Los Angeles,Closed without arrest,2012,10,1
+Asian,51,Male,Los Angeles,Closed by arrest,2016,3,0
+Black,57,Female,Chicago,Closed by arrest,2014,2,0
+Black,56,Female,Los Angeles,Open/No arrest,2017,4,1
+Hispanic,73,Male,Chicago,Closed by arrest,2010,6,1
+Other,31,Female,Los Angeles,Open/No arrest,2016,7,1
+Asian,43,Female,Los Angeles,Closed without arrest,2013,5,0
+Hispanic,80,Female,Los Angeles,Open/No arrest,2010,1,0
+Other,21,Female,Los Angeles,Open/No arrest,2010,9,0
+Hispanic,12,Male,Chicago,Open/No arrest,2010,3,0
+Asian,94,Male,Chicago,Closed by arrest,2015,6,1
+Hispanic,59,Female,Los Angeles,Closed without arrest,2015,6,1
+Asian,97,Male,Chicago,Closed by arrest,2013,7,0
+Other,22,Female,Chicago,Closed without arrest,2014,7,0
+Asian,70,Female,Chicago,Closed without arrest,2011,10,0
+Black,30,Male,Chicago,Closed by arrest,2013,4,0
+Other,98,Male,Chicago,Open/No arrest,2011,1,0
+Black,64,Male,Chicago,Closed without arrest,2010,5,0
+Hispanic,19,Female,Los Angeles,Closed without arrest,2016,7,0
+Other,43,Male,Chicago,Closed by arrest,2011,4,1
+Asian,69,Female,Chicago,Closed without arrest,2010,4,0
+Asian,48,Male,Chicago,Open/No arrest,2017,8,0
+White,87,Female,Los Angeles,Open/No arrest,2016,4,0
+Asian,69,Male,Los Angeles,Open/No arrest,2014,2,1
+Asian,86,Female,Los Angeles,Open/No arrest,2015,12,0
+Hispanic,60,Female,Los Angeles,Open/No arrest,2012,2,0
+White,28,Female,Chicago,Closed without arrest,2010,4,1
+White,44,Female,Los Angeles,Open/No arrest,2016,11,0
+Other,70,Female,Chicago,Open/No arrest,2013,9,0
+Black,90,Male,Chicago,Open/No arrest,2017,5,1
+White,47,Male,Los Angeles,Open/No arrest,2010,2,1
+Other,19,Female,Los Angeles,Closed by arrest,2012,6,0
+Hispanic,46,Male,Los Angeles,Closed by arrest,2016,10,0
+Black,51,Male,Los Angeles,Closed by arrest,2013,2,0
+Other,64,Male,Chicago,Open/No arrest,2013,6,1
+Hispanic,28,Male,Los Angeles,Open/No arrest,2010,10,0
+Other,79,Female,Los Angeles,Open/No arrest,2013,11,0
+Hispanic,54,Male,Los Angeles,Closed without arrest,2015,6,0
+White,9,Male,Chicago,Open/No arrest,2015,8,0
+Black,76,Male,Los Angeles,Closed without arrest,2016,6,1
+Black,43,Male,Chicago,Closed without arrest,2011,7,1
+White,88,Female,Chicago,Closed without arrest,2010,7,1
+Black,74,Male,Los Angeles,Closed without arrest,2017,2,0
+Asian,68,Male,Chicago,Closed without arrest,2016,8,1
+Asian,51,Female,Los Angeles,Closed without arrest,2013,6,1
+White,32,Female,Los Angeles,Closed by arrest,2014,7,0
+Asian,29,Male,Chicago,Open/No arrest,2016,11,1
+White,19,Male,Los Angeles,Closed by arrest,2017,6,1
+Other,58,Female,Chicago,Open/No arrest,2016,11,0
+Hispanic,100,Male,Los Angeles,Closed by arrest,2013,1,0
+Black,39,Female,Los Angeles,Open/No arrest,2012,5,0
+Black,4,Male,Chicago,Closed without arrest,2012,11,1
+Other,0,Female,Los Angeles,Open/No arrest,2017,5,1
+Other,99,Female,Los Angeles,Closed by arrest,2017,1,0
+White,91,Female,Chicago,Closed without arrest,2017,8,0
+White,6,Male,Chicago,Closed without arrest,2016,12,0
+Black,92,Female,Chicago,Closed without arrest,2011,2,0
+Black,83,Female,Chicago,Closed by arrest,2017,8,1
+Other,96,Male,Los Angeles,Open/No arrest,2013,7,0
+Other,27,Female,Los Angeles,Closed by arrest,2012,2,0
+Asian,25,Female,Chicago,Closed without arrest,2017,10,0
+White,22,Female,Los Angeles,Closed by arrest,2014,7,1
+Black,81,Male,Chicago,Closed without arrest,2017,10,0
+White,78,Male,Chicago,Closed without arrest,2014,9,0
+Black,38,Male,Los Angeles,Open/No arrest,2015,4,0
+White,5,Female,Chicago,Open/No arrest,2014,3,1
+Black,84,Male,Chicago,Closed by arrest,2017,9,1
+Other,16,Male,Los Angeles,Closed without arrest,2015,4,1
+Hispanic,94,Female,Chicago,Closed without arrest,2017,5,0
+White,56,Male,Chicago,Closed without arrest,2015,7,1
+Asian,81,Male,Los Angeles,Closed by arrest,2014,4,1
+Hispanic,80,Female,Chicago,Closed without arrest,2010,1,0
+White,26,Male,Chicago,Closed without arrest,2011,1,0
+White,97,Female,Chicago,Open/No arrest,2015,9,0
+Black,72,Female,Chicago,Open/No arrest,2015,7,0
+White,92,Male,Chicago,Closed by arrest,2014,8,0
+Black,38,Male,Los Angeles,Closed by arrest,2014,3,0
+Black,62,Male,Chicago,Closed without arrest,2017,2,1
+Hispanic,52,Female,Los Angeles,Closed without arrest,2015,5,1
+Hispanic,89,Female,Los Angeles,Closed without arrest,2015,2,1
+White,32,Male,Chicago,Closed without arrest,2017,2,0
+White,19,Female,Chicago,Closed without arrest,2015,1,1
+Black,18,Female,Chicago,Closed by arrest,2010,7,0
+Black,26,Female,Los Angeles,Closed by arrest,2016,9,1
+White,26,Male,Los Angeles,Closed by arrest,2014,2,0
+Black,31,Male,Los Angeles,Closed by arrest,2012,12,0
+Black,19,Female,Chicago,Closed without arrest,2010,4,1
+Black,59,Female,Chicago,Closed by arrest,2011,6,0
+Black,99,Male,Chicago,Closed by arrest,2016,11,0
+Other,86,Female,Chicago,Open/No arrest,2013,6,1
+Black,11,Male,Los Angeles,Closed by arrest,2012,6,1
+Other,46,Male,Los Angeles,Open/No arrest,2011,3,0
+Black,74,Male,Los Angeles,Closed by arrest,2012,4,0
+Asian,8,Male,Los Angeles,Closed without arrest,2010,5,0
+Black,88,Female,Los Angeles,Closed without arrest,2015,11,0
+Black,64,Male,Chicago,Open/No arrest,2011,6,0
+Hispanic,89,Female,Los Angeles,Closed by arrest,2011,12,0
+Hispanic,63,Male,Los Angeles,Closed by arrest,2015,5,0
+Other,76,Female,Los Angeles,Closed without arrest,2017,8,1
+White,45,Male,Los Angeles,Closed by arrest,2017,9,0
+Asian,45,Male,Chicago,Closed by arrest,2014,8,1
+Other,41,Female,Los Angeles,Open/No arrest,2017,7,0
+White,79,Female,Chicago,Open/No arrest,2012,6,1
+Asian,14,Male,Los Angeles,Closed without arrest,2012,4,1
+Asian,84,Male,Los Angeles,Closed without arrest,2016,3,0
+Other,88,Female,Chicago,Closed by arrest,2011,11,1
+Asian,36,Female,Chicago,Closed by arrest,2010,3,0
+Black,18,Female,Chicago,Closed without arrest,2014,12,0
+Black,64,Female,Los Angeles,Closed by arrest,2012,8,0
+Hispanic,64,Male,Los Angeles,Open/No arrest,2015,5,0
+White,25,Female,Chicago,Closed by arrest,2017,7,1
+White,33,Female,Chicago,Closed without arrest,2012,4,0
+White,67,Male,Chicago,Closed without arrest,2016,7,1
+White,75,Female,Los Angeles,Closed by arrest,2016,10,1
+Other,72,Female,Los Angeles,Closed by arrest,2015,8,0
+Black,11,Female,Los Angeles,Open/No arrest,2010,2,0
+Asian,15,Female,Los Angeles,Closed without arrest,2012,4,1
+White,20,Female,Chicago,Open/No arrest,2012,3,1
+Hispanic,58,Female,Chicago,Open/No arrest,2011,7,0
+Asian,3,Male,Chicago,Closed by arrest,2012,4,1
+White,16,Female,Los Angeles,Open/No arrest,2011,7,1
+White,53,Male,Los Angeles,Closed without arrest,2015,12,1
+Asian,52,Male,Los Angeles,Closed without arrest,2010,7,1
+Other,33,Female,Chicago,Closed by arrest,2016,2,1
+Black,76,Female,Los Angeles,Open/No arrest,2010,7,0
+Other,70,Male,Chicago,Closed by arrest,2015,8,1
+Other,12,Male,Chicago,Closed by arrest,2017,4,0
+Hispanic,74,Female,Chicago,Open/No arrest,2014,10,0
+Black,73,Male,Chicago,Closed by arrest,2017,6,0
+Black,11,Male,Chicago,Closed by arrest,2011,8,1
+Other,63,Male,Los Angeles,Closed without arrest,2011,8,0
+Asian,96,Male,Chicago,Closed without arrest,2011,8,0
+Other,94,Male,Los Angeles,Closed by arrest,2014,6,1
+White,84,Female,Los Angeles,Closed without arrest,2010,3,1
+White,89,Female,Los Angeles,Closed by arrest,2012,4,1
+Asian,83,Male,Los Angeles,Closed without arrest,2010,9,1
+Hispanic,17,Female,Los Angeles,Open/No arrest,2013,6,1
+Hispanic,32,Female,Los Angeles,Closed by arrest,2015,1,1
+Other,50,Female,Los Angeles,Open/No arrest,2013,12,1
+Asian,81,Female,Los Angeles,Open/No arrest,2010,8,0
+Black,69,Male,Chicago,Closed by arrest,2011,8,1
+Asian,3,Male,Los Angeles,Closed without arrest,2011,5,1
+Other,91,Female,Chicago,Open/No arrest,2013,2,0
+Black,64,Male,Los Angeles,Open/No arrest,2014,3,0
+Hispanic,22,Female,Chicago,Closed without arrest,2016,9,1
+White,34,Male,Los Angeles,Open/No arrest,2011,9,0
+Black,14,Female,Los Angeles,Closed without arrest,2016,7,0
+Other,73,Female,Chicago,Closed by arrest,2014,7,1
+Hispanic,30,Female,Los Angeles,Closed without arrest,2014,6,0
+White,92,Female,Los Angeles,Closed without arrest,2012,7,1
+Asian,77,Female,Chicago,Closed by arrest,2017,4,1
+White,50,Female,Los Angeles,Closed without arrest,2011,1,0
+Other,49,Male,Los Angeles,Closed without arrest,2017,11,1
+Asian,37,Female,Chicago,Closed by arrest,2013,1,1
+Black,27,Female,Los Angeles,Open/No arrest,2017,5,1
+Asian,68,Female,Chicago,Closed without arrest,2013,5,0
+Asian,98,Female,Los Angeles,Closed by arrest,2015,1,0
+White,8,Female,Los Angeles,Closed by arrest,2014,7,1
+Hispanic,68,Female,Chicago,Closed by arrest,2017,10,0
+Hispanic,8,Female,Chicago,Open/No arrest,2013,12,0
+White,84,Male,Los Angeles,Closed by arrest,2011,11,1
+Black,84,Male,Los Angeles,Closed by arrest,2017,2,0
+Black,47,Female,Los Angeles,Closed by arrest,2016,7,0
+White,42,Male,Chicago,Open/No arrest,2011,10,1
+Asian,29,Male,Los Angeles,Open/No arrest,2011,8,1
+White,79,Male,Los Angeles,Closed by arrest,2014,9,0
+Other,6,Male,Los Angeles,Closed without arrest,2013,7,1
+White,20,Female,Chicago,Open/No arrest,2012,6,0
+Other,93,Male,Los Angeles,Closed without arrest,2010,8,1
+Hispanic,78,Female,Los Angeles,Open/No arrest,2010,6,0
+Black,39,Female,Chicago,Closed without arrest,2014,4,1
+Black,10,Male,Los Angeles,Closed without arrest,2010,11,0
+Asian,65,Female,Los Angeles,Open/No arrest,2017,7,0
+Asian,30,Female,Chicago,Closed by arrest,2012,7,0
+Black,80,Female,Chicago,Closed by arrest,2011,8,0
+Hispanic,79,Male,Los Angeles,Closed by arrest,2011,11,0
+White,62,Male,Los Angeles,Closed without arrest,2011,4,0
+Asian,1,Female,Chicago,Open/No arrest,2011,10,1
+Asian,34,Male,Los Angeles,Closed without arrest,2011,4,1
+White,56,Female,Chicago,Closed by arrest,2014,5,1
+Asian,21,Female,Chicago,Open/No arrest,2012,10,0
+Asian,57,Male,Chicago,Open/No arrest,2016,10,1
+Black,69,Male,Los Angeles,Closed by arrest,2016,2,1
+Black,100,Male,Los Angeles,Closed by arrest,2015,9,1
+Black,49,Female,Chicago,Open/No arrest,2013,9,0
+Black,1,Male,Chicago,Closed without arrest,2010,2,1
+Asian,66,Female,Los Angeles,Closed by arrest,2010,4,0
+Hispanic,9,Male,Chicago,Closed by arrest,2014,8,0
+Hispanic,47,Female,Los Angeles,Open/No arrest,2014,9,1
+Black,37,Female,Chicago,Open/No arrest,2014,11,0
+Black,37,Female,Chicago,Closed by arrest,2015,12,1
+White,43,Male,Chicago,Open/No arrest,2016,7,1
+Hispanic,86,Male,Chicago,Open/No arrest,2013,5,0
+Asian,44,Male,Chicago,Closed by arrest,2011,3,1
+Other,79,Female,Chicago,Closed by arrest,2015,8,1
+White,71,Male,Los Angeles,Closed by arrest,2017,1,0
+Hispanic,20,Female,Chicago,Closed without arrest,2011,8,0
+Black,49,Female,Los Angeles,Open/No arrest,2017,5,1
+Other,63,Male,Chicago,Open/No arrest,2014,5,0
+White,58,Female,Los Angeles,Open/No arrest,2016,9,0
+Hispanic,42,Female,Los Angeles,Closed without arrest,2010,9,1
+Other,25,Male,Chicago,Closed by arrest,2012,9,0
+Asian,17,Female,Chicago,Open/No arrest,2016,3,1
+White,74,Female,Chicago,Closed by arrest,2010,1,0
+White,48,Male,Los Angeles,Open/No arrest,2017,6,0
+Black,91,Male,Los Angeles,Open/No arrest,2016,12,0
+Black,97,Female,Los Angeles,Closed without arrest,2015,7,1
+Other,65,Male,Los Angeles,Closed without arrest,2014,11,0
+Black,1,Female,Los Angeles,Closed by arrest,2015,9,0
+Asian,21,Male,Los Angeles,Closed by arrest,2010,5,1
+Black,33,Male,Los Angeles,Closed without arrest,2014,8,0
+Asian,34,Female,Los Angeles,Closed without arrest,2015,2,1
+Asian,82,Female,Chicago,Closed by arrest,2011,10,1
+Asian,71,Male,Los Angeles,Closed by arrest,2011,10,0
+Other,97,Male,Los Angeles,Closed by arrest,2011,9,1
+White,93,Female,Chicago,Closed by arrest,2011,12,1
+Other,31,Male,Los Angeles,Closed by arrest,2016,6,0
+Other,28,Male,Los Angeles,Open/No arrest,2013,2,1
+Asian,46,Female,Los Angeles,Closed by arrest,2011,9,0
+Asian,55,Male,Chicago,Open/No arrest,2010,5,1
+Hispanic,83,Male,Los Angeles,Open/No arrest,2013,10,1
+Other,66,Female,Chicago,Closed by arrest,2015,5,0
+Other,54,Female,Los Angeles,Closed without arrest,2011,4,1
+Other,49,Male,Los Angeles,Closed by arrest,2017,4,0
+Hispanic,4,Male,Los Angeles,Closed by arrest,2016,7,1
+Asian,37,Female,Los Angeles,Closed without arrest,2017,12,0
+Asian,13,Female,Chicago,Closed without arrest,2011,3,0
+White,35,Male,Chicago,Closed without arrest,2012,3,0
+Black,42,Male,Los Angeles,Closed without arrest,2012,5,0
+Other,78,Female,Chicago,Closed without arrest,2014,11,0
+Hispanic,30,Male,Chicago,Open/No arrest,2013,12,1
+Asian,12,Male,Los Angeles,Closed without arrest,2015,4,0
+Black,7,Male,Los Angeles,Closed by arrest,2016,4,1
+White,44,Male,Chicago,Closed without arrest,2015,5,1
+Hispanic,74,Male,Chicago,Open/No arrest,2015,4,0
+Other,18,Female,Chicago,Open/No arrest,2016,1,0
+Other,91,Female,Los Angeles,Closed by arrest,2011,8,0
+Hispanic,33,Male,Chicago,Closed by arrest,2014,9,1
+Asian,60,Female,Los Angeles,Open/No arrest,2012,12,1
+Asian,41,Male,Chicago,Closed by arrest,2012,5,1
+White,26,Female,Chicago,Closed without arrest,2013,4,1
+Hispanic,9,Female,Chicago,Closed by arrest,2013,5,0
+Black,26,Male,Los Angeles,Closed without arrest,2012,12,1
+Hispanic,58,Male,Los Angeles,Closed without arrest,2013,10,1
+Other,57,Male,Chicago,Closed without arrest,2017,7,1
+Hispanic,42,Male,Los Angeles,Closed by arrest,2010,8,0
+Black,66,Male,Los Angeles,Open/No arrest,2017,6,1
+Asian,48,Male,Los Angeles,Open/No arrest,2017,7,0
+Other,70,Female,Los Angeles,Closed by arrest,2015,1,0
+Asian,75,Male,Chicago,Closed by arrest,2017,1,1
+White,94,Male,Los Angeles,Closed without arrest,2010,10,0
+Other,33,Male,Chicago,Closed without arrest,2014,4,1
+Black,89,Male,Los Angeles,Closed by arrest,2017,10,1
+Hispanic,54,Female,Chicago,Closed by arrest,2011,5,0
+Other,17,Female,Chicago,Closed by arrest,2013,2,1
+Other,6,Female,Chicago,Closed without arrest,2011,10,1
+Asian,6,Male,Chicago,Closed without arrest,2010,8,0
+Other,26,Male,Chicago,Closed by arrest,2012,7,1
+Hispanic,95,Male,Chicago,Open/No arrest,2017,4,1
+Asian,59,Female,Chicago,Open/No arrest,2013,3,0
+White,15,Female,Chicago,Closed by arrest,2011,2,0
+Hispanic,15,Male,Los Angeles,Open/No arrest,2011,11,0
+Asian,73,Female,Los Angeles,Closed by arrest,2013,3,0
+White,83,Male,Chicago,Closed by arrest,2015,12,0
+Black,95,Female,Los Angeles,Closed by arrest,2012,7,1
+Hispanic,25,Male,Los Angeles,Closed by arrest,2015,11,1
+Hispanic,53,Male,Chicago,Closed by arrest,2017,9,0
+Hispanic,70,Female,Los Angeles,Closed without arrest,2017,2,1
+Other,3,Male,Chicago,Closed without arrest,2015,11,1
+Asian,72,Female,Chicago,Closed by arrest,2013,4,1
+Hispanic,94,Male,Los Angeles,Open/No arrest,2012,10,0
+Black,49,Female,Chicago,Closed without arrest,2010,8,0
+White,15,Female,Los Angeles,Closed without arrest,2013,5,0
+Other,10,Male,Los Angeles,Closed without arrest,2014,3,0
+Other,24,Male,Chicago,Open/No arrest,2011,7,0
+Other,37,Male,Chicago,Closed without arrest,2016,10,1
+Asian,97,Male,Los Angeles,Closed without arrest,2014,2,1
+Other,63,Female,Chicago,Open/No arrest,2016,9,1
+Asian,91,Female,Chicago,Closed by arrest,2016,8,0
+Hispanic,0,Male,Los Angeles,Closed without arrest,2016,11,1
+Hispanic,96,Male,Chicago,Open/No arrest,2016,11,0
+Asian,78,Male,Los Angeles,Open/No arrest,2014,2,1
+White,58,Female,Los Angeles,Open/No arrest,2013,5,0
+Asian,62,Female,Chicago,Closed without arrest,2010,9,1
+White,82,Male,Chicago,Open/No arrest,2015,12,1
+White,13,Male,Chicago,Closed by arrest,2016,9,0
+Asian,49,Male,Los Angeles,Open/No arrest,2017,6,0
+Other,96,Female,Los Angeles,Closed without arrest,2013,4,0
+White,74,Female,Chicago,Closed by arrest,2011,11,0
+Hispanic,79,Male,Los Angeles,Open/No arrest,2014,2,1
+Other,61,Male,Chicago,Open/No arrest,2013,10,1
+White,48,Female,Los Angeles,Open/No arrest,2017,3,1
+Hispanic,99,Female,Los Angeles,Closed by arrest,2016,7,0
+Other,11,Male,Chicago,Closed by arrest,2013,4,1
+Hispanic,90,Female,Los Angeles,Closed by arrest,2010,4,0
+Black,21,Female,Chicago,Open/No arrest,2014,1,0
+Black,80,Male,Chicago,Open/No arrest,2017,6,0
+White,91,Male,Los Angeles,Closed by arrest,2017,6,1
+Other,2,Male,Chicago,Closed by arrest,2010,9,1
+White,49,Female,Chicago,Open/No arrest,2013,6,0
+Asian,32,Female,Los Angeles,Open/No arrest,2013,6,0
+White,57,Female,Chicago,Open/No arrest,2012,10,1
+Asian,39,Female,Chicago,Closed without arrest,2015,1,1
+Asian,41,Male,Los Angeles,Closed by arrest,2013,6,1
+Black,73,Male,Los Angeles,Closed without arrest,2017,4,1
+Hispanic,39,Female,Chicago,Open/No arrest,2016,8,0
+White,6,Female,Chicago,Closed without arrest,2017,11,0
+Black,79,Male,Chicago,Closed by arrest,2016,5,1
+White,60,Male,Los Angeles,Open/No arrest,2016,11,0
+Hispanic,26,Male,Los Angeles,Closed by arrest,2011,6,0
+Black,35,Male,Los Angeles,Open/No arrest,2011,1,0
+Asian,80,Male,Chicago,Closed without arrest,2012,11,0
+Other,50,Female,Chicago,Open/No arrest,2011,8,1
+White,25,Female,Los Angeles,Closed by arrest,2011,10,1
+Black,3,Male,Los Angeles,Closed by arrest,2010,11,0
+Asian,71,Female,Chicago,Open/No arrest,2012,8,1
+Black,31,Female,Los Angeles,Open/No arrest,2011,11,0
+White,13,Female,Chicago,Open/No arrest,2012,4,0
+Black,69,Female,Chicago,Closed by arrest,2010,10,1
+Asian,97,Female,Chicago,Closed without arrest,2014,1,0
+Hispanic,52,Female,Los Angeles,Closed without arrest,2013,6,0
+White,61,Male,Chicago,Closed without arrest,2016,11,0
+Black,69,Female,Chicago,Open/No arrest,2016,5,0
+Asian,84,Male,Chicago,Open/No arrest,2014,6,1
+Other,3,Female,Chicago,Closed by arrest,2014,10,0
+White,67,Male,Chicago,Closed without arrest,2010,1,1
+Hispanic,66,Male,Chicago,Closed without arrest,2010,6,1
+Other,59,Male,Chicago,Open/No arrest,2015,3,0
+Asian,6,Male,Chicago,Closed by arrest,2014,5,0
+Hispanic,79,Male,Los Angeles,Closed without arrest,2015,5,0
+Black,50,Female,Los Angeles,Closed by arrest,2015,11,1
+Asian,50,Female,Los Angeles,Closed without arrest,2010,3,1
+Asian,82,Female,Los Angeles,Closed by arrest,2012,4,0
+Hispanic,90,Male,Chicago,Open/No arrest,2011,9,1
+Black,52,Female,Los Angeles,Closed by arrest,2014,4,1
+Black,97,Female,Los Angeles,Closed without arrest,2011,2,0
+Black,46,Female,Los Angeles,Open/No arrest,2017,7,1
+Black,79,Male,Chicago,Closed by arrest,2015,12,0
+Black,60,Female,Chicago,Closed by arrest,2014,3,0
+White,65,Male,Chicago,Closed without arrest,2013,3,0
+Other,39,Male,Chicago,Closed by arrest,2012,1,1
+Hispanic,90,Female,Chicago,Open/No arrest,2016,2,0
+Black,80,Male,Los Angeles,Closed without arrest,2016,4,0
+Other,84,Male,Los Angeles,Open/No arrest,2017,10,0
+Black,75,Male,Los Angeles,Closed by arrest,2013,2,1
+Asian,66,Female,Los Angeles,Closed without arrest,2017,6,0
+Asian,67,Female,Chicago,Open/No arrest,2015,8,0
+Asian,3,Male,Los Angeles,Closed without arrest,2014,7,0
+Asian,50,Male,Los Angeles,Closed without arrest,2010,2,1
+Hispanic,1,Male,Chicago,Open/No arrest,2017,7,1
+White,72,Male,Los Angeles,Closed without arrest,2011,12,1
+Hispanic,45,Female,Los Angeles,Closed by arrest,2014,10,1
+Other,54,Female,Los Angeles,Closed without arrest,2016,2,0
+Asian,94,Female,Los Angeles,Closed by arrest,2017,7,1
+White,79,Female,Chicago,Open/No arrest,2012,5,1
+Other,86,Male,Los Angeles,Closed without arrest,2010,11,1
+Black,18,Female,Los Angeles,Open/No arrest,2012,4,0
+Black,18,Male,Los Angeles,Closed by arrest,2012,1,0
+Other,10,Female,Chicago,Closed without arrest,2011,10,0
+Asian,58,Male,Chicago,Open/No arrest,2017,6,1
+White,82,Male,Chicago,Open/No arrest,2016,2,1
+Hispanic,82,Female,Los Angeles,Closed by arrest,2015,3,1
+Other,98,Male,Chicago,Closed without arrest,2017,9,0
+Asian,52,Male,Chicago,Closed without arrest,2010,5,0
+White,64,Male,Chicago,Closed without arrest,2017,8,0
+Black,13,Female,Chicago,Closed without arrest,2013,3,0
+Hispanic,32,Male,Los Angeles,Closed by arrest,2016,5,0
+Black,12,Male,Chicago,Closed by arrest,2010,11,0
+Hispanic,70,Male,Chicago,Closed by arrest,2014,6,1
+Hispanic,76,Male,Chicago,Closed by arrest,2011,8,1
+Other,86,Female,Chicago,Closed without arrest,2016,2,0
+Other,60,Female,Los Angeles,Closed by arrest,2011,3,0
+Black,95,Female,Chicago,Closed without arrest,2010,1,1
+Other,68,Female,Chicago,Open/No arrest,2013,6,1
+Hispanic,16,Male,Chicago,Closed without arrest,2014,8,0
+Asian,55,Male,Chicago,Open/No arrest,2013,11,0
+Asian,51,Female,Chicago,Closed by arrest,2010,11,0
+White,77,Male,Los Angeles,Open/No arrest,2013,10,0
+Hispanic,100,Male,Los Angeles,Closed without arrest,2016,1,1
+Hispanic,57,Male,Chicago,Open/No arrest,2012,7,0
+White,2,Male,Chicago,Closed by arrest,2012,12,0
+Black,94,Male,Los Angeles,Closed without arrest,2016,10,1
+Asian,54,Female,Chicago,Closed by arrest,2013,2,0
+Other,81,Male,Los Angeles,Closed without arrest,2011,6,1
+Hispanic,100,Male,Los Angeles,Open/No arrest,2017,5,0
+Other,89,Female,Los Angeles,Closed without arrest,2010,9,0
+Black,80,Male,Chicago,Closed by arrest,2013,10,0
+White,27,Female,Chicago,Closed by arrest,2012,4,1
+White,14,Female,Los Angeles,Closed by arrest,2015,10,0
+Other,75,Male,Los Angeles,Closed by arrest,2015,2,1
+Black,43,Male,Chicago,Open/No arrest,2016,3,0
+White,8,Female,Los Angeles,Closed by arrest,2010,12,0
+Hispanic,74,Female,Chicago,Closed without arrest,2016,4,0
+Asian,81,Male,Los Angeles,Closed without arrest,2012,12,1
+Asian,10,Male,Chicago,Closed by arrest,2013,1,0
+Asian,100,Male,Chicago,Closed without arrest,2013,11,0
+Other,89,Female,Los Angeles,Open/No arrest,2012,9,0
+White,11,Female,Chicago,Open/No arrest,2012,11,1
+Other,60,Male,Los Angeles,Closed without arrest,2013,4,0
+White,62,Female,Los Angeles,Closed by arrest,2015,8,1
+Asian,65,Female,Los Angeles,Open/No arrest,2012,5,1
+Hispanic,3,Male,Chicago,Closed by arrest,2016,1,0
+Black,96,Male,Los Angeles,Closed by arrest,2011,11,1
+Asian,40,Male,Los Angeles,Closed without arrest,2011,1,1
+Hispanic,61,Male,Chicago,Closed by arrest,2015,5,1
+Other,62,Male,Chicago,Open/No arrest,2017,4,1
+White,18,Male,Los Angeles,Closed by arrest,2014,10,1
+Other,46,Female,Los Angeles,Closed by arrest,2013,4,0
+Asian,29,Female,Chicago,Closed by arrest,2013,3,0
+Black,51,Male,Los Angeles,Open/No arrest,2011,3,0
+Asian,10,Female,Los Angeles,Open/No arrest,2013,10,0
+White,60,Female,Chicago,Closed without arrest,2017,1,0
+Hispanic,20,Female,Chicago,Open/No arrest,2017,9,0
+Other,29,Male,Chicago,Closed by arrest,2011,5,1
+Black,43,Female,Chicago,Closed without arrest,2013,3,1
+White,99,Female,Los Angeles,Open/No arrest,2014,3,0
+Other,40,Female,Los Angeles,Open/No arrest,2014,3,1
+Black,10,Male,Chicago,Open/No arrest,2012,5,0
+Asian,91,Female,Chicago,Closed without arrest,2014,4,0
+Black,75,Female,Chicago,Closed without arrest,2010,11,0
+Hispanic,25,Male,Los Angeles,Closed without arrest,2012,9,1
+White,65,Female,Chicago,Closed by arrest,2013,11,0
+Black,72,Female,Chicago,Closed without arrest,2017,8,0
+White,72,Male,Chicago,Closed without arrest,2013,8,1
+Hispanic,2,Female,Los Angeles,Closed by arrest,2016,4,1
+Hispanic,65,Female,Los Angeles,Closed by arrest,2014,5,0
+Black,96,Female,Los Angeles,Closed by arrest,2011,1,0
+White,92,Female,Los Angeles,Closed without arrest,2014,12,0
+Black,100,Male,Chicago,Closed by arrest,2013,8,1
+Black,53,Male,Chicago,Closed without arrest,2011,6,0
+Hispanic,95,Male,Chicago,Open/No arrest,2013,1,1
+White,73,Female,Los Angeles,Closed without arrest,2016,1,1
+Hispanic,3,Female,Los Angeles,Open/No arrest,2011,6,1
+Hispanic,29,Male,Chicago,Closed by arrest,2016,6,0
+Asian,28,Male,Chicago,Open/No arrest,2013,2,0
+Other,82,Female,Chicago,Closed without arrest,2015,4,0
+Asian,71,Female,Chicago,Closed without arrest,2014,1,1
+Other,40,Male,Los Angeles,Closed by arrest,2016,10,0
+Asian,80,Male,Los Angeles,Closed by arrest,2012,6,1
+White,73,Female,Los Angeles,Closed without arrest,2015,6,1
+Black,84,Male,Los Angeles,Closed by arrest,2015,10,1
+Black,12,Female,Los Angeles,Closed without arrest,2012,12,0
+Hispanic,86,Male,Los Angeles,Closed by arrest,2010,1,1
+Hispanic,52,Male,Chicago,Closed without arrest,2010,5,1
+Asian,65,Female,Los Angeles,Open/No arrest,2014,7,1
+Hispanic,15,Female,Chicago,Closed without arrest,2015,8,1
+Hispanic,85,Male,Chicago,Open/No arrest,2017,12,0
+Asian,4,Female,Chicago,Closed without arrest,2017,5,0
+Hispanic,51,Male,Los Angeles,Closed without arrest,2012,3,0
+White,22,Male,Chicago,Closed by arrest,2017,12,1
+White,59,Female,Chicago,Open/No arrest,2012,10,0
+Asian,39,Female,Los Angeles,Closed without arrest,2011,3,0
+White,88,Female,Chicago,Open/No arrest,2011,11,0
+Hispanic,73,Male,Los Angeles,Open/No arrest,2016,3,0
+Black,69,Male,Chicago,Closed without arrest,2015,4,1
+Black,16,Male,Los Angeles,Open/No arrest,2016,7,1
+White,60,Male,Chicago,Open/No arrest,2017,10,1
+Black,2,Male,Los Angeles,Closed without arrest,2014,5,1
+White,57,Male,Chicago,Open/No arrest,2015,3,0
+Black,10,Female,Los Angeles,Closed without arrest,2010,3,0
+Other,20,Female,Chicago,Closed by arrest,2010,6,1
+Asian,2,Male,Chicago,Closed by arrest,2013,5,0
+White,21,Male,Chicago,Closed by arrest,2017,12,0
+Black,66,Male,Los Angeles,Open/No arrest,2014,3,1
+White,24,Male,Chicago,Open/No arrest,2011,1,0
+Asian,0,Male,Chicago,Closed without arrest,2012,5,0
+Hispanic,82,Female,Los Angeles,Open/No arrest,2012,11,1
+Asian,13,Male,Los Angeles,Closed without arrest,2011,12,1
+Other,30,Male,Chicago,Closed by arrest,2011,2,0
+Asian,38,Male,Chicago,Closed by arrest,2012,3,0
+Black,94,Male,Chicago,Closed by arrest,2014,5,0
+Hispanic,11,Male,Chicago,Closed by arrest,2014,4,1
+Other,99,Male,Los Angeles,Closed without arrest,2013,4,1
+Asian,32,Male,Los Angeles,Open/No arrest,2012,11,1
+Asian,58,Female,Chicago,Closed by arrest,2013,2,1
+Black,61,Male,Los Angeles,Closed by arrest,2017,7,0
+White,77,Male,Los Angeles,Closed by arrest,2010,1,1
+Black,63,Male,Chicago,Open/No arrest,2012,1,1
+Asian,28,Female,Chicago,Closed by arrest,2015,5,0
+White,62,Female,Chicago,Closed by arrest,2017,12,0
+White,69,Female,Chicago,Open/No arrest,2017,11,0
+Black,66,Male,Chicago,Closed without arrest,2010,2,1
+Other,65,Female,Los Angeles,Closed without arrest,2017,5,0
+Asian,19,Female,Chicago,Closed without arrest,2010,6,0
+Black,55,Male,Chicago,Closed without arrest,2013,7,0
+Asian,87,Male,Chicago,Open/No arrest,2015,7,0
+Asian,38,Female,Chicago,Closed by arrest,2017,12,0
+Black,73,Female,Chicago,Closed by arrest,2012,11,0
+White,94,Male,Los Angeles,Open/No arrest,2014,2,0
+Other,40,Male,Chicago,Closed by arrest,2017,8,1
+Asian,19,Male,Los Angeles,Open/No arrest,2013,3,0
+Asian,38,Female,Chicago,Closed without arrest,2010,4,1
+Other,99,Male,Chicago,Open/No arrest,2011,12,0
+White,22,Female,Chicago,Closed without arrest,2015,8,0
+Other,82,Female,Chicago,Open/No arrest,2013,10,0
+Other,21,Male,Los Angeles,Open/No arrest,2011,1,1
+Black,97,Female,Los Angeles,Closed by arrest,2017,3,1
+Other,6,Male,Los Angeles,Closed without arrest,2010,5,1
+White,49,Female,Chicago,Closed by arrest,2017,1,0
+Asian,37,Female,Los Angeles,Closed without arrest,2016,9,1
+White,81,Female,Chicago,Open/No arrest,2013,11,0
+Other,8,Male,Los Angeles,Closed by arrest,2010,7,1
+Black,7,Male,Los Angeles,Closed by arrest,2013,5,1
+Other,84,Male,Los Angeles,Open/No arrest,2012,8,1
+Black,9,Female,Los Angeles,Closed by arrest,2011,6,1
+Black,31,Male,Chicago,Closed by arrest,2015,4,1
+Asian,28,Male,Los Angeles,Open/No arrest,2014,12,1
+Asian,79,Male,Los Angeles,Closed without arrest,2012,5,1
+Other,82,Female,Los Angeles,Closed by arrest,2017,4,0
+Black,57,Female,Chicago,Open/No arrest,2016,8,0
+Black,33,Female,Chicago,Closed by arrest,2017,6,1
+Asian,67,Male,Los Angeles,Open/No arrest,2011,6,1
+Hispanic,71,Female,Chicago,Closed without arrest,2013,1,1
+Hispanic,29,Female,Chicago,Open/No arrest,2016,5,0
+White,98,Male,Chicago,Closed by arrest,2012,10,1
+White,19,Female,Chicago,Closed by arrest,2012,9,0
+Black,5,Male,Los Angeles,Open/No arrest,2010,10,0
+White,50,Female,Los Angeles,Closed by arrest,2016,8,0
+Hispanic,75,Male,Los Angeles,Open/No arrest,2012,4,1
+Asian,31,Female,Chicago,Closed without arrest,2014,3,1
+Black,66,Female,Chicago,Closed by arrest,2016,12,1
+Other,31,Male,Chicago,Open/No arrest,2013,11,0
+Asian,46,Female,Chicago,Closed by arrest,2010,11,0
+Hispanic,70,Male,Los Angeles,Open/No arrest,2017,4,0
+White,66,Male,Los Angeles,Closed by arrest,2014,4,0
+Asian,85,Female,Chicago,Closed without arrest,2014,2,1
+White,16,Male,Los Angeles,Closed by arrest,2014,12,0
+Hispanic,94,Male,Chicago,Closed by arrest,2017,8,0
+White,95,Female,Los Angeles,Closed by arrest,2017,6,0
+Hispanic,80,Male,Chicago,Closed without arrest,2013,10,1
+Asian,0,Male,Los Angeles,Closed without arrest,2010,3,0
+Asian,80,Male,Los Angeles,Closed without arrest,2012,4,0
+Asian,49,Male,Los Angeles,Open/No arrest,2010,4,1
+White,1,Female,Los Angeles,Closed by arrest,2011,12,1
+Hispanic,83,Female,Chicago,Closed by arrest,2016,10,1
+Black,11,Female,Chicago,Closed without arrest,2016,1,0
+Black,27,Male,Los Angeles,Closed without arrest,2016,1,1
+Other,85,Female,Chicago,Closed without arrest,2016,4,1
+White,74,Male,Los Angeles,Closed by arrest,2012,3,1
+Black,47,Male,Chicago,Closed by arrest,2016,7,0
+Other,73,Male,Chicago,Closed by arrest,2017,8,1
+Hispanic,11,Female,Chicago,Open/No arrest,2011,12,1
+Other,59,Female,Chicago,Closed by arrest,2012,10,0

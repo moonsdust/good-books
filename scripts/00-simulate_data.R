@@ -13,45 +13,87 @@
 library(tidyverse)
 set.seed(646)
 
-
 #### Simulate data ####
-# Expected Columns: 
+# Expected Columns: victim_race, victim_age, victim_sex, city
+# disposition, year, month, arrest_was_not_made
 
-
-
-
-# State names
-states <- c(
-  "New South Wales",
-  "Victoria",
-  "Queensland",
-  "South Australia",
-  "Western Australia",
-  "Tasmania",
-  "Northern Territory",
-  "Australian Capital Territory"
+# victim_race
+victim_race <- c(
+  "White",
+  "Black",
+  "Asian",
+  "Hispanic",
+  "Other"
 )
 
-# Political parties
-parties <- c("Labor", "Liberal", "Greens", "National", "Other")
+# victim_age
+victim_age <- c(0:100)
 
-# Create a dataset by randomly assigning states and parties to divisions
-analysis_data <- tibble(
-  division = paste("Division", 1:151),  # Add "Division" to make it a character
-  state = sample(
-    states,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
+# victim_sex
+victim_sex <- c("Female", "Male")
+
+# city
+city <- c("Chicago", "Los Angeles")
+
+# disposition 
+disposition <- c("Closed by arrest", 
+          "Closed without arrest",
+          "Open/No arrest")
+
+# year
+year <- c(2010:2017)
+
+# month 
+month <- c(1:12)
+
+# arrest_was_not_made
+arrest_was_not_made <- c(0:1)
+
+
+# Create a dataset by randomly assigning the variables defined above 
+simulated_data <- tibble(
+  victim_race = sample(
+    victim_race,
+    size = 1000,
+    replace = TRUE
   ),
-  party = sample(
-    parties,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
+  victim_age = sample(
+    victim_age,
+    size = 1000,
+    replace = TRUE
+  ),
+  victim_sex = sample(
+    victim_sex,
+    size = 1000,
+    replace = TRUE
+  ),
+  city = sample(
+    city,
+    size = 1000,
+    replace = TRUE
+  ),
+  disposition = sample(
+    disposition,
+    size = 1000,
+    replace = TRUE
+  ),
+  year = sample(
+    year,
+    size = 1000,
+    replace = TRUE
+  ),
+  month = sample(
+    month,
+    size = 1000,
+    replace = TRUE
+  ),
+  arrest_was_not_made = sample(
+    arrest_was_not_made,
+    size = 1000,
+    replace = TRUE
   )
 )
 
 
 #### Save data ####
-write_csv(analysis_data, "data/00-simulated_data/simulated_data.csv")
+write_csv(simulated_data, "data/00-simulated_data/simulated_data.csv")
