@@ -41,13 +41,13 @@ unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 
 # Introduction
 
-On November 20, 2024, Chicago Mayor Brandon Johnson announced that the Chicago Police Department had the highest homicide clearance rate, which are cases that are solved, as of recent years at almost 54% [@citechicagonews]. Despite celebrating this accomplishment, @citechicagonews found that if only cases with arrest was considered and not closed cases where the police believed they have identified the perpetrator without an arrest being made, their clearance rate was actually 23% this year. This concern about homicide clearance rate was expressed by @citeguardian where they mentioned that homicide clearance rates from 1980 to 2020 have decreased from 71% to 50% in the United States (US). As of 2023, there are currently no up-to-date database keeping track of homicide resolutions and current crime databases do not indicate the victim's race and what led to the homicide, making it difficult to figure out why homicides are going unsolved [@citeguardian]. This raises the following question: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in one of the 2 of the largest cities in the United States, Chicago and Los Angeles, from 2010 to 2017?
+On November 20, 2024, Chicago Mayor Brandon Johnson announced that the Chicago Police Department had the highest homicide clearance rate, which are cases that are solved, as of recent years at almost 54% [@citechicagonews]. Despite celebrating this accomplishment, @citechicagonews found that if only the cases with arrest was considered and not closed cases where the police believed they have identified the perpetrator without an arrest being made, their clearance rate was actually 23% this year. This concern about homicide clearance rate was expressed by @citeguardian where they mentioned that homicide clearance rates from 1980 to 2020 have decreased from 71% to 50% in the United States (US). As of 2023, there are currently no up-to-date database keeping track of homicide resolutions and current crime databases do not indicate the victim's race and what led to the homicide, making it difficult to figure out why homicides are going unsolved [@citeguardian]. This raises the following question: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in one of the 2 of the largest cities in the United States, Chicago and Los Angeles, from 2010 to 2017?
 
 Our estimand is the homicide case information like the victim's demographic information (age, sex, and race) and the year and city the homicide occurred in/on if the homicide case is unsolved or solved. 
 
 In this paper, to see what factors could impact the likelihood of a homicide case going unsolved, we analyzed data provided by The Washington Post [@datahomicides] that were compiled by their reporters on homicide cases and their status from 2010 to 2017. Previously, The Washington Post has used the data they compiled to construct a map and pinpointing places unsolved homicides occur [@citewashingtonpostmap]. However, specific analysis looking at the differences in case characteristics between specific two US cities like Chicago and Los Angeles has not been done previously. In our findings, it indicates that a majority of unsolved homicide victims from 2010 to 2017 are Black or Hispanic and they are likely to be male but their age does not impact if there case goes unsolved or not. We also found that unsolved homicides are more likely to occur in Chicago compared to Los Angeles from 2010 to 2017. From our analysis, most unsolved homicide cases occurred during the middle and later half of the year with there being a jump in unsolved cases from 2016 onwards. These findings could inform the public and police departments about populations more vulnerable to homicide cases going unsolved and cities to be more alert about such as Chicago with homicide clearance rates. 
 
-For the remainder of the paper, the data section [@sec-data] goes over the data we used and its features and limitations, how the dataset was obtained, our variables of interest for our model and preliminary analysis, and a bit of our data cleaning process. In the model section [@sec-model], it discusses the type of model we used, the relationships between variables in our model, and the justification for our model. The results section [@sec-results] contains tables and graphs created based on our data and the results from our model. In the discussion section [@sec-discussion], it goes over what we did in our results, explaining the meaning of our findings, the implications of our findings to the real world, and areas of improvement and suggestions for future works. In the appendix [@sec-appendix], it includes a link to the dashboard that includes interactive versions of the graphs in this paper, additional tables, notes on reproducing and code styling, model diagnostics and validation, and our idealized survey and methodology to gather more data on investigators responsible for homicide cases. 
+For the remainder of the paper, the data section (@sec-data) goes over the data we used and its features and limitations, how the dataset was obtained, our variables of interest for our model and preliminary analysis, and a bit of our data cleaning process. In the model section (@sec-model), it discusses the type of model we used, the relationships between variables in our model, and the justification for our model. The results section (@sec-results) contains tables and graphs created based on our data and the results from our model. In the discussion section (@sec-discussion), it goes over what we did in our results, explaining the meaning of our findings, the implications of our findings to the real world, and areas of improvement and suggestions for future works. In the appendix (@sec-appendix), it includes a link to the dashboard that includes interactive versions of the graphs in this paper, additional tables, notes on reproducing and code styling, model diagnostics and validation, and our idealized survey and methodology to gather more data on investigators responsible for homicide cases. 
 
 # Data {#sec-data}
 
@@ -649,37 +649,24 @@ modelplot(unsolved_model_results, conf_level = 0.9) +
 \newpage
 # Discussion {#sec-discussion}
 
-
-TO REMOVE: Some questions that a good discussion would cover include (each of these would be a sub-section of something like half a page to a page): What is done in this paper? [Done] What is something that we learn about the world? What is another thing that we learn about the world? What are some weaknesses of what was done? What is left to learn or how should we proceed in the future?
-
-
 In @sec-results, we analyzed homicide case information like the victim's age, sex, and race and the year and city the homicide case occurred to see if there were any differences between homicide case information between unsolved and solved homicides from the year 2010 to 2017. We also built a Bayesian logistic regression model in @sec-model-results, to see the likelihood of the homicide case information impacting the homicide case outcome of going unsolved. 
 
-## Disportionate number of homicide victims in unsolved cases are Black and Hispanic
+## Chicago likely to have more unsolved homicides than Los Angeles with a surge in unsolved cases from 2016 onwards
 
-From  
-
-
+From @fig-city-bar and @tbl-city-table, it indicates that while Los Angeles have slightly more homicide cases that are solved than unsolved, 77% of Chicago's homicide cases are unsolved from 2010 to 2017. This is also seen in @tbl-model-result, where our model indicates that that unsolved homicides in Chicago are likely to go unsolved compared to Los Angeles. This implies potential issues with how the Chicago Police Department is managing homicide case closure. From @fig-month-bar and @fig-year-bar, we saw that most unsolved homicide cases occur in the middle and later half of the year and that there was jump in unsolved homicides in 2016 and 2017 compared to past years. @citeCNNChicago reported on January 2, 2017 that 2016 was the year with the most number homicides in the past 19 years due to gun violence in the city. This suggest that most of the unsolved cases could have occurred due to police departments like the Chicago Police Department being unable to keep up with the surge of homicide cases. 
 
 ## Age of the homicide victim likely does not impact the outcome of their case being unsolved however their gender may 
 
+@fig-victim-age-histogram indicates that the age of the homicide victim likely does not impact the outcome of their case be unsolved due to the uniformity of the distribution of ages. This is further seen in @fig-model-result-ci, where there is a chance the victim's age does not influence the outcome of a homicide case in our model. This implies that the age of the homicide victim does not impact if their case is unsolved or not. However, @fig-model-result-ci and @fig-victim-sex-bar indicates that female victims had a higher proportion of their homicide cases being solved while on the otherhand, male victims had a higher proportion of their homicide cases going unsolved. This suggest that males are more likely to have their case go unsolved.  
 
+## Disportionate number of homicide victims in unsolved cases in Chicago and Los Angeles from 2010 to 2017 are Black and Hispanic
 
-
-
-## Chicago likely to have more unsolved cases than Los Angeles and most unsolved homicide cases occur in the middle and later half of the year with a spike in unsolved cases from 2016 onwards
-
-
-
-
-
-
+From @fig-victim-race-bar and @tbl-victim-race-table it shows that Black and Hispanic victims make up more than 1,000 unsolved cases compared to other victims of other races who have under 1,000 unsolved cases. However, Black victims makes up the majority of unsolved homicide at 2960 cases with only 1103 solved homicides. Based on @tbl-model-result and @fig-model-result-ci, our model shows that there is a slight likelihood that being Black and Hispanic relative to being White impacts a homicide case going unsolved. @citeChavis had found that the Chicago Police Department was under scrutiny for another issue with their gang databases being inaccurate and targeting mostly Black and Latinx residents. @citeChavis also mentions that Chicago is one of the United States' most segregated cities both economically and racially. This suggest that Black and Hispanic victims could be facing systematic biases in homicide case closures and their cases being solved. 
 
 
 ## Areas of improvement
 
-- Since the dataset was compiled in 2018, we currently do not know if any of the homicide cases have been solved as of 2024 and how many. 
-- Recommendations includes compiling a new dataset for the years 2018 to 2024 similar to what The Washington Post did. 
+The dataset used in the paper was compiled in 2018 and we currently do not know if any of the homicide cases have been solved as of 2024 and how many, which limits the years we were able to analyze. There are other factors like the resources of the police department that could have also impacted the outcome of homicides being unsolved, which we did not have information on and that could have reduced the accuracy of our model. Since some information in the dataset was aggregated by humans from not only FBI data but also papers, human error could have occur when inputting information into the data. For future works on unsolved homicides, we recommend compiling a new dataset for the years 2018 to 2024 similar to what The Washington Post did and considering other factors like the resources of the police departments [@datahomicides]. 
 
 \newpage
 
@@ -744,7 +731,7 @@ number_of_cases_year |>
 ## Idealized Survey and Methodology {#sec-ideal-survey}
 
 ### Idealized Survey Objectives
-The objective of our survey is to obtain information about the investigators from US police departments and their experience with dealing with homicide cases to take into account into any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. Currently, we only have state collected homicide data that is collected by the FBI with basic demographic, temporal, and geographic information. @citeJohnson looked at prison data and noted that the standards in place with state collected data do not fully help us understand the cause and impact of the US prison system. This can also be applied with looking at homicide data where we can not say we fully understand the cause of homicide cases going unsolved. Thus, this led us to conducting this survey in hopes to understand crime case system better and what interventions may be needed, which is also noted by @citeJohnson when collecting community sourced prison data. In the following idealized methodology, we will cover our sampling approach and respondent recruitment, data validation, the design of our survey, limitations of our survey, and the survey questions themselves. 
+The objective of our survey is to obtain information about the investigators from US police departments and their experience with dealing with homicide cases. This information would be used to take into account any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. Currently, we only have state collected homicide data that is collected by the FBI with basic demographic, temporal, and geographic information. @citeJohnson looked at prison data and noted that the standards in place with state collected data do not help us fully understand the cause and impact of the US prison system. This can also be applied to homicide data where we can not say we fully understand the cause of homicide cases going unsolved. Thus, this led us to conducting this survey to further understand the crime case system better and what interventions may be needed, which is also noted by @citeJohnson when collecting community sourced prison data. In the following idealized methodology, we will cover our sampling approach and respondent recruitment, data validation, the design of our survey, limitations of our survey, a link to how the survey could look, and the survey questions themselves. 
 
 ### Sampling Approach and Respondent Recruitment
 
@@ -805,7 +792,7 @@ Contact Information:
 
 7. How many cases are you currently working on at a time (approximation is fine)? ___ (Open-ended question but can only input numbers greater than or equal to 0)
 
-8. What are some of the reason you may close a homicide case without making any arrest? If you can, feel free to bring up past cases. (Open-ended question)
+8. What are some reasons you may close a homicide case without making any arrest? If you can, feel free to bring up past cases. (Open-ended question)
 
 9. What is a difficult homicide case you have done? (Open-ended question)
 
