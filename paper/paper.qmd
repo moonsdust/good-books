@@ -827,7 +827,7 @@ vif(unsolved_model_results) |>
 
 ### Posterior predictive check
 
-In @fig-ppcheckandposteriorvsprior-1, the posterior predictive check shows that the actual data follows the same curve as the posterior distribution of the fitted model and thus is consistent with it [@citetellingstories]. 
+In @fig-ppcheckandposteriorvsprior, the posterior predictive check shows that the actual data follows the same curve as the posterior distribution of the fitted model and thus is consistent with it [@citetellingstories]. 
 
 ```{r}
 #| eval: true
