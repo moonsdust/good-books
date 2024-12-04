@@ -40,29 +40,13 @@ unsolved_model_results <- readRDS("../models/unsolved_homicide_model.rds")
 
 # Introduction
 
-TO REMOVE: The introduction is self-contained and tells a reader everything they need to know including: 1) broader context to motivate [Done]; 2) some detail about what the paper is about [Done]; 3) a clear gap that needs to be filled [Done]; 4) what was done [Done]; 5) what was found; 6) why it is important; 7) the structure of the paper. A reader should be able to read only the introduction and know what was done, why, and what was found. Likely 3 or 4 paragraphs, or 10 per cent of total.
-
-
 On November 20, 2024, Chicago Mayor Brandon Johnson announced that the Chicago Police Department had the highest homicide clearance rate, which are cases that are solved, as of recent years at almost 54% [@citechicagonews]. Despite celebrating this accomplishment, @citechicagonews found that if only cases with arrest was considered and not closed cases where the police believed they have identified the perpetrator without an arrest being made, their clearance rate was actually 23% this year. This concern about homicide clearance rate was expressed by @citeguardian where they mentioned that homicide clearance rates from 1980 to 2020 have decreased from 71% to 50% in the United States (US). As of 2023, there are currently no up-to-date database keeping track of homicide resolutions and current crime databases do not indicate the victim's race and what led to the homicide, making it difficult to figure out why homicides are going unsolved [@citeguardian]. This raises the following question: what are the differences in homicide case information like the year and city the homicide took place and the victims’ perceived characteristics (age, sex, and race) between solved and unsolved homicides in one of the 2 of the largest cities in the United States, Chicago and Los Angeles, from 2010 to 2017?
 
 Our estimand is the homicide case information like the victim's demographic information (age, sex, and race) and the year and city the homicide occurred in/on if the homicide case is unsolved or solved. 
 
-In this paper, to see what factors could impact the likelihood of a homicide case going unsolved, we analyzed data provided by The Washington Post [@datahomicides] that were compiled by their reporters on homicide cases and their status from 2010 to 2017. Previously, The Washington Post has used the data they compiled to construct a map and pinpointing places unsolved homicides occur [@citewashingtonpostmap]. However, specific analysis looking at the differences in case characteristics between specific two US cities like Chicago and Los Angeles has not been done previously. In our findings, it shows that  
+In this paper, to see what factors could impact the likelihood of a homicide case going unsolved, we analyzed data provided by The Washington Post [@datahomicides] that were compiled by their reporters on homicide cases and their status from 2010 to 2017. Previously, The Washington Post has used the data they compiled to construct a map and pinpointing places unsolved homicides occur [@citewashingtonpostmap]. However, specific analysis looking at the differences in case characteristics between specific two US cities like Chicago and Los Angeles has not been done previously. In our findings, it indicates that a majority of unsolved homicide victims from 2010 to 2017 are Black or Hispanic and they are likely to be male but their age does not impact if there case goes unsolved or not. We also found that unsolved homicides are more likely to occur in Chicago compared to Los Angeles from 2010 to 2017. These findings could inform the public and police departments about populations more vulnerable to homicide cases going unsolved and cities to be more alert about such as Chicago with homicide clearance rates. 
 
-
-
-
-
-Results paragraph
-
-Why it matters paragraph
-
-Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
-
-
-
-
-
+For the remainder of the paper, the data section [@sec-data] goes over the data we used and its features and limitations, how the dataset was obtained, our variables of interest for our model and preliminary analysis, and a bit of our data cleaning process. In the model section [@sec-model], it discusses the type of model we used, the relationships between variables in our model, and the justification for our model. The results section [@sec-results] contains tables and graphs created based on our data and the results from our model. In the discussion section [@sec-discussion], it goes over what we did in our results, explaining the meaning of our findings, the implications of our findings to the real world, and areas of improvement and suggestions for future works.  
 
 # Data {#sec-data}
 
@@ -691,7 +675,7 @@ In @sec-results, we analyzed homicide case information like the victim's age, se
 
 
 
-## Areas of improvement and next steps
+## Areas of improvement
 
 - Since the dataset was compiled in 2018, we currently do not know if any of the homicide cases have been solved as of 2024 and how many. 
 - Recommendations includes compiling a new dataset for the years 2018 to 2024 similar to what The Washington Post did. 
