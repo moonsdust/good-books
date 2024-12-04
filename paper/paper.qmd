@@ -45,7 +45,7 @@ On November 20, 2024, Chicago Mayor Brandon Johnson announced that the Chicago P
 
 Our estimand is the homicide case information like the victim's demographic information (age, sex, and race) and the year and city the homicide occurred in/on if the homicide case is unsolved or solved. 
 
-In this paper, to see what factors could impact the likelihood of a homicide case going unsolved, we analyzed data provided by The Washington Post [@datahomicides] that were compiled by their reporters on homicide cases and their status from 2010 to 2017. Previously, The Washington Post has used the data they compiled to construct a map and pinpointing places unsolved homicides occur [@citewashingtonpostmap]. However, specific analysis looking at the differences in case characteristics between specific two US cities like Chicago and Los Angeles has not been done previously. In our findings, it indicates that a majority of unsolved homicide victims from 2010 to 2017 are Black or Hispanic and they are likely to be male but their age does not impact if there case goes unsolved or not. We also found that unsolved homicides are more likely to occur in Chicago compared to Los Angeles from 2010 to 2017. These findings could inform the public and police departments about populations more vulnerable to homicide cases going unsolved and cities to be more alert about such as Chicago with homicide clearance rates. 
+In this paper, to see what factors could impact the likelihood of a homicide case going unsolved, we analyzed data provided by The Washington Post [@datahomicides] that were compiled by their reporters on homicide cases and their status from 2010 to 2017. Previously, The Washington Post has used the data they compiled to construct a map and pinpointing places unsolved homicides occur [@citewashingtonpostmap]. However, specific analysis looking at the differences in case characteristics between specific two US cities like Chicago and Los Angeles has not been done previously. In our findings, it indicates that a majority of unsolved homicide victims from 2010 to 2017 are Black or Hispanic and they are likely to be male but their age does not impact if there case goes unsolved or not. We also found that unsolved homicides are more likely to occur in Chicago compared to Los Angeles from 2010 to 2017. From our analysis, most unsolved homicide cases occurred during the middle and later half of the year with there being a jump in unsolved cases from 2016 onwards. These findings could inform the public and police departments about populations more vulnerable to homicide cases going unsolved and cities to be more alert about such as Chicago with homicide clearance rates. 
 
 For the remainder of the paper, the data section [@sec-data] goes over the data we used and its features and limitations, how the dataset was obtained, our variables of interest for our model and preliminary analysis, and a bit of our data cleaning process. In the model section [@sec-model], it discusses the type of model we used, the relationships between variables in our model, and the justification for our model. The results section [@sec-results] contains tables and graphs created based on our data and the results from our model. In the discussion section [@sec-discussion], it goes over what we did in our results, explaining the meaning of our findings, the implications of our findings to the real world, and areas of improvement and suggestions for future works. In the appendix [@sec-appendix], it includes a link to the dashboard that includes interactive versions of the graphs in this paper, additional tables, notes on reproducing and code styling, model diagnostics and validation, and our idealized survey and methodology to gather more data on investigators responsible for homicide cases. 
 
@@ -122,7 +122,7 @@ y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \\
 
 We define $y_i$ to be the status of the homicide case where 1 means the homicide is unsolved (case is still open / been closed without arrest) and 0 means the homicide is solved (case has been closed with arrest). $\pi_i$ represents the probability of the homicide being solved. $\mbox{logit}(\pi_i)$ indicates the log-odds of the homicide being unsolved. Now looking at the coefficients $b_i$ and predictor variables, $\beta_0$ is the intercept of our model and is the log-odds when all predictor variables are equal to 0. $\mbox{victim\_race}_i$ signifies the race of the victim, which could be either "Asian", "Black", "Hispanic", "White", and "Other". In our model, we use "White" as the baseline for $\mbox{victim\_race}_i$ to see if being part of a minority impacts if the case goes unsolved or not. $\beta_1$ is the coefficient that represents the log-odds when $\mbox{victim\_race}_i$ changes. $\mbox{victim\_age}_i$ is the victim's age, which is a whole number. $\beta_2$ is the log-odds when $\mbox{victim\_age}_i$ increases by 1 year. $\mbox{victim\_sex}_i$ represents the sex of the victim, where in the dataset it is either "female" or "male" and $\beta_3$ is the log-odds when $\mbox{victim\_sex}_i$ changes. $\mbox{city}_i$ is the city the victim was reported to be killed in, which from our dataset could be either "Chicago" or "Los Angeles". $\beta_4$ is the coefficient that stands for the log-odds when $\mbox{city}_i$ changes. We define $\mbox{year}_i$ to be the year the homicide was reported to have occured from 2010 to 2017. $\beta_5$ indicates the log-odds when $\mbox{year}_i$ increases by 1 year.
 
-Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our model's priors, we use the default priors provided by rstanarm [@citerstanarm]. Diagnostics for the model such as in posterior predictive check, posterior versus prior comparison, trace and Rhat plots can be found in @sec-model-details.
+Our model runs in R [@citeR] using the rstanarm package [@citerstanarm]. For our model's priors, we use the default priors provided by rstanarm [@citerstanarm]. Diagnostics for the model such as in posterior predictive check, trace and Rhat plots can be found in @sec-model-details.
 
 ## Model justification
 
@@ -657,7 +657,7 @@ In @sec-results, we analyzed homicide case information like the victim's age, se
 
 ## Disportionate number of homicide victims in unsolved cases are Black and Hispanic
 
-
+From  
 
 
 
@@ -667,7 +667,7 @@ In @sec-results, we analyzed homicide case information like the victim's age, se
 
 
 
-## Chicago likely to have more unsolved cases than Los Angeles
+## Chicago likely to have more unsolved cases than Los Angeles and most unsolved homicide cases occur in the middle and later half of the year with a spike in unsolved cases from 2016 onwards
 
 
 
@@ -744,7 +744,7 @@ number_of_cases_year |>
 ## Idealized Survey and Methodology {#sec-ideal-survey}
 
 ### Idealized Survey Objectives
-The objective of our survey is to gain insight about the investigators from US police departments and their experience with dealing with homicide cases to take into account into any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. Currently, we only have state collected homicide data that is collected by the FBI with basic demographic, temporal, and geographic information. @citeJohnson looked at prison data and noted that the standards in place with state collected data do not fully help us understand the cause and impact of the US prison system. This can also be applied with looking at homicide data where we can not say we fully understand the cause of homicide cases going unsolved. Thus, this led us to conducting this survey in hopes to understand crime case system better and what interventions may be needed, which is also noted by @citeJohnson when collecting community sourced prison data. In the following idealized methodology, we will cover our sampling approach and respondent recruitment, data validation, the design of our survey, limitations of our survey, and the survey questions themselves. 
+The objective of our survey is to obtain information about the investigators from US police departments and their experience with dealing with homicide cases to take into account into any potential factors about police officers that could potentially impact if a homicide case ends up unsolved. Currently, we only have state collected homicide data that is collected by the FBI with basic demographic, temporal, and geographic information. @citeJohnson looked at prison data and noted that the standards in place with state collected data do not fully help us understand the cause and impact of the US prison system. This can also be applied with looking at homicide data where we can not say we fully understand the cause of homicide cases going unsolved. Thus, this led us to conducting this survey in hopes to understand crime case system better and what interventions may be needed, which is also noted by @citeJohnson when collecting community sourced prison data. In the following idealized methodology, we will cover our sampling approach and respondent recruitment, data validation, the design of our survey, limitations of our survey, and the survey questions themselves. 
 
 ### Sampling Approach and Respondent Recruitment
 
@@ -823,8 +823,7 @@ Thank you for completing the survey! We value the time you took out of your day 
 
 ### Variance Inflation Factor
 
-
-
+@tbl-vif shows that the VIF for the predictor variables are close to 1. When the VIF is 1 it indicates there is no correlation between a predictor variable and other predictors in the model [@citeVIFarticle]. Since VIF values are close to 1 for all predictors, it indicates there is little correlation amongst the predictor variables.  
 ```{r}
 #| eval: true
 #| echo: false
@@ -841,9 +840,7 @@ vif(unsolved_model_results) |>
 
 ### Posterior predictive check
 
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
+In @fig-ppcheckandposteriorvsprior-1, the posterior predictive check shows that the actual data follows the same curve as the posterior distribution of the fitted model and thus is consistent with it [@citetellingstories]. 
 
 ```{r}
 #| eval: true
@@ -851,28 +848,19 @@ In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. Th
 #| message: false
 #| warning: false
 #| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
+#| layout-ncol: 1
+#| fig-cap: "How the data affects the fit of the unsolved homicide model"
+#| fig-subcap: ["Posterior prediction check for the unsolved homicide model"]
 
 pp_check(unsolved_model_results) +
   theme_classic() +
   theme(legend.position = "bottom")
-
-posterior_vs_prior(unsolved_model_results) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
 ```
 
 
 ### Diagnostics
 
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
+Using the checks mentioned by @citetellingstories, @fig-stanareyouokay shows that no issues were encountered while the Markov Chain Monte Carlo (MCMC) algorithm was sampling from the posterior distribution of our model. The line bouncing horizontally and there being an overlap between chains in the trace plot and the estimates being close to 1 and less than 1.1 in the rhat plot indicates the MCMC algorithm converged properly and there is nothing unusual [@citetellingstories]. 
 
 ```{r}
 #| echo: false
@@ -880,7 +868,7 @@ posterior_vs_prior(unsolved_model_results) +
 #| message: false
 #| warning: false
 #| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
+#| fig-cap: "Checking the convergence of the Markov Chain Monte Carlo (MCMC) algorithm for the unsolved homicide model"
 #| fig-subcap: ["Trace plot", "Rhat plot"]
 #| layout-ncol: 2
 
