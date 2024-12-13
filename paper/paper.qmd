@@ -815,7 +815,11 @@ Thank you for completing the survey! We value the time you took out of your day 
 @datahomicides compiled a dataset containing 52,179 homicides from the 50 largest cities in the United States. In this dataset, they gathered information about the homicide victim's first and last name, the date they were reported to be found (in YYYY/MM/DD format), the victim's race (Eg. White, Hispanic, Black, Asian, Other, Unknown), the victim's age, the victim's sex (Eg. Female, Male, Unknown), the city and the state the homicide took place in, the longitude and latitude of the homicide location, and disposition/status of the homicide (eg. Closed without arrest, Closed by arrest, Open/No arrest) [@datahomicides]. The dataset was eventually used in @citewashingtonpostmap to map location of homicides and analyze arrest rates across the different cities. We will be evaluating @datahomicides's methodology by looking at their sampling approach and evaluating the strengths and weaknesses of their methodology. 
 
 ### Sampling Approach
-The population @datahomicides were interested in were homicide victims in cases 
+The population @datahomicides were interested in were homicide victims in the US [@citetellingstories]. As defined by @citetellingstories, their sampling frame is homicide victims from the 50 largest US cities. However
+
+
+
+
 - what is the population, frame, and sample;
 - how is the sample recruited;
 - what sampling approach is taken, and what are some of the trade-offs of this; 
