@@ -820,21 +820,7 @@ The UCR program originally had a system until 2021 called the Summary Reporting 
 
 Since the FBI collect data on different crimes other than homicide, @datahomicides used the UCR's definition of homicides, which is defined to be "murder and non-negligent manslaughter but exclude suicides, accidents, justifiable homicides and deaths caused by negligence", to filter for only homicides [@datahomicides]. To ensure the validity of the homicide counts and closure rates in the FBI data, they check with other pieces of data such as papers [@datahomicides]. However, not all police departments give all information about homicides leading to non-response bias [@citetellingstories]. To address this, they used court records, medical examination reports, and death certificates they gathered to fill in missing information [@citetellingstories]. However, there are cases where the police department is not able to identify the victim's sex, age, and/or race or the police does not indicate the specific location the homicide occurred. In these cases, the value for a victim's characteristic (sex, age, race) is indicate as "Unknown" and for geographic information that is missing, it is left blank [@datahomicides]. With the sample they had, @datahomicides would indicate if a homicide case is "Closed by arrest" if the police indicates an arrest was made and a case as "Closed without arrest" means that there is evidence of who the perpetrator could be but an arrest was not possible. All other type of cases are marked as "Open/No arrest" [@datahomicides]. 
 
-The sampling approach taken by The Washington Post [@datahomicides] is non-probabilistic sampling and more specifically, purposive sampling [@citePurposiveSampling]. @datahomicides were interested in homicide cases from 2007 to 2017 from the 50 largest US cities and purposive sampling would allow them to have a sample that fit their sampling frame. However, @citePurposiveSampling noted that 
-
-
-
-
-
-
-
-
-- what is the population, frame, and sample;
-- how is the sample recruited;
-- how is non-response handled; - They marked it as "Unknown" or left the field blank. 
-
-
-- what sampling approach is taken, and what are some of the trade-offs of this; 
+The sampling approach taken by The Washington Post [@datahomicides] is non-probabilistic sampling and more specifically, purposive sampling [@citePurposiveSampling]. @datahomicides were interested in homicide cases from 2007 to 2017 from the 50 largest US cities and purposive sampling would allow them to have a sample that fit their sampling frame. However, @citePurposiveSampling noted that a tradeoff of purposive sampling is that it is prone to research bias since researchers have to make judgement such as the size of the sample and why. For example, why is it that The Washington Post decided to choose the 50 largest US cities instead of the 20 largest US cities? 
 
 ### Strengths and limitations
 - what is good and bad about the sampling.
