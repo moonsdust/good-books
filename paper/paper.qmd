@@ -818,10 +818,9 @@ The population @datahomicides were interested in were homicide victims in the US
 
 The UCR program originally had a system until 2021 called the Summary Reporting System (SRS), which obtained details about different crimes such as victim information taking place that are reported by law enforcement agencies nationwide [@citeFBIinfo]. @datahomicides obtained their data collected through the Summary Reporting System (SRS). As noted in @sec-data, police agencies have different methods of collecting homicide crime data. The Chicago Police Department has a digital system called CLEAR (Citizen Law Enforcement Analysis and Reporting), where they would enter in the victim's details, the location of the crime, and if an arrest was made or not once a homicide is reported [@citeChicagoPolice]. This information is then reported to the FBI through the UCR program monthly [@citeChicagoPolice]. On the other hand, The Los Angeles Police Department would initially handwrite a physical report about the crime with details such as the type of crime, the premise the crime occured at, and the age and ethnicity of the victim [@citeLApolice]. On a monthly basis, the information will be transcribed into a digital format to be sent to the FBI  [@citeLApolice]. 
 
-Since the FBI collect data on different crimes other than homicide, @datahomicides used the UCR's definition of homicides, which is defined to be "murder and non-negligent manslaughter but exclude suicides, accidents, justifiable homicides and deaths caused by negligence", to filter for only homicides [@datahomicides]. However, not all police departments give all information about homicides leading to non-response bias [@citetellingstories]. To address this, they 
+Since the FBI collect data on different crimes other than homicide, @datahomicides used the UCR's definition of homicides, which is defined to be "murder and non-negligent manslaughter but exclude suicides, accidents, justifiable homicides and deaths caused by negligence", to filter for only homicides [@datahomicides]. To ensure the validity of the homicide counts and closure rates in the FBI data, they check with other pieces of data such as papers [@datahomicides]. However, not all police departments give all information about homicides leading to non-response bias [@citetellingstories]. To address this, they used court records, medical examination reports, and death certificates they gathered to fill in missing information [@citetellingstories]. However, there are cases where the police department is not able to identify the victim's sex, age, and/or race or the police does not indicate the specific location the homicide occurred. In these cases, the value for a victim's characteristic (sex, age, race) is indicate as "Unknown" and for geographic information that is missing, it is left blank [@datahomicides]. With the sample they had, @datahomicides would indicate if a homicide case is "Closed by arrest" if the police indicates an arrest was made and a case as "Closed without arrest" means that there is evidence of who the perpetrator could be but an arrest was not possible. All other type of cases are marked as "Open/No arrest" [@datahomicides]. 
 
-
-
+The sampling approach taken by The Washington Post [@datahomicides] is non-probabilistic sampling and more specifically, purposive sampling [@citePurposiveSampling]. @datahomicides were interested in homicide cases from 2007 to 2017 from the 50 largest US cities and purposive sampling would allow them to have a sample that fit their sampling frame. However, @citePurposiveSampling noted that 
 
 
 
@@ -833,6 +832,8 @@ Since the FBI collect data on different crimes other than homicide, @datahomicid
 - what is the population, frame, and sample;
 - how is the sample recruited;
 - how is non-response handled; - They marked it as "Unknown" or left the field blank. 
+
+
 - what sampling approach is taken, and what are some of the trade-offs of this; 
 
 ### Strengths and limitations
