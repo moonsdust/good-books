@@ -823,11 +823,7 @@ Since the FBI collect data on different crimes other than homicide, @datahomicid
 The sampling approach taken by The Washington Post [@datahomicides] is non-probabilistic sampling and more specifically, purposive sampling [@citePurposiveSampling]. @datahomicides were interested in homicide cases from 2007 to 2017 from the 50 largest US cities and purposive sampling would allow them to have a sample that fit their sampling frame. However, @citePurposiveSampling noted that a tradeoff of purposive sampling is that it is prone to research bias since researchers have to make judgement such as the size of the sample and why. For example, why is it that The Washington Post decided to choose the 50 largest US cities instead of the 20 largest US cities? 
 
 ### Strengths and limitations
-- what is good and bad about the sampling.
-
-
-
-
+Some strengths with The Washington Post's methodology is that they used the most comprehensive data out there about US homicides, which is the one from the FBI. Another strength about their methodology is that they addressed gaps in the data using court records for example and also validating the FBI's data with papers on homicide clearance rates and counts [@datahomicides]. However, a weakness of their sampling was the subjectivity surrounding the chose for the number of cities and why the largest 50 cities. Also another limitation with the sampling is that since their dataset is large, it is possible that the status of the homicide could have changed after they have finalized the dataset. Since @datahomicides are not directly asking police department for information, it is possible that the FBI could have left information out intentionally and it increases the complexity of their methodology to fill in the gap. 
 
 \newpage
 
