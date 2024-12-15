@@ -752,7 +752,7 @@ We will create our survey using Google Form since it is the survey platform peop
 
 **Demographic Questions**:
 
-The purpose of these questions is to gauge the respondents' personal background. Questions that would be asked includes their email and information about their age, gender, ranking on the team, and educational attainment. 
+The purpose of these questions is to gauge the respondents' personal background. Questions that would be asked include their email and information about their age, gender, ranking on the team, and educational attainment. 
 
 **Job-related Questions**:
 
