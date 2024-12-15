@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Simulates homicide dataset regarding solved and unsolved cases. 
+# Purpose: Simulates homicide dataset regarding solved and unsolved cases.
 # Author: Emily Su
 # Date: 19 November 2024
 # Contact: em.su@mail.utoronto.ca
@@ -35,21 +35,21 @@ victim_sex <- c("Female", "Male")
 # city
 city <- c("Chicago", "Los Angeles")
 
-# disposition 
-disposition <- c("Closed by arrest", 
-          "Closed without arrest",
-          "Open/No arrest")
+# disposition
+disposition <- c("Closed by arrest",
+                 "Closed without arrest",
+                 "Open/No arrest")
 
 # year
 year <- c(2010:2017)
 
-# month 
+# month
 month <- c(1:12)
 
 # arrest_was_not_made
 arrest_was_not_made <- c(0:1)
 
-# Create a dataset by randomly assigning the variables defined above 
+# Create a dataset by randomly assigning the variables defined above
 simulated_data <- tibble(
   victim_race = sample(
     victim_race,

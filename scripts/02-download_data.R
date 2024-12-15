@@ -1,6 +1,6 @@
 #### Preamble ####
-# Purpose: Downloads and saves the data from the GitHub repo owned by 
-# The Washington Post containing information of homicides in 50 of the 
+# Purpose: Downloads and saves the data from the GitHub repo owned by
+# The Washington Post containing information of homicides in 50 of the
 # largest US cities from 2007 to 2017 as a CSV file.
 # Author: Emily Su
 # Date: 16 November 2024
@@ -20,7 +20,7 @@ library(tidyverse)
 # https://github.com/washingtonpost/data-homicides
 
 # 1. Obtain The Washington Posts's Unsolved Homicide Dataset from GitHub
-data_homicides_dataset <- 
+data_homicides_dataset <-
   read_csv("https://raw.githubusercontent.com/washingtonpost/data-homicides/refs/heads/master/homicide-data.csv",
            show_col_types = FALSE)
 # NOTE: If the name of the file changes or you are unable to read in the
@@ -28,4 +28,4 @@ data_homicides_dataset <-
 # for the new name of the CSV file and/or manually download the CSV file.
 
 #### Save data ####
-write_csv(data_homicides_dataset, "data/01-raw_data/raw_data_homicides.csv") 
+write_csv(data_homicides_dataset, "data/01-raw_data/raw_data_homicides.csv")

@@ -5,7 +5,7 @@
 # Date: 19 November 2024
 # Contact: em.su@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: Have ran 00-install_packages.R and 02-download_data.R 
+# Pre-requisites: Have ran 00-install_packages.R and 02-download_data.R
 # to install the necessary packages and download the dataset, respectively.
 # NOTE: This script was checked through lintr for styling
 
@@ -22,13 +22,12 @@ raw_data_homicides <- read_csv("data/01-raw_data/raw_data_homicides.csv",
 cleaned_data_homicides <- clean_names(raw_data_homicides)
 
 # Remove any blank rows for predictor variables that would be used in model
-cleaned_data_homicides <- cleaned_data_homicides |> 
+cleaned_data_homicides <- cleaned_data_homicides |>
   filter(!is.na(victim_race)) |>
   filter(!is.na(victim_age)) |>
   filter(!is.na(victim_sex))
-  
 
-# First filter out rows where one of the following columns is contains 
+# First filter out rows where one of the following columns is contains
 # the value "Unknown": victim_race, victim_age, victim_sex
 cleaned_data_homicides <- cleaned_data_homicides |>
   filter(victim_race != "Unknown",
@@ -41,8 +40,8 @@ cleaned_data_homicides <- cleaned_data_homicides |>
   select(reported_date, victim_race, victim_age,
          victim_sex, city, disposition)
 
-# Select the following cities, which are one of the 2 largest cities as of July 1,
-# 2017 according to 
+# Select the following cities, which are one of the 2 largest cities as of July
+# 1, 2017 according to
 # https://www.census.gov/newsroom/press-releases/2018/estimates-cities.html
 cleaned_data_homicides <- cleaned_data_homicides |>
   filter(cleaned_data_homicides$city %in% c("Chicago", "Los Angeles"))
@@ -51,9 +50,9 @@ cleaned_data_homicides <- cleaned_data_homicides |>
 # Referenced https://rawgit.com/rstudio/cheatsheets/main/lubridate.pdf
 # Create column for year
 cleaned_data_homicides$year <- year(ymd(cleaned_data_homicides$reported_date))
-# Create column for month 
+# Create column for month
 cleaned_data_homicides$month <- month(ymd(cleaned_data_homicides$reported_date))
-# Now remove reported_date column 
+# Now remove reported_date column
 cleaned_data_homicides <- cleaned_data_homicides |>
   select(-c(reported_date))
 
@@ -63,22 +62,23 @@ cleaned_data_homicides <- cleaned_data_homicides |>
   mutate(arrest_was_not_made = if_else(disposition != "Closed by arrest", 1, 0))
 
 # Update data type of column
-cleaned_data_homicides$victim_age <- as.integer(cleaned_data_homicides$victim_age)
+cleaned_data_homicides$victim_age <-
+  as.integer(cleaned_data_homicides$victim_age)
 cleaned_data_homicides$year <- as.integer(cleaned_data_homicides$year)
 cleaned_data_homicides$month <- as.integer(cleaned_data_homicides$month)
-cleaned_data_homicides$arrest_was_not_made <- 
+cleaned_data_homicides$arrest_was_not_made <-
   as.integer(cleaned_data_homicides$arrest_was_not_made)
-cleaned_data_homicides$victim_race <- 
+cleaned_data_homicides$victim_race <-
   as.factor(cleaned_data_homicides$victim_race)
 
-cleaned_data_homicides <- 
+cleaned_data_homicides <-
   cleaned_data_homicides |>
   filter(cleaned_data_homicides$year %in% c(2010:2017))
 
 # Change baseline for victim_race to "White"
 # Reference: https://www.geeksforgeeks.org/specify-reference-factor-level-in-
 # linear-regression-in-r/
-cleaned_data_homicides$victim_race <- 
+cleaned_data_homicides$victim_race <-
   relevel(cleaned_data_homicides$victim_race, ref = "White")
 
 #### Save data ####
