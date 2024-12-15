@@ -17,6 +17,7 @@ set.seed(646)
 # Expected Columns: victim_race, victim_age, victim_sex, city
 # disposition, year, month, arrest_was_not_made
 
+# Setting values for each column
 # victim_race
 victim_race <- c(
   "White",
