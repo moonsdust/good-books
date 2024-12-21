@@ -1,6 +1,6 @@
 ---
 title: "Differences in Homicide Case Information Indicates Why Justice is Not Served"
-subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in one of the United States' 2 largest cities, Chicago and Los Angeles"
+subtitle: "An analysis of solved and unsolved homicides from 2010 to 2017 in two of the United States' largest cities, Chicago and Los Angeles"
 author: 
   - Emily Su
 thanks: "Code and data are available at: [https://github.com/moonsdust/unsolved-murders](https://github.com/moonsdust/unsolved-murders)."
